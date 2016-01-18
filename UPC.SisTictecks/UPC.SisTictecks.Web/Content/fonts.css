@@ -1,0 +1,19 @@
+/*@font-face {
+	font-family: 'MyriadPro';
+	src: url('tipografia/MyriadPro.eot');
+	src: url('tipografia/MyriadPro.eot') format('embedded-opentype'), url('tipografia/MyriadPro.woff') format('woff'), url('tipografia/MyriadPro.ttf') format('truetype'), url('tipografia/MyriadPro.svg#MyriadPro') format('svg');
+}
+@font-face {
+	font-family: 'MyriadPro-Regular';
+	src: url('tipografia/MyriadPro-Regular.eot');
+	src: url('tipografia/MyriadPro-Regular.eot') format('embedded-opentype'), url('tipografia/MyriadPro-Regular.woff') format('woff'), url('tipografia/MyriadPro-Regular.ttf') format('truetype'), url('tipografia/MyriadPro-Regular.svg#MyriadPro-Regular') format('svg');
+}*/
+
+@font-face {
+	font-family: 'MyriadPro';
+	src: url('tipografia/MyriadPro.woff') format('woff'), url('tipografia/MyriadPro.ttf') format('truetype');
+}
+@font-face {
+	font-family: 'MyriadPro-Regular';
+	src: url('tipografia/MyriadPro-Regular.woff') format('woff'), url('tipografia/MyriadPro-Regular.ttf') format('truetype');
+}

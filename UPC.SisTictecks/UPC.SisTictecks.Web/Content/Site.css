@@ -1,0 +1,83 @@
+﻿body {
+    padding-top: 50px;
+    padding-bottom: 20px;
+}
+
+/* Set padding to keep content from hitting the edges */
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+/* Set width on the form input elements since they're 100% wide by default */
+input,
+select,
+textarea {
+    max-width: 280px;
+}
+
+/* styles for validation helpers */
+.field-validation-error {
+    color: #b94a48;
+}
+
+.field-validation-valid {
+    display: none;
+}
+
+input.input-validation-error {
+    border: 1px solid #b94a48;
+}
+
+input[type="checkbox"].input-validation-error {
+    border: 0 none;
+}
+
+.validation-summary-errors {
+    color: #b94a48;
+}
+
+.validation-summary-valid {
+    display: none;
+}
+
+
+.sheet {
+	overflow: hidden;
+	color: #4d4d4d;
+	background-color: #fff;
+}
+
+.sheet--dark {
+	background-color: #333;
+	color: #fff;
+}
+
+.sheet--transparent {
+	opacity: 1;
+}
+
+.sheet--hero {
+	padding-top: 12px!important;
+}
+
+.sheet--with-bg {
+	background: no-repeat center center;
+	background-size: cover;
+}
+
+.sheet--padding {
+	padding-top: 36px;
+	padding-bottom: 36px;
+}
+
+@media (min-width: 768px)
+.sheet--hero {
+	padding-top: 24px!important;
+}
+
+@media (min-width: 992px)
+.sheet--padding {
+	padding-top: 72px;
+	padding-bottom: 72px;
+}

@@ -1,0 +1,1177 @@
+﻿@charset "utf-8";
+
+header, nav, section, article, aside, footer, figure {
+    display: block;
+}
+
+.limpiar {
+    clear: both;
+}
+
+.parrafo {
+    height: 16px;
+    clear: both;
+}
+
+#contenedor {
+    width: 1002px;
+    margin: 0 auto;
+}
+
+#cabecera {
+    background: url(imagenes/f-cabecera.png) no-repeat center top;
+    height: 110px;
+    margin: 0;
+    padding: 0;
+    display: block;
+    padding-top: 5px;
+}
+
+#logo h1 {
+    font-family: 'MyriadPro', sans-serif;
+    font-size: 45px;
+    color: #ffffff;
+    display: block;
+    padding: 0;
+    margin: 0;
+    padding-top: 5px;
+    padding-left: 24px;
+}
+
+.color {
+    color: #e2dccc;
+}
+
+#logo {
+    width: 300px;
+    float: left;
+    padding-top: 8px;
+}
+
+#menusuperior {
+    display: block;
+    float: right;
+    margin: 14px 14px 6px 0;
+    padding: 0;
+    list-style: none;
+    margin-top: 14px;
+    background: url(imagenes/CNPC2.png) no-repeat top right;
+    padding-right: 150px;
+}
+
+    #menusuperior li {
+        height: 16px;
+        display: block;
+        float: right;
+        font-size: 11px;
+        color: #e7a8ab;
+        margin: 5px;
+        text-decoration: none;
+    }
+
+        #menusuperior li a {
+            height: 16px;
+            display: block;
+            float: right;
+            font-size: 11px;
+            color: #e7a8ab;
+            text-decoration: none;
+        }
+
+            #menusuperior li a:hover {
+                color: #FFFFFF;
+                text-decoration: underline;
+            }
+
+#contenedor-menu {
+    width: 966px;
+    margin: 0px 0 0 16px;
+    padding: 0;
+    height: 39px;
+    /*clear: both;*/
+    background-color: blue;
+}
+
+#cuerpo {
+    background: url(imagenes/borde-cuerpo.png) repeat-y center;
+    width: 966px;
+    margin: 18px 18px 0 18px;
+    padding: 0;
+    display: block;
+    float: left;
+    -moz-animation: animar 1s;
+    -ms-animation: animar 1s;
+    -o-animation: animar 1s;
+    -webkit-animation: animar 1s;
+}
+
+#principal {
+    width: 968px;
+    height: 62px;
+    background: url(imagenes/f-titulo.png) repeat-x;
+    display: block;
+    float: left;
+    margin-top: 4px;
+}
+
+    #principal h1 {
+        width: 400px;
+        height: 42px;
+        display: block;
+        font-size: 22px;
+        color: #666666;
+        padding-top: 20px;
+        padding-left: 20px;
+        margin: 0;
+    }
+
+#menuico {
+    width: 730px;
+    float: right;
+    padding: 0;
+    margin: 0;
+    display: block;
+    margin-top: -62px;
+}
+
+    #menuico ul {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+    }
+
+    #menuico li a {
+        width: 73px;
+        height: 61px;
+        display: block;
+        padding: 0;
+        margin: 0;
+        background: url(imagenes/borde-ico.png) left no-repeat;
+        text-align: center;
+        float: right;
+        font-size: 10px;
+        color: #999999;
+        padding: 0 0px;
+        text-decoration: none;
+        line-height: 10px;
+    }
+
+        #menuico li a:hover {
+            color: #d81921;
+        }
+
+        /* ICO SALIR */
+        #menuico li a #ico-salir {
+            width: 25px;
+            height: 25px;
+            display: block;
+            background: url(imagenes/iconos/ico-salir.png) no-repeat;
+            float: left;
+            margin: 0 24px;
+            margin-bottom: 5px;
+        }
+
+        #menuico li a:hover #ico-salir {
+            background: url(imagenes/iconos/ico-salir-hover.png) no-repeat;
+        }
+
+        /* ICO CARGAR */
+        #menuico li a #ico-cargar {
+            width: 25px;
+            height: 25px;
+            display: block;
+            background: url(imagenes/iconos/ico-cargar.png) no-repeat;
+            float: left;
+            margin: 0 24px;
+            margin-bottom: 5px;
+        }
+
+        #menuico li a:hover #ico-cargar {
+            background: url(imagenes/iconos/ico-cargar-hover.png) no-repeat;
+        }
+
+        /* ICO CARGAR */
+        /* ICO GRABAR Y SALIR */
+        #menuico li a #ico-grabar {
+            width: 25px;
+            height: 25px;
+            display: block;
+            background: url(imagenes/iconos/ico-grabar.png) no-repeat;
+            float: left;
+            margin: 0 24px;
+            margin-bottom: 5px;
+        }
+
+        #menuico li a:hover #ico-grabar {
+            background: url(imagenes/iconos/ico-grabar-hover.png) no-repeat;
+        }
+
+        /* ICO CONCLUIR */
+        #menuico li a #ico-concluir {
+            width: 25px;
+            height: 25px;
+            display: block;
+            background: url(imagenes/iconos/ico-concluir.png) no-repeat;
+            float: left;
+            margin: 0 24px;
+            margin-bottom: 5px;
+        }
+
+        #menuico li a:hover #ico-concluir {
+            background: url(imagenes/iconos/ico-concluir-hover.png) no-repeat;
+        }
+
+        /* ICO INFORMAR */
+        #menuico li a #ico-informar {
+            width: 25px;
+            height: 25px;
+            display: block;
+            background: url(imagenes/iconos/ico-informar.png) no-repeat;
+            float: left;
+            margin: 0 24px;
+            margin-bottom: 5px;
+        }
+
+        #menuico li a:hover #ico-informar {
+            background: url(imagenes/iconos/ico-informar-hover.png) no-repeat;
+        }
+
+        /* ICO EN REPROGRAMACION */
+        #menuico li a #ico-reprogramacion {
+            width: 25px;
+            height: 25px;
+            display: block;
+            background: url(imagenes/iconos/ico-en-reprogramacion.png) no-repeat;
+            float: left;
+            margin: 0 24px;
+            margin-bottom: 5px;
+        }
+
+        #menuico li a:hover #ico-reprogramacion {
+            background: url(imagenes/iconos/ico-en-reprogramacion-hover.png) no-repeat;
+        }
+
+        /* ICO CANCELAR */
+        #menuico li a #ico-cancelar {
+            width: 25px;
+            height: 25px;
+            display: block;
+            background: url(imagenes/iconos/ico-cancelar.png) no-repeat;
+            float: left;
+            margin: 0 24px;
+            margin-bottom: 5px;
+        }
+
+        #menuico li a:hover #ico-cancelar {
+            background: url(imagenes/iconos/ico-cancelar-hover.png) no-repeat;
+        }
+
+        /* ICO CAMBIAR EDITOR */
+        #menuico li a #ico-cambiar {
+            width: 25px;
+            height: 25px;
+            display: block;
+            background: url(imagenes/iconos/ico-cambiar-editor.png) no-repeat;
+            float: left;
+            margin: 0 24px;
+            margin-bottom: 5px;
+        }
+
+        #menuico li a:hover #ico-cambiar {
+            background: url(imagenes/iconos/ico-cambiar-editor-hover.png) no-repeat;
+        }
+
+        /* ICO RESERVADO */
+        #menuico li a #ico-reservado {
+            width: 25px;
+            height: 25px;
+            display: block;
+            background: url(imagenes/iconos/ico-reservado.png) no-repeat;
+            float: left;
+            margin: 0 24px;
+            margin-bottom: 5px;
+        }
+
+        #menuico li a:hover #ico-reservado {
+            background: url(imagenes/iconos/ico-reservado-hover.png) no-repeat;
+        }
+
+        /* ICO REPROGRAMAR */
+        #menuico li a #ico-reprogramar {
+            width: 25px;
+            height: 25px;
+            display: block;
+            background: url(imagenes/iconos/ico-reprogramar.png) no-repeat;
+            float: left;
+            margin: 0 24px;
+            margin-bottom: 5px;
+        }
+
+        #menuico li a:hover #ico-reprogramar {
+            background: url(imagenes/iconos/ico-reprogramar-hover.png) no-repeat;
+        }
+
+        /* ICO HALLAZGOS */
+        #menuico li a #ico-hallazgo {
+            width: 25px;
+            height: 25px;
+            display: block;
+            background: url(imagenes/iconos/ico-hallazgo.png) no-repeat;
+            float: left;
+            margin: 0 24px;
+            margin-bottom: 5px;
+        }
+
+        #menuico li a:hover #ico-hallazgo {
+            background: url(imagenes/iconos/ico-hallazgo-hover.png) no-repeat;
+        }
+
+        /* ICO REPLANEAR */
+        #menuico li a #ico-replanear {
+            width: 25px;
+            height: 25px;
+            display: block;
+            background: url(imagenes/iconos/ico-replanear.png) no-repeat;
+            float: left;
+            margin: 0 24px;
+            margin-bottom: 5px;
+        }
+
+        #menuico li a:hover #ico-replanear {
+            background: url(imagenes/iconos/ico-replanear-hover.png) no-repeat;
+        }
+
+        /* ICO REHACIENDO */
+        #menuico li a #ico-rehaciendo {
+            width: 25px;
+            height: 25px;
+            display: block;
+            background: url(imagenes/iconos/ico-rehaciendo.png) no-repeat;
+            float: left;
+            margin: 0 24px;
+            margin-bottom: 5px;
+        }
+
+        #menuico li a:hover #ico-rehaciendo {
+            background: url(imagenes/iconos/ico-rehaciendo-hover.png) no-repeat;
+        }
+
+        /* ICO EXCLUIR */
+        #menuico li a #ico-excluir {
+            width: 25px;
+            height: 25px;
+            display: block;
+            background: url(imagenes/iconos/ico-excluir.png) no-repeat;
+            float: left;
+            margin: 0 24px;
+            margin-bottom: 5px;
+        }
+
+        #menuico li a:hover #ico-excluir {
+            background: url(imagenes/iconos/ico-excluir-hover.png) no-repeat;
+        }
+
+        /* ICO CORPORATIVO */
+        #menuico li a #ico-corporativo {
+            width: 25px;
+            height: 25px;
+            display: block;
+            background: url(imagenes/iconos/ico-corporativo.png) no-repeat;
+            float: left;
+            margin: 0 24px;
+            margin-bottom: 5px;
+        }
+
+        #menuico li a:hover #ico-corporativo {
+            background: url(imagenes/iconos/ico-corporativo-hover.png) no-repeat;
+        }
+
+        /* ICO ENVIAR APROBACION */
+        #menuico li a #ico-enviar-aprobacion {
+            width: 25px;
+            height: 25px;
+            display: block;
+            background: url(imagenes/iconos/ico-enviar-aprobacion.png) no-repeat;
+            float: left;
+            margin: 0 24px;
+            margin-bottom: 5px;
+        }
+
+        #menuico li a:hover #ico-enviar-aprobacion {
+            background: url(imagenes/iconos/ico-enviar-aprobacion-hover.png) no-repeat;
+        }
+
+        /* ICO RECHAZAR */
+        #menuico li a #ico-rechazar {
+            width: 25px;
+            height: 25px;
+            display: block;
+            background: url(imagenes/iconos/ico-rechazar.png) no-repeat;
+            float: left;
+            margin: 0 24px;
+            margin-bottom: 5px;
+        }
+
+        #menuico li a:hover #ico-rechazar {
+            background: url(imagenes/iconos/ico-rechazar-hover.png) no-repeat;
+        }
+
+        /* ICO LECTORES */
+        #menuico li a #ico-lectores {
+            width: 25px;
+            height: 25px;
+            display: block;
+            background: url(imagenes/iconos/ico-lectores.png) no-repeat;
+            float: left;
+            margin: 0 24px;
+            margin-bottom: 5px;
+        }
+
+        #menuico li a:hover #ico-lectores {
+            background: url(imagenes/iconos/ico-lectores-hover.png) no-repeat;
+        }
+
+        /* ICO NUEVO */
+        #menuico li a #ico-nuevo {
+            width: 25px;
+            height: 25px;
+            display: block;
+            background: url(imagenes/iconos/ico-nuevo.png) no-repeat;
+            float: left;
+            margin: 0 24px;
+            margin-bottom: 5px;
+        }
+
+        #menuico li a:hover #ico-nuevo {
+            background: url(imagenes/iconos/ico-nuevo-hover.png) no-repeat;
+        }
+
+.reservado {
+    float: right;
+    margin-top: 10px;
+    width: 250px;
+    height: 40px;
+    display: block;
+}
+
+.estados {
+    width: 100%;
+    float: left;
+    clear: both;
+    padding: 16px 0px;
+}
+
+.txt_gris {
+    display: block;
+    float: left;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 13px;
+    font-weight: bold;
+    color: #999999;
+    padding-right: 10px;
+}
+
+.txt_rojo {
+    display: block;
+    float: left;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 13px;
+    font-weight: bold;
+    color: #d81921;
+    padding-right: 10px;
+}
+
+.frm_contenedor {
+    background-color: #f7f7f7;
+    border: solid 1px #cecece;
+    padding: 14px;
+}
+
+.frm_fecha {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 12px;
+    color: #9fa104;
+    clear: both;
+    padding: 3px 0 3px 0;
+    margin-bottom: 12px;
+    float: right;
+}
+
+.frm_lbl {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 12px;
+    color: #6c6c6c;
+    padding: 10px;
+}
+
+.frm_lbl_requerido {
+    color: #ff0000;
+}
+
+.frm_txt {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 12px;
+    color: #6c6c6c;
+    padding: 5px !important;
+    border: 1px solid #c9cbcd;
+    margin: 2px !important;
+    float: left;
+    height: 30px !important;
+    background-color: white !important;
+}
+
+.frm_rdcks {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 12px;
+    color: #6c6c6c;
+    padding: 6px;
+    margin: 2px 2px 2px 2px;
+}
+
+.btn_ico_buscar {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 11px;
+    cursor: pointer;
+    display: inline-block;
+    background: url(imagenes/formulario/ico-lupa.png) no-repeat;
+    border-style: none;
+    text-indent: -9000px;
+    width: 22px;
+    height: 22px;
+}
+
+.btn_ico_mas {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 11px;
+    cursor: pointer;
+    display: inline-block;
+    background: url(imagenes/formulario/ico-mas.png) no-repeat;
+    border-style: none;
+    text-indent: -9000px;
+    width: 22px;
+    height: 22px;
+}
+
+.btn_ico_fecha {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 11px;
+    cursor: pointer;
+    display: inline-block;
+    background: url(imagenes/formulario/ico-fecha.png) no-repeat;
+    border-style: none;
+    text-indent: -9000px;
+    width: 22px;
+    height: 22px;
+}
+
+.btn_ico_fecha2 {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 11px;
+    cursor: pointer;
+    display: inline-block;
+    background: url(imagenes/formulario/ico-fecha2.png) no-repeat;
+    border-style: none;
+    text-indent: -9000px;
+    width: 18px;
+    height: 18px;
+}
+
+.btn_ico_versionar {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 11px;
+    cursor: pointer;
+    display: inline-block;
+    background: url(imagenes/formulario/ico-versionar.png) no-repeat;
+    border-style: none;
+    text-indent: -9000px;
+    width: 18px;
+    height: 18px;
+}
+
+.btn_ico_ver_documento {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 11px;
+    cursor: pointer;
+    display: inline-block;
+    background: url(imagenes/formulario/ico-ver-documento.png) no-repeat;
+    border-style: none;
+    text-indent: -9000px;
+    width: 18px;
+    height: 18px;
+}
+
+.btn_ico_descargar {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 11px;
+    cursor: pointer;
+    display: inline-block;
+    background: url(imagenes/formulario/ico-descargar.png) no-repeat;
+    border-style: none;
+    text-indent: -9000px;
+    width: 18px;
+    height: 18px;
+}
+
+.btn_ico_eliminar {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 11px;
+    cursor: pointer;
+    display: inline-block;
+    background: url(imagenes/formulario/ico-eliminar.png) no-repeat;
+    border-style: none;
+    text-indent: -9000px;
+    width: 18px;
+    height: 18px;
+}
+
+.btn_ico_imprimir {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 11px;
+    cursor: pointer;
+    display: inline-block;
+    background: url(imagenes/formulario/ico-imprimir.png) no-repeat;
+    border-style: none;
+    text-indent: -9000px;
+    width: 18px;
+    height: 18px;
+}
+
+.btn_ico_1 {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 11px;
+    cursor: pointer;
+    display: inline-block;
+    background: url(imagenes/formulario/ico-1.png) no-repeat;
+    border-style: none;
+    text-indent: -9000px;
+    width: 18px;
+    height: 18px;
+}
+
+.btn_ico_2 {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 11px;
+    cursor: pointer;
+    display: inline-block;
+    background: url(imagenes/formulario/ico-2.png) no-repeat;
+    border-style: none;
+    text-indent: -9000px;
+    width: 18px;
+    height: 18px;
+}
+
+.btn_ico_3 {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 11px;
+    cursor: pointer;
+    display: inline-block;
+    background: url(imagenes/formulario/ico-3.png) no-repeat;
+    border-style: none;
+    text-indent: -9000px;
+    width: 18px;
+    height: 18px;
+}
+
+.btn_ico_4 {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 11px;
+    cursor: pointer;
+    display: inline-block;
+    background: url(imagenes/formulario/ico-4.png) no-repeat;
+    border-style: none;
+    text-indent: -9000px;
+    width: 18px;
+    height: 18px;
+}
+
+.list_header {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 12px;
+    line-height: 14px;
+    text-align: left;
+    font-weight: bold;
+    color: #8c5c19;
+    padding: 10px 14px;
+    border-bottom: #d4c4a8 1px solid;
+    background: url(imagenes/bg_listas.png) repeat-x center top #e4dac9;
+}
+
+.list_filaimg {
+    text-align: left;
+    background-color: #f8f7f5;
+    color: #6c6c6c;
+    border-bottom: #f0efed solid 1px;
+}
+
+.list_fila1 {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 12px;
+    text-align: left;
+    padding: 8px 8px;
+    background-color: #f8f7f5;
+    color: #6c6c6c;
+    border-bottom: #f0efed solid 1px;
+}
+
+    .list_fila1 a {
+        color: #6c6c6c;
+    }
+
+        .list_fila1 a:hover {
+            color: #6c6c6c;
+            text-decoration: none;
+        }
+
+.list_fila2 {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 12px;
+    text-align: left;
+    padding: 8px 8px;
+    background-color: #ffffff;
+    color: #6c6c6c;
+    border-bottom: #f0efed solid 1px;
+}
+
+    .list_fila2 a {
+        color: #6c6c6c;
+    }
+
+        .list_fila2 a:hover {
+            color: #6c6c6c;
+            text-decoration: none;
+        }
+
+.list_fila3 {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 12px;
+    text-align: left;
+    padding: 8px 8px;
+    background-color: #f8f7f5;
+    color: #6c6c6c;
+    border-bottom: #f0efed solid 1px;
+}
+
+    .list_fila3 a {
+        color: #6c6c6c;
+    }
+
+        .list_fila3 a:hover {
+            color: #6c6c6c;
+            text-decoration: none;
+        }
+
+.list_icons {
+    float: left;
+    padding: 0 2px;
+}
+
+.ico_frm_buscar {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 11px;
+    cursor: pointer;
+    display: inline-block;
+    border-style: none;
+    text-indent: -9000px;
+    width: 22px !important;
+    height: 22px;
+    margin-top: 6px;
+    background: url(imagenes/buscar.png) center center no-repeat;
+    background-size: 22px 22px;
+}
+
+.ico_frm_agregar {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 11px;
+    cursor: pointer;
+    display: inline-block;
+    border-style: none;
+    text-indent: -9000px;
+    width: 22px !important;
+    height: 22px;
+    margin-top: 6px;
+    background: url(imagenes/btn-mas.png) center center no-repeat;
+    background-size: 22px 22px;
+}
+
+.ico_frm_fecha {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 11px;
+    cursor: pointer;
+    display: inline-block;
+    border-style: none;
+    text-indent: -9000px;
+    width: 22px;
+    height: 22px;
+    margin-top: 6px;
+    background: url(imagenes/btn-fecha.png) center center no-repeat;
+    background-size: 22px 22px;
+}
+
+#piepagina {
+    width: 1004px;
+    float: left;
+    text-align: center;
+    display: block;
+    padding: 14px;
+    font-family: 'MyriadPro-Regular', sans-serif;
+    font-size: 12px;
+    color: #878686;
+}
+
+.barraContent {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 12px;
+    font-weight: bold;
+    padding: 13px 14px;
+    border-bottom: #d4c4a8 1px solid;
+    background: url(imagenes/bg_acordeon.png) repeat-x center top #e4bf8f;
+    height: 43px !important;
+    clear: both;
+}
+
+.barraContent_txt {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 12px;
+    color: #8c5c19;
+    float: left;
+}
+
+.barraContent_lbl {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 12px;
+    color: #6c6c6c;
+    float: left;
+}
+
+.barraContent_contenido {
+    padding: 12px 12px 12px 12px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 12px;
+    color: #6c6c6c;
+    border: 1px solid #dddddd;
+    background: #f5f5f5;
+    margin-bottom: 15px;
+    border-top: 0px;
+    line-height: 18px;
+}
+
+.barraContent_contenidopopups {
+    padding: 12px 12px 12px 12px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 12px;
+    color: #6c6c6c;
+    border: 1px solid #dddddd;
+    background: #f5f5f5;
+    margin-bottom: 15px;
+    line-height: 18px;
+}
+
+a.colapsarsm {
+    display: inline;
+    float: right;
+    background-image: url(imagenes/panel_show.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 15px;
+    width: 30px;
+    cursor: pointer;
+}
+
+a.decolapsarsm {
+    display: inline;
+    float: right;
+    background-image: url(imagenes/panel_hide.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 15px;
+    width: 30px;
+    cursor: pointer;
+}
+
+/* ANIMAR */
+@keyframes animar {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 2;
+    }
+}
+
+@-moz-keyframes animar {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 2;
+    }
+}
+
+@-o-keyframes animar {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 2;
+    }
+}
+
+@-ms-keyframes animar {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 2;
+    }
+}
+
+@-webkit-keyframes animar {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 2;
+    }
+}
+
+/*MENU DESPLEGABLE*/
+#menuBoton {
+    /*width: 100px!important;*/
+}
+
+#listaHallazgos {
+    min-width: 95px !important;
+}
+
+    #listaHallazgos li {
+    }
+
+        #listaHallazgos li a {
+            padding: 8px 11px;
+            height: auto !important;
+            display: block;
+            text-align: left;
+            float: left;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 10px;
+            color: #999999;
+            text-decoration: none;
+            border-bottom: 1px solid #d3d3d3;
+            width: 78px;
+        }
+
+.btn-group,
+.btn-group-vertical {
+    position: relative;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+    .btn-group.open .dropdown-toggle {
+        -webkit-box-shadow: inset 0 3px 5px rgba(0,0,0,.125);
+        box-shadow: inset 0 3px 5px rgba(0,0,0,.125);
+    }
+
+    .btn-group .dropdown-toggle:active,
+    .btn-group.open .dropdown-toggle {
+        outline: 0;
+    }
+
+.dropdown {
+    position: relative;
+}
+
+.dropdown-toggle:focus {
+    outline: 0;
+}
+
+.dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    z-index: 1000;
+    display: none;
+    float: left;
+    min-width: 160px;
+    padding: 5px 0;
+    margin: 2px 0 0;
+    list-style: none;
+    font-size: 14px;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border: 1px solid rgba(0,0,0,.15);
+    border-radius: 4px;
+    -webkit-box-shadow: 0 6px 12px rgba(0,0,0,.175);
+    box-shadow: 0 6px 12px rgba(0,0,0,.175);
+    background-clip: padding-box;
+}
+
+    .dropdown-menu.pull-right {
+        right: 0;
+        left: auto;
+    }
+
+    .dropdown-menu .divider {
+        height: 1px;
+        margin: 9px 0;
+        overflow: hidden;
+        background-color: #e5e5e5;
+    }
+
+    .dropdown-menu > li > a {
+        display: block;
+        padding: 3px 20px;
+        clear: both;
+        font-weight: 400;
+        line-height: 1.42857143;
+        color: #333;
+        white-space: nowrap;
+    }
+
+        .dropdown-menu > li > a:hover,
+        .dropdown-menu > li > a:focus {
+            text-decoration: none;
+            color: #262626;
+            background-color: #f5f5f5;
+        }
+
+    .dropdown-menu > .active > a,
+    .dropdown-menu > .active > a:hover,
+    .dropdown-menu > .active > a:focus {
+        color: #fff;
+        text-decoration: none;
+        outline: 0;
+        background-color: #428bca;
+    }
+
+    .dropdown-menu > .disabled > a,
+    .dropdown-menu > .disabled > a:hover,
+    .dropdown-menu > .disabled > a:focus {
+        color: #999;
+    }
+
+        .dropdown-menu > .disabled > a:hover,
+        .dropdown-menu > .disabled > a:focus {
+            text-decoration: none;
+            background-color: transparent;
+            background-image: none;
+            filter: progid:DXImageTransform.Microsoft.gradient(enabled=false);
+            cursor: not-allowed;
+        }
+
+.open > .dropdown-menu {
+    display: block;
+}
+
+.open > a {
+    outline: 0;
+}
+
+.boton,
+.boton:visited {
+    background-color: #9a9a9a;
+    display: inline-block;
+    font-size: 12px;
+    padding: 7px 12px 7px 12px;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #FFF;
+    text-decoration: none;
+    -moz-border-radius: 6px;
+    -webkit-border-radius: 6px;
+    border-radius: 6px;
+    behavior: url(../scripts/border-radius.htc));
+    -moz-box-shadow: 0 1px 3px rgba(154,154,154,0.6);
+    -webkit-box-shadow: 0 1px 3px rgba(154,154,154,0.3);
+    text-shadow: 0 -1px 1px rgba(154,154,154,0.10);
+    border-top: 0px;
+    border-left: 0px;
+    border-right: 0px;
+    border-bottom: 1px solid rgba(154,154,154,0);
+    position: relative;
+    cursor: pointer;
+}
+
+.alerta-errores {
+    border: 1px solid #d81921;
+    background-color: #ffb7bb;
+    padding: 14px;
+    display: block;
+    line-height: 22px;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    display: none;
+    margin-bottom: 5px;
+}
+
+    .alerta-errores ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+    }
+
+        .alerta-errores ul li {
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 12px;
+            color: #fb121c;
+            display: block;
+            text-decoration: none;
+            background: url(imagenes/ico_error.png) no-repeat center left;
+            padding-left: 16px;
+        }
+
+.alerta-aviso {
+    border: 1px solid #d81921;
+    background-color: #f8a0a4;
+    padding: 14px;
+    display: block;
+    line-height: 22px;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+}
+
+    .alerta-aviso ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+    }
+
+        .alerta-aviso ul li {
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 12px;
+            color: #d81921;
+            display: block;
+            text-decoration: none;
+        }
+
+.btn_ico_adjuntar_docs_ibm {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 12px;
+    color: #6c6c6c;
+    cursor: pointer;
+    background: url(imagenes/ico_adjuntar_docs_ibm.png) no-repeat;
+    float: right;
+    padding-left: 18px;
+    margin: 0 6px;
+}
+
+.btn_ico_adjuntar_archivos {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 12px;
+    color: #6c6c6c;
+    cursor: pointer;
+    background: url(imagenes/ico_adjuntar_archivos.png) no-repeat;
+    float: right;
+    padding-left: 18px;
+    margin: 0 6px;
+}

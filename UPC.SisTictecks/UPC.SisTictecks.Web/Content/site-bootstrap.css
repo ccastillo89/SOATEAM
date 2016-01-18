@@ -1,0 +1,30 @@
+﻿.modal-title {
+    margin: 0;
+    line-height: 1.42857143;
+    font-size: 18px !important;
+    font-weight: bold !important;
+}
+
+.input-append .add-on.add-on {
+    height: 25px !important;
+    width: 28px !important;
+}
+
+.text-center {
+    text-align: center !important;
+}
+
+.datepicker {
+    -webkit-border-radius: 0px;
+    -moz-border-radius: 0px;
+    border-radius: 0px;
+}
+
+.input-group-addon {
+    height: 16px !important;
+    overflow:hidden;
+    padding: 0px 10px;
+    font-size: 18px;
+    line-height: 1.33;
+    border-radius: 0px;
+}

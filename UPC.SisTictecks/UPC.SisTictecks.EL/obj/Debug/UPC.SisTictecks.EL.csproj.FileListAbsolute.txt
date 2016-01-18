@@ -1,0 +1,5 @@
+C:\Repositorio\TrabajoFinal\UPC.SisTictecks\UPC.SisTictecks.EL\bin\Debug\UPC.SisTictecks.EL.dll
+C:\Repositorio\TrabajoFinal\UPC.SisTictecks\UPC.SisTictecks.EL\bin\Debug\UPC.SisTictecks.EL.pdb
+C:\Repositorio\TrabajoFinal\UPC.SisTictecks\UPC.SisTictecks.EL\obj\Debug\UPC.SisTictecks.EL.dll
+C:\Repositorio\TrabajoFinal\UPC.SisTictecks\UPC.SisTictecks.EL\obj\Debug\UPC.SisTictecks.EL.pdb
+C:\Repositorio\TrabajoFinal\UPC.SisTictecks\UPC.SisTictecks.EL\obj\Debug\UPC.SisTictecks.EL.csprojResolveAssemblyReference.cache

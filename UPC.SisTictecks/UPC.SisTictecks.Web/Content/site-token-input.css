@@ -1,0 +1,28 @@
+﻿.token-input-token {
+    background-color: #efd9ad !important;
+    width:100% !important;
+}
+
+.token-input-list {
+    color: #6c6c6c;
+    padding: 2px !important;
+    border: 1px solid #dadbdd;
+    margin: 2px !important;
+    float: left;
+    height: 30px !important;
+    background-color: #fff !important;
+    width: 317px !important;
+    min-height: 30px;
+}
+
+.token-input-selected-token {
+    background-color: #f08300 !important;
+}
+
+.token-input-selected-token p{
+    color: #fff !important;
+}
+
+input[id^='token-input-']{
+    background-color: #fff !important;
+}

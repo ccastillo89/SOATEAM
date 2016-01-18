@@ -1,0 +1,9 @@
+C:\Repositorio\TrabajoFinal\UPC.SisTictecks\UPC.SisTictecks.BL\bin\Debug\UPC.SisTictecks.BL.dll
+C:\Repositorio\TrabajoFinal\UPC.SisTictecks\UPC.SisTictecks.BL\bin\Debug\UPC.SisTictecks.BL.pdb
+C:\Repositorio\TrabajoFinal\UPC.SisTictecks\UPC.SisTictecks.BL\bin\Debug\UPC.SisTictecks.DAL.dll
+C:\Repositorio\TrabajoFinal\UPC.SisTictecks\UPC.SisTictecks.BL\bin\Debug\UPC.SisTictecks.EL.dll
+C:\Repositorio\TrabajoFinal\UPC.SisTictecks\UPC.SisTictecks.BL\bin\Debug\UPC.SisTictecks.DAL.pdb
+C:\Repositorio\TrabajoFinal\UPC.SisTictecks\UPC.SisTictecks.BL\bin\Debug\UPC.SisTictecks.EL.pdb
+C:\Repositorio\TrabajoFinal\UPC.SisTictecks\UPC.SisTictecks.BL\obj\Debug\UPC.SisTictecks.BL.csprojResolveAssemblyReference.cache
+C:\Repositorio\TrabajoFinal\UPC.SisTictecks\UPC.SisTictecks.BL\obj\Debug\UPC.SisTictecks.BL.dll
+C:\Repositorio\TrabajoFinal\UPC.SisTictecks\UPC.SisTictecks.BL\obj\Debug\UPC.SisTictecks.BL.pdb
