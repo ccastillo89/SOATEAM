@@ -7,3 +7,12 @@ C:\Repositorio\TrabajoFinal\UPC.SisTictecks\UPC.SisTictecks.DAL\obj\Debug\UPC.Si
 C:\Repositorio\TrabajoFinal\UPC.SisTictecks\UPC.SisTictecks.DAL\obj\Debug\UPC.SisTictecks.DAL.pdb
 C:\Repositorio\TrabajoFinal\UPC.SisTictecks\UPC.SisTictecks.DAL\bin\Debug\UPC.SisTictecks.Helpers.dll
 C:\Repositorio\TrabajoFinal\UPC.SisTictecks\UPC.SisTictecks.DAL\bin\Debug\UPC.SisTictecks.Helpers.pdb
+C:\Repositorio\SOATEAM\SOATEAM\UPC.SisTictecks\UPC.SisTictecks.DAL\bin\Debug\UPC.SisTictecks.DAL.dll
+C:\Repositorio\SOATEAM\SOATEAM\UPC.SisTictecks\UPC.SisTictecks.DAL\bin\Debug\UPC.SisTictecks.DAL.pdb
+C:\Repositorio\SOATEAM\SOATEAM\UPC.SisTictecks\UPC.SisTictecks.DAL\bin\Debug\UPC.SisTictecks.EL.dll
+C:\Repositorio\SOATEAM\SOATEAM\UPC.SisTictecks\UPC.SisTictecks.DAL\bin\Debug\UPC.SisTictecks.Helpers.dll
+C:\Repositorio\SOATEAM\SOATEAM\UPC.SisTictecks\UPC.SisTictecks.DAL\bin\Debug\UPC.SisTictecks.EL.pdb
+C:\Repositorio\SOATEAM\SOATEAM\UPC.SisTictecks\UPC.SisTictecks.DAL\bin\Debug\UPC.SisTictecks.Helpers.pdb
+C:\Repositorio\SOATEAM\SOATEAM\UPC.SisTictecks\UPC.SisTictecks.DAL\obj\Debug\UPC.SisTictecks.DAL.csprojResolveAssemblyReference.cache
+C:\Repositorio\SOATEAM\SOATEAM\UPC.SisTictecks\UPC.SisTictecks.DAL\obj\Debug\UPC.SisTictecks.DAL.dll
+C:\Repositorio\SOATEAM\SOATEAM\UPC.SisTictecks\UPC.SisTictecks.DAL\obj\Debug\UPC.SisTictecks.DAL.pdb

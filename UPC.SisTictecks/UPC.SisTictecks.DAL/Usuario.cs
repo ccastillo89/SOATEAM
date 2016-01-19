@@ -23,7 +23,7 @@ namespace UPC.SisTictecks.DAL
                 {
                     con.Open();
 
-                    var query = new SqlCommand("SELECT Id,Nombres, Apellidos, Activo, PerfilId FROM usuario", con);
+                    var query = new SqlCommand("SELECT Id,Nombres, Apellidos, Usuario, Activo, PerfilId FROM usuario", con);
                     using (var dr = query.ExecuteReader()) 
                     {
                         while (dr.Read()) 
@@ -48,15 +48,18 @@ namespace UPC.SisTictecks.DAL
                     foreach (var u in usuarios) 
                     {
                         query = new SqlCommand("SELECT id, Perfil , activo FROM usuarioPerfil WHERE id = @id", con);
-                        query.Parameters.AddWithValue("@id", u.Id);
+                        query.Parameters.AddWithValue("@id", u.PerfilId);
 
                         using (var dr = query.ExecuteReader())
                         {
                             dr.Read();
                             if (dr.HasRows)
                             {
-                                u.Perfil.Id = Convert.ToInt32(dr["id"]);
-                                u.Perfil.Descripcion = dr["Perfil"].ToString();
+                                PerfilEN perfil = new PerfilEN();
+                                perfil.Id = Convert.ToInt32(dr["id"]);
+                                perfil.Descripcion = dr["Perfil"].ToString();
+
+                                u.Perfil = perfil;
                             }
                         }
                     }
@@ -80,7 +83,7 @@ namespace UPC.SisTictecks.DAL
                 {
                     con.Open();
 
-                    var query = new SqlCommand("SELECT * FROM usuario WHERE id = @id", con);
+                    var query = new SqlCommand("SELECT a.id, a.Nombres, a.Apellidos, a.Usuario, a.Password, a.Activo, a.PerfilId, b.Perfil FROM usuario a inner join usuarioPerfil b on a.PerfilID = b.Id WHERE a.id = @id", con);
                     query.Parameters.AddWithValue("@id", id);
 
                     using (var dr = query.ExecuteReader())
@@ -94,6 +97,12 @@ namespace UPC.SisTictecks.DAL
                             usuario.Pass = dr["Password"].ToString();
                             usuario.Activo = Convert.ToBoolean(dr["Activo"]);
                             usuario.PerfilId = Convert.ToInt32(dr["PerfilId"]);
+
+                            PerfilEN perfil = new PerfilEN();
+                            perfil.Id = Convert.ToInt32(dr["PerfilId"]);
+                            perfil.Descripcion = dr["Perfil"].ToString();
+
+                            usuario.Perfil = perfil;
                         }
                     }
                 }
@@ -155,7 +164,7 @@ namespace UPC.SisTictecks.DAL
                 {
                     con.Open();
 
-                    var query = new SqlCommand("INSERT INTO Usuario(Nombres, Apellidos, Usuario, Password, Activo, PerfilID) VALUES (@p0, @p1, @p2, @p3, @p4 @p5)", con);
+                    var query = new SqlCommand("INSERT INTO Usuario(Nombres, Apellidos, Usuario, Password, Activo, PerfilID) VALUES (@p0, @p1, @p2, @p3, @p4, @p5)", con);
 
                     query.Parameters.AddWithValue("@p0", usuario.Nombres);
                     query.Parameters.AddWithValue("@p1", usuario.Apellidos);

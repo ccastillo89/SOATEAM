@@ -9,7 +9,9 @@ namespace UPC.SisTictecks.EL
 {
     public class UsuarioEN
     {
+        [Key]
         public int Id { get; set; }
+
         public string Nombres { get; set; }
         public string Apellidos { get; set; }
         
@@ -27,10 +29,5 @@ namespace UPC.SisTictecks.EL
 
         [Display(Name = "Mantener session activa")]
         public bool Recordarme { get; set; }
-
-        public UsuarioEN()
-        {
-            Perfil = new PerfilEN();
-        }
     }
 }

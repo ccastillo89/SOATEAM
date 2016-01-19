@@ -3,3 +3,8 @@ C:\Repositorio\TrabajoFinal\UPC.SisTictecks\UPC.SisTictecks.EL\bin\Debug\UPC.Sis
 C:\Repositorio\TrabajoFinal\UPC.SisTictecks\UPC.SisTictecks.EL\obj\Debug\UPC.SisTictecks.EL.dll
 C:\Repositorio\TrabajoFinal\UPC.SisTictecks\UPC.SisTictecks.EL\obj\Debug\UPC.SisTictecks.EL.pdb
 C:\Repositorio\TrabajoFinal\UPC.SisTictecks\UPC.SisTictecks.EL\obj\Debug\UPC.SisTictecks.EL.csprojResolveAssemblyReference.cache
+C:\Repositorio\SOATEAM\SOATEAM\UPC.SisTictecks\UPC.SisTictecks.EL\bin\Debug\UPC.SisTictecks.EL.dll
+C:\Repositorio\SOATEAM\SOATEAM\UPC.SisTictecks\UPC.SisTictecks.EL\bin\Debug\UPC.SisTictecks.EL.pdb
+C:\Repositorio\SOATEAM\SOATEAM\UPC.SisTictecks\UPC.SisTictecks.EL\obj\Debug\UPC.SisTictecks.EL.dll
+C:\Repositorio\SOATEAM\SOATEAM\UPC.SisTictecks\UPC.SisTictecks.EL\obj\Debug\UPC.SisTictecks.EL.pdb
+C:\Repositorio\SOATEAM\SOATEAM\UPC.SisTictecks\UPC.SisTictecks.EL\obj\Debug\UPC.SisTictecks.EL.csprojResolveAssemblyReference.cache

@@ -30,6 +30,12 @@
                 <ul class="nav navbar-nav">
                     <li class="dropdown">@Html.ActionLink("Inicio", "Index", "Home")</li>
                     <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" id="dropdownCommonMenu" data-toggle="dropdown">Mantenimiento</a>
+                        <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownCommonMenu">
+                            <li role="menuitem">@Html.ActionLink("Usuarios", "Index", "Usuario")</li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
                         <a href="#" class="dropdown-toggle" id="dropdownCommonMenu" data-toggle="dropdown">Atención</a>
                         <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownCommonMenu">
                             <li role="menuitem">@Html.ActionLink("Lista de Tickets", "About", "Home")</li>
