@@ -1,0 +1,8 @@
+C:\Repositorio\SOATEAM\SOATEAM\UPC.SisTictecks\UPC.SisTictecks.TestWS\bin\Debug\UPC.SisTictecks.TestWS.dll.config
+C:\Repositorio\SOATEAM\SOATEAM\UPC.SisTictecks\UPC.SisTictecks.TestWS\bin\Debug\UPC.SisTictecks.TestWS.dll
+C:\Repositorio\SOATEAM\SOATEAM\UPC.SisTictecks\UPC.SisTictecks.TestWS\bin\Debug\UPC.SisTictecks.TestWS.pdb
+C:\Repositorio\SOATEAM\SOATEAM\UPC.SisTictecks\UPC.SisTictecks.TestWS\bin\Debug\UPC.SisTictecks.EL.dll
+C:\Repositorio\SOATEAM\SOATEAM\UPC.SisTictecks\UPC.SisTictecks.TestWS\bin\Debug\UPC.SisTictecks.EL.pdb
+C:\Repositorio\SOATEAM\SOATEAM\UPC.SisTictecks\UPC.SisTictecks.TestWS\obj\Debug\UPC.SisTictecks.TestWS.csprojResolveAssemblyReference.cache
+C:\Repositorio\SOATEAM\SOATEAM\UPC.SisTictecks\UPC.SisTictecks.TestWS\obj\Debug\UPC.SisTictecks.TestWS.dll
+C:\Repositorio\SOATEAM\SOATEAM\UPC.SisTictecks\UPC.SisTictecks.TestWS\obj\Debug\UPC.SisTictecks.TestWS.pdb
