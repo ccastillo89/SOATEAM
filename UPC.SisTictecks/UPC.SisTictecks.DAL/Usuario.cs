@@ -13,6 +13,7 @@ namespace UPC.SisTictecks.DAL
 {
     public class Usuario
     {
+     /*
         public List<UsuarioEN> Listar() 
         {
             var usuarios = new List<UsuarioEN>();
@@ -36,7 +37,7 @@ namespace UPC.SisTictecks.DAL
                                 Apellidos = dr["Apellidos"].ToString(),
                                 Usuario = dr["Usuario"].ToString(),
                                 Activo = Convert.ToBoolean(dr["Activo"]),
-                                PerfilId = Convert.ToInt32(dr["PerfilId"])
+                                Perfil = Convert.ToInt32(dr["PerfilId"])
                             };
 
                             // Agregamos el usuario a la lista genreica
@@ -48,7 +49,7 @@ namespace UPC.SisTictecks.DAL
                     foreach (var u in usuarios) 
                     {
                         query = new SqlCommand("SELECT id, Perfil , activo FROM usuarioPerfil WHERE id = @id", con);
-                        query.Parameters.AddWithValue("@id", u.PerfilId);
+                        query.Parameters.AddWithValue("@id", u.Perfil);
 
                         using (var dr = query.ExecuteReader())
                         {
@@ -96,7 +97,7 @@ namespace UPC.SisTictecks.DAL
                             usuario.Usuario = dr["Usuario"].ToString();
                             usuario.Pass = dr["Password"].ToString();
                             usuario.Activo = Convert.ToBoolean(dr["Activo"]);
-                            usuario.PerfilId = Convert.ToInt32(dr["PerfilId"]);
+                            usuario.Perfil = Convert.ToInt32(dr["PerfilId"]);
 
                             PerfilEN perfil = new PerfilEN();
                             perfil.Id = Convert.ToInt32(dr["PerfilId"]);
@@ -129,7 +130,7 @@ namespace UPC.SisTictecks.DAL
 
                     query.Parameters.AddWithValue("@p0", usuario.Nombres);
                     query.Parameters.AddWithValue("@p1", usuario.Apellidos);
-                    query.Parameters.AddWithValue("@p2", usuario.PerfilId);
+                    query.Parameters.AddWithValue("@p2", usuario.Perfil);
                     query.Parameters.AddWithValue("@p3", usuario.Activo);
                     query.Parameters.AddWithValue("@p4", usuario.Id);
 
@@ -171,7 +172,7 @@ namespace UPC.SisTictecks.DAL
                     query.Parameters.AddWithValue("@p2", usuario.Usuario);
                     query.Parameters.AddWithValue("@p3", usuario.Pass);
                     query.Parameters.AddWithValue("@p4", usuario.Activo);
-                    query.Parameters.AddWithValue("@p5", usuario.PerfilId);
+                    query.Parameters.AddWithValue("@p5", usuario.Perfil);
 
                     int i = query.ExecuteNonQuery();
 
@@ -259,6 +260,6 @@ namespace UPC.SisTictecks.DAL
 
             return logueado;
         }
-
+    */
     }
 }

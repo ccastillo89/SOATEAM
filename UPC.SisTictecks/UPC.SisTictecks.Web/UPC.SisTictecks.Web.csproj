@@ -109,7 +109,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\BundleConfig.cs" />
@@ -121,6 +120,8 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\Perfil.cs" />
+    <Compile Include="Models\Usuario.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -238,16 +239,6 @@
     <Content Include="Views\Usuario\Registrar.cshtml" />
     <Content Include="Views\Usuario\Editar.cshtml" />
     <Content Include="Views\Usuario\Eliminar.cshtml" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\UPC.SisTictecks.BL\UPC.SisTictecks.BL.csproj">
-      <Project>{39825af1-fd9b-44f5-a07d-548afd0a177b}</Project>
-      <Name>UPC.SisTictecks.BL</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\UPC.SisTictecks.EL\UPC.SisTictecks.EL.csproj">
-      <Project>{999d9c22-be04-43c1-8262-26d46c971aaa}</Project>
-      <Name>UPC.SisTictecks.EL</Name>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

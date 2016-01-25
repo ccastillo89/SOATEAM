@@ -16,3 +16,5 @@ C:\Repositorio\SOATEAM\SOATEAM\UPC.SisTictecks\UPC.SisTictecks.DAL\bin\Debug\UPC
 C:\Repositorio\SOATEAM\SOATEAM\UPC.SisTictecks\UPC.SisTictecks.DAL\obj\Debug\UPC.SisTictecks.DAL.csprojResolveAssemblyReference.cache
 C:\Repositorio\SOATEAM\SOATEAM\UPC.SisTictecks\UPC.SisTictecks.DAL\obj\Debug\UPC.SisTictecks.DAL.dll
 C:\Repositorio\SOATEAM\SOATEAM\UPC.SisTictecks\UPC.SisTictecks.DAL\obj\Debug\UPC.SisTictecks.DAL.pdb
+C:\Repositorio\SOATEAM\SOATEAM\UPC.SisTictecks\UPC.SisTictecks.DAL\bin\Debug\Iesi.Collections.dll
+C:\Repositorio\SOATEAM\SOATEAM\UPC.SisTictecks\UPC.SisTictecks.DAL\bin\Debug\NHibernate.dll

@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
+                   assembly="UPC.SisTictecks.EL"
+                   namespace="UPC.SisTictecks.EL"
+                   default-lazy="false">
+  <class name="UsuarioEN" table="Usuarios">
+    <id name="Codigo" column="Id">
+      <generator class="identity" />
+    </id>
+    <property name="Nombres" column="Nombres" />
+    <property name="Apellidos" column="Apellidos" />
+    <property name="Telefono" column="Telefono" />
+    <property name="Correo" column="Correo" />
+    <property name="Usuario" column="Usuario" />
+    <property name="Pass" column="Password" />
+    <property name="Estado" column="Activo" />
+    <many-to-one name="Perfil" column="PerfilID" />
+  </class>
+</hibernate-mapping>

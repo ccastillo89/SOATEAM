@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
+                   assembly="UPC.SisTictecks.EL"
+                   namespace="UPC.SisTictecks.EL"
+                   default-lazy="false">
+  <class name="ServicioEN" table="Servicios">
+    <id name="Codigo" column="Id">
+      <generator class="identity" />
+    </id>
+    <property name="Descripcion" column="Descripcion" />
+    <property name="Valor" column="Valor" />
+    <property name="TiempoEstimado" column="Duracion" />
+    <property name="Estado" column="Estado" />
+  </class>
+</hibernate-mapping>

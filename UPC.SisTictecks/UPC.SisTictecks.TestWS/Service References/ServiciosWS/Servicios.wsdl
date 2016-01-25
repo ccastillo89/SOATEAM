@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="Servicios" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://localhost:16005/Servicios.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://localhost:16005/Servicios.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/UPC.SisTictecks.EL" />
+      <xsd:import schemaLocation="http://localhost:16005/Servicios.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IServicios_CrearServicio_InputMessage">
+    <wsdl:part name="parameters" element="tns:CrearServicio" />
+  </wsdl:message>
+  <wsdl:message name="IServicios_CrearServicio_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CrearServicioResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServicios_CrearServicio_RepetidoExceptionFault_FaultMessage">
+    <wsdl:part xmlns:q1="http://schemas.datacontract.org/2004/07/UPC.SisTictecks.EL" name="detail" element="q1:RepetidoException" />
+  </wsdl:message>
+  <wsdl:message name="IServicios_ObtenerServicio_InputMessage">
+    <wsdl:part name="parameters" element="tns:ObtenerServicio" />
+  </wsdl:message>
+  <wsdl:message name="IServicios_ObtenerServicio_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ObtenerServicioResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServicios_ObtenerServicio_RepetidoExceptionFault_FaultMessage">
+    <wsdl:part xmlns:q2="http://schemas.datacontract.org/2004/07/UPC.SisTictecks.EL" name="detail" element="q2:RepetidoException" />
+  </wsdl:message>
+  <wsdl:message name="IServicios_ModificarServicio_InputMessage">
+    <wsdl:part name="parameters" element="tns:ModificarServicio" />
+  </wsdl:message>
+  <wsdl:message name="IServicios_ModificarServicio_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ModificarServicioResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServicios_ModificarServicio_RepetidoExceptionFault_FaultMessage">
+    <wsdl:part xmlns:q3="http://schemas.datacontract.org/2004/07/UPC.SisTictecks.EL" name="detail" element="q3:RepetidoException" />
+  </wsdl:message>
+  <wsdl:message name="IServicios_EliminarServicio_InputMessage">
+    <wsdl:part name="parameters" element="tns:EliminarServicio" />
+  </wsdl:message>
+  <wsdl:message name="IServicios_EliminarServicio_OutputMessage">
+    <wsdl:part name="parameters" element="tns:EliminarServicioResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServicios_EliminarServicio_RepetidoExceptionFault_FaultMessage">
+    <wsdl:part xmlns:q4="http://schemas.datacontract.org/2004/07/UPC.SisTictecks.EL" name="detail" element="q4:RepetidoException" />
+  </wsdl:message>
+  <wsdl:message name="IServicios_ListarServicios_InputMessage">
+    <wsdl:part name="parameters" element="tns:ListarServicios" />
+  </wsdl:message>
+  <wsdl:message name="IServicios_ListarServicios_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ListarServiciosResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServicios_ListarServicios_RepetidoExceptionFault_FaultMessage">
+    <wsdl:part xmlns:q5="http://schemas.datacontract.org/2004/07/UPC.SisTictecks.EL" name="detail" element="q5:RepetidoException" />
+  </wsdl:message>
+  <wsdl:portType name="IServicios">
+    <wsdl:operation name="CrearServicio">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServicios/CrearServicio" message="tns:IServicios_CrearServicio_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServicios/CrearServicioResponse" message="tns:IServicios_CrearServicio_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IServicios/CrearServicioRepetidoExceptionFault" name="RepetidoExceptionFault" message="tns:IServicios_CrearServicio_RepetidoExceptionFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerServicio">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServicios/ObtenerServicio" message="tns:IServicios_ObtenerServicio_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServicios/ObtenerServicioResponse" message="tns:IServicios_ObtenerServicio_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IServicios/ObtenerServicioRepetidoExceptionFault" name="RepetidoExceptionFault" message="tns:IServicios_ObtenerServicio_RepetidoExceptionFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ModificarServicio">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServicios/ModificarServicio" message="tns:IServicios_ModificarServicio_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServicios/ModificarServicioResponse" message="tns:IServicios_ModificarServicio_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IServicios/ModificarServicioRepetidoExceptionFault" name="RepetidoExceptionFault" message="tns:IServicios_ModificarServicio_RepetidoExceptionFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="EliminarServicio">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServicios/EliminarServicio" message="tns:IServicios_EliminarServicio_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServicios/EliminarServicioResponse" message="tns:IServicios_EliminarServicio_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IServicios/EliminarServicioRepetidoExceptionFault" name="RepetidoExceptionFault" message="tns:IServicios_EliminarServicio_RepetidoExceptionFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ListarServicios">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServicios/ListarServicios" message="tns:IServicios_ListarServicios_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServicios/ListarServiciosResponse" message="tns:IServicios_ListarServicios_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IServicios/ListarServiciosRepetidoExceptionFault" name="RepetidoExceptionFault" message="tns:IServicios_ListarServicios_RepetidoExceptionFault_FaultMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_IServicios" type="tns:IServicios">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="CrearServicio">
+      <soap:operation soapAction="http://tempuri.org/IServicios/CrearServicio" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="RepetidoExceptionFault">
+        <soap:fault use="literal" name="RepetidoExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerServicio">
+      <soap:operation soapAction="http://tempuri.org/IServicios/ObtenerServicio" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="RepetidoExceptionFault">
+        <soap:fault use="literal" name="RepetidoExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="ModificarServicio">
+      <soap:operation soapAction="http://tempuri.org/IServicios/ModificarServicio" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="RepetidoExceptionFault">
+        <soap:fault use="literal" name="RepetidoExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="EliminarServicio">
+      <soap:operation soapAction="http://tempuri.org/IServicios/EliminarServicio" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="RepetidoExceptionFault">
+        <soap:fault use="literal" name="RepetidoExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="ListarServicios">
+      <soap:operation soapAction="http://tempuri.org/IServicios/ListarServicios" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="RepetidoExceptionFault">
+        <soap:fault use="literal" name="RepetidoExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="Servicios">
+    <wsdl:port name="BasicHttpBinding_IServicios" binding="tns:BasicHttpBinding_IServicios">
+      <soap:address location="http://localhost:16005/Servicios.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

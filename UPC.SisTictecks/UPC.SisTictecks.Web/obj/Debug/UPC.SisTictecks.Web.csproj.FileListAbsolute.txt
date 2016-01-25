@@ -30,7 +30,6 @@ C:\Repositorio\TrabajoFinal\UPC.SisTictecks\UPC.SisTictecks.Web\bin\UPC.SisTicte
 C:\Repositorio\TrabajoFinal\UPC.SisTictecks\UPC.SisTictecks.Web\bin\UPC.SisTictecks.BL.pdb
 C:\Repositorio\TrabajoFinal\UPC.SisTictecks\UPC.SisTictecks.Web\bin\UPC.SisTictecks.EL.pdb
 C:\Repositorio\TrabajoFinal\UPC.SisTictecks\UPC.SisTictecks.Web\bin\UPC.SisTictecks.DAL.pdb
-C:\Repositorio\SOATEAM\SOATEAM\UPC.SisTictecks\UPC.SisTictecks.Web\obj\Debug\UPC.SisTictecks.Web.csprojResolveAssemblyReference.cache
 C:\Repositorio\SOATEAM\SOATEAM\UPC.SisTictecks\UPC.SisTictecks.Web\obj\Debug\UPC.SisTictecks.Web.dll
 C:\Repositorio\SOATEAM\SOATEAM\UPC.SisTictecks\UPC.SisTictecks.Web\obj\Debug\UPC.SisTictecks.Web.pdb
 C:\Repositorio\SOATEAM\SOATEAM\UPC.SisTictecks\UPC.SisTictecks.Web\bin\UPC.SisTictecks.Web.dll.config
@@ -46,12 +45,7 @@ C:\Repositorio\SOATEAM\SOATEAM\UPC.SisTictecks\UPC.SisTictecks.Web\bin\System.We
 C:\Repositorio\SOATEAM\SOATEAM\UPC.SisTictecks\UPC.SisTictecks.Web\bin\System.Web.WebPages.Deployment.dll
 C:\Repositorio\SOATEAM\SOATEAM\UPC.SisTictecks\UPC.SisTictecks.Web\bin\System.Web.WebPages.dll
 C:\Repositorio\SOATEAM\SOATEAM\UPC.SisTictecks\UPC.SisTictecks.Web\bin\System.Web.WebPages.Razor.dll
-C:\Repositorio\SOATEAM\SOATEAM\UPC.SisTictecks\UPC.SisTictecks.Web\bin\UPC.SisTictecks.BL.dll
-C:\Repositorio\SOATEAM\SOATEAM\UPC.SisTictecks\UPC.SisTictecks.Web\bin\UPC.SisTictecks.EL.dll
 C:\Repositorio\SOATEAM\SOATEAM\UPC.SisTictecks\UPC.SisTictecks.Web\bin\WebGrease.dll
-C:\Repositorio\SOATEAM\SOATEAM\UPC.SisTictecks\UPC.SisTictecks.Web\bin\UPC.SisTictecks.DAL.dll
-C:\Repositorio\SOATEAM\SOATEAM\UPC.SisTictecks\UPC.SisTictecks.Web\bin\UPC.SisTictecks.BL.pdb
-C:\Repositorio\SOATEAM\SOATEAM\UPC.SisTictecks\UPC.SisTictecks.Web\bin\UPC.SisTictecks.EL.pdb
 C:\Repositorio\SOATEAM\SOATEAM\UPC.SisTictecks\UPC.SisTictecks.Web\bin\System.Web.Helpers.xml
 C:\Repositorio\SOATEAM\SOATEAM\UPC.SisTictecks\UPC.SisTictecks.Web\bin\System.Web.Mvc.xml
 C:\Repositorio\SOATEAM\SOATEAM\UPC.SisTictecks\UPC.SisTictecks.Web\bin\System.Web.Optimization.xml
@@ -61,4 +55,4 @@ C:\Repositorio\SOATEAM\SOATEAM\UPC.SisTictecks\UPC.SisTictecks.Web\bin\System.We
 C:\Repositorio\SOATEAM\SOATEAM\UPC.SisTictecks\UPC.SisTictecks.Web\bin\System.Web.WebPages.Razor.xml
 C:\Repositorio\SOATEAM\SOATEAM\UPC.SisTictecks\UPC.SisTictecks.Web\bin\Newtonsoft.Json.xml
 C:\Repositorio\SOATEAM\SOATEAM\UPC.SisTictecks\UPC.SisTictecks.Web\bin\Antlr3.Runtime.pdb
-C:\Repositorio\SOATEAM\SOATEAM\UPC.SisTictecks\UPC.SisTictecks.Web\bin\UPC.SisTictecks.DAL.pdb
+C:\Repositorio\SOATEAM\SOATEAM\UPC.SisTictecks\UPC.SisTictecks.Web\obj\Debug\UPC.SisTictecks.Web.csprojResolveAssemblyReference.cache
