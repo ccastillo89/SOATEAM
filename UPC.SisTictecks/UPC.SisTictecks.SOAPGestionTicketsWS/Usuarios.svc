@@ -1,1 +1,0 @@
-﻿<%@ ServiceHost Language="C#" Debug="true" Service="UPC.SisTictecks.SOAPGestionTicketsWS.Usuarios" CodeBehind="Usuarios.svc.cs" %>

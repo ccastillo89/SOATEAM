@@ -8,23 +8,33 @@ using UPC.SisTictecks.EL;
 
 namespace UPC.SisTictecks.SOAPGestionTicketsWS
 {
+
     [ServiceContract]
-    public interface IServicios
+    public interface IParametrosService
     {
-        [FaultContract(typeof(RepetidoException))]
-        [OperationContract]
-        ServicioEN CrearServicio(string descripcion, decimal valor, bool estado, int tiempoEstimadoHH);
-        [FaultContract(typeof(RepetidoException))]
-        [OperationContract]
-        ServicioEN ObtenerServicio(int codigo);
-        [FaultContract(typeof(RepetidoException))]
-        [OperationContract]
-        ServicioEN ModificarServicio(int codigo, string descripcion, decimal valor, bool estado, int tiempoEstimadoHH);
-        [FaultContract(typeof(RepetidoException))]
-        [OperationContract]
-        void EliminarServicio(int codigo);
+        #region "Servicios"
+
         [FaultContract(typeof(RepetidoException))]
         [OperationContract]
         List<ServicioEN> ListarServicios();
+
+        [FaultContract(typeof(RepetidoException))]
+        [OperationContract]
+        ServicioEN ObtenerServicio(int codigo);
+
+        #endregion
+
+        #region "Taller"
+
+        [FaultContract(typeof(RepetidoException))]
+        [OperationContract]
+        List<TallerEN> ListarTalleres();
+
+        [FaultContract(typeof(RepetidoException))]
+        [OperationContract]
+        TallerEN ObtenerTaller(int codigo);
+
+        #endregion
+
     }
 }

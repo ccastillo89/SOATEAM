@@ -13,6 +13,7 @@
     <property name="Correo" column="Correo" />
     <property name="Usuario" column="Usuario" />
     <property name="Pass" column="Password" />
+    <property name="Dni" column="Dni" />
     <property name="Estado" column="Activo" />
     <many-to-one name="Perfil" column="PerfilID" />
   </class>

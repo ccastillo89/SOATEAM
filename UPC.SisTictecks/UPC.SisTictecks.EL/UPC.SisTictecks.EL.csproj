@@ -40,13 +40,19 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CitaEN.cs" />
+    <Compile Include="ColorEN.cs" />
+    <Compile Include="MarcaEN.cs" />
+    <Compile Include="ModeloEN.cs" />
     <Compile Include="PerfilEN.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RepetidoException.cs" />
     <Compile Include="ServicioEN.cs" />
+    <Compile Include="TallerEN.cs" />
     <Compile Include="UsuarioEN.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="VehiculoEN.cs" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Servicio.hbm.xml" />
@@ -54,6 +60,14 @@
   <ItemGroup>
     <EmbeddedResource Include="Perfil.hbm.xml" />
     <EmbeddedResource Include="Usuario.hbm.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Cita.hbm.xml" />
+    <EmbeddedResource Include="Color.hbm.xml" />
+    <EmbeddedResource Include="Marca.hbm.xml" />
+    <EmbeddedResource Include="Modelo.hbm.xml" />
+    <EmbeddedResource Include="Taller.hbm.xml" />
+    <EmbeddedResource Include="Vehiculo.hbm.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

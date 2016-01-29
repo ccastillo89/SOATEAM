@@ -23,6 +23,8 @@ namespace UPC.SisTictecks.EL
         [DataMember]
         public bool Estado { get; set; }
         [DataMember]
+        public string Dni { get; set; }
+        [DataMember]
         public PerfilEN Perfil { get; set; }
         [DataMember]
         public string Telefono { get; set; }

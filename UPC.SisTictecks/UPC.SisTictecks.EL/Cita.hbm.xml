@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
+                   assembly="UPC.SisTictecks.EL"
+                   namespace="UPC.SisTictecks.EL"
+                   default-lazy="false">
+  <class name="CitaEN" table="Citas">
+    <id name="Codigo" column="Id">
+      <generator class="identity" />
+    </id>
+    <property name="NroCita" column="CodigoCita" />
+    <property name="Fecha" column="Fecha" />
+    <property name="HoraInicio" column="HoraInicio" />
+    <property name="HoraFin" column="HoraFinal" />
+    <property name="Observacion" column="Observacion" />
+    <property name="Estado" column="Estado" />
+    <many-to-one name="Usuario" column="IdUsuario" />
+    <many-to-one name="Vehiculo" column="IdVehiculo" />
+    <many-to-one name="Servicio" column="IdServicio" />
+    <many-to-one name="Taller" column="IdTaller" />
+  </class>
+</hibernate-mapping>

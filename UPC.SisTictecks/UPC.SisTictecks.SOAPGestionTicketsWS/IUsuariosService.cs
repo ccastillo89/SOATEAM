@@ -9,22 +9,33 @@ using UPC.SisTictecks.EL;
 namespace UPC.SisTictecks.SOAPGestionTicketsWS
 {
     [ServiceContract]
-    public interface IUsuarios
+    public interface IUsuariosService
     {
         [FaultContract(typeof(RepetidoException))]
         [OperationContract]
         UsuarioEN CrearUsuario(UsuarioEN usuarioCrear);
+
         [FaultContract(typeof(RepetidoException))]
         [OperationContract]
         UsuarioEN ObtenerUsuario(int codigo);
+
         [FaultContract(typeof(RepetidoException))]
         [OperationContract]
         UsuarioEN ModificarUsuario(UsuarioEN usuarioModificar);
+
         [FaultContract(typeof(RepetidoException))]
         [OperationContract]
         bool EliminarUsuario(int codigo);
+
         [FaultContract(typeof(RepetidoException))]
         [OperationContract]
         List<UsuarioEN> ListarUsuarios();
+
+        [OperationContract]
+        bool ValidarNombreDeUsuarioExistente(string usuario);
+
+        [OperationContract]
+        bool ValidarCorreoExistente(string correo);
+
     }
 }

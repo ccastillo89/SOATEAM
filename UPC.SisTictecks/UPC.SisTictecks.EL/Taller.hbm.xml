@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
+                   assembly="UPC.SisTictecks.EL"
+                   namespace="UPC.SisTictecks.EL"
+                   default-lazy="false">
+  <class name="TallerEN" table="Talleres">
+    <id name="Codigo" column="Id">
+      <generator class="identity" />
+    </id>
+    <property name="Taller" column="TallerNro" />
+  </class>
+</hibernate-mapping>
