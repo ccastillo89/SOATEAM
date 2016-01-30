@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using NHibernate;
 using NHibernate.Cfg;
+using UPC.SisTictecks.EL;
 
 namespace UPC.SisTictecks.DAL
 {
@@ -26,7 +27,7 @@ namespace UPC.SisTictecks.DAL
                     _Conf.SetProperty("dialect", "NHibernate.Dialect.MsSql2000Dialect");
                     _Conf.SetProperty("command_timeout", "60");
                     _Conf.SetProperty("query.substitutions", "true 1, false 0, yes 'Y', no 'N'");
-                    _Conf.AddAssembly(typeof(UPC.SisTictecks.EL.ServicioEN).Assembly);
+                    _Conf.AddAssembly(typeof(UsuarioEN).Assembly);
                     _Fabrica = _Conf.BuildSessionFactory();
                 }
                 return _Fabrica;
@@ -41,4 +42,5 @@ namespace UPC.SisTictecks.DAL
             _Fabrica = null;
         }
     }
+
 }

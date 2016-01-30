@@ -201,10 +201,33 @@ namespace UPC.SisTictecks.SOAPGestionTicketsWS
             return UsuarioDAO.ValidarCorreoExistente(correo);
         }
 
+
+        #region "Perfiles"
+
+        private PerfilDAO perfilDAO = null;
+
+        private PerfilDAO PerfilDAO
+        {
+            get
+            {
+                if (perfilDAO == null)
+                    perfilDAO = new PerfilDAO();
+
+                return perfilDAO;
+            }
+        }
+
+        public PerfilEN ObtenerPerfil(int codigo)
+        {
+            return  PerfilDAO.Obtener(codigo);
+        }
+
         public List<PerfilEN> ListarPerfiles()
         {
-            return new UPC.SisTictecks.DAL.PerfilDAO().ListarTodos().ToList();
+            return PerfilDAO.ListarTodos().ToList();
         }
+
+        #endregion
 
     }
 }

@@ -36,8 +36,7 @@ namespace UPC.SisTictecks.SOAPGestionTicketsWS
         List<VehiculoEN> ListarVehiculos();
 
         #endregion
-
-
+        
         #region "Marca"
 
         [FaultContract(typeof(RepetidoException))]
@@ -56,6 +55,10 @@ namespace UPC.SisTictecks.SOAPGestionTicketsWS
         [FaultContract(typeof(RepetidoException))]
         [OperationContract]
         List<ModeloEN> ListarModelos();
+
+        [FaultContract(typeof(RepetidoException))]
+        [OperationContract]
+        List<ModeloEN> ListarModelosXMarca(MarcaEN marca);
 
         [FaultContract(typeof(RepetidoException))]
         [OperationContract]

@@ -54,6 +54,7 @@ namespace UPC.SisTictecks.Web.Controllers
                     try
                     {
                         usuarioEN.Perfil = new PerfilEN { Codigo = cboPerfiles };
+                        usuarioEN.Usuario = usuarioEN.Usuario.ToUpper();
                         usuarioEN = UsuariosProxy.CrearUsuario(usuarioEN);                        
                     }
                     catch (FaultException<RepetidoException> fe)
@@ -102,6 +103,7 @@ namespace UPC.SisTictecks.Web.Controllers
                 try
                 {
                     usuarioEN.Perfil = new PerfilEN { Codigo = cboPerfiles };
+                    usuarioEN.Usuario = usuarioEN.Usuario.ToUpper();
                     UsuariosProxy.ModificarUsuario(usuarioEN);
                 }
                 catch (FaultException<RepetidoException> fe)

@@ -12,65 +12,145 @@ namespace UPC.SisTictecks.SOAPGestionTicketsWS
 
     public class VehiculoService : IVehiculoService
     {
+        #region "Vehiculo"
+
+        private VehiculoDAO vehiculoDAO = null;
+
+        private VehiculoDAO VehiculoDAO
+        {
+            get
+            {
+                if (vehiculoDAO == null)
+                    vehiculoDAO = new VehiculoDAO();
+
+                return vehiculoDAO;
+            }
+        }
 
         public VehiculoEN CrearVehiculo(VehiculoEN vehiculoCrear)
         {
-            throw new NotImplementedException();
+            return VehiculoDAO.Crear(vehiculoCrear);
         }
 
         public VehiculoEN ObtenerVehiculo(int codigo)
         {
-            throw new NotImplementedException();
+            return VehiculoDAO.Obtener(codigo);
         }
 
         public VehiculoEN ModificarVehiculo(VehiculoEN vehiculoModificar)
         {
-            throw new NotImplementedException();
+            VehiculoEN vehiculoExistente = VehiculoDAO.Obtener(vehiculoModificar.Codigo);
+            return VehiculoDAO.Modificar(vehiculoModificar);
         }
 
         public bool EliminarVehiculo(int codigo)
         {
-            throw new NotImplementedException();
+            VehiculoEN vehiculoExistente = VehiculoDAO.Obtener(codigo);
+            bool ejecuto = false;
+            if (vehiculoExistente != null)
+            {
+                VehiculoDAO.Eliminar(vehiculoExistente);
+                ejecuto = true;
+            }
+            else
+                ejecuto = false;
+
+            return ejecuto;
+            
         }
 
         public List<VehiculoEN> ListarVehiculos()
         {
-            List<VehiculoEN> lista = new List<VehiculoEN>();
-            lista.Add(new VehiculoEN { Codigo = 1, Descripcion = "Toyota", Anio = 2015, Kilometros = 1000, Placa = "123333" });
-            lista.Add(new VehiculoEN { Codigo = 1, Descripcion = "Audi", Anio = 2015, Kilometros = 5000, Placa = "6465" });
-            lista.Add(new VehiculoEN { Codigo = 1, Descripcion = "Mercedes Benz", Anio = 2016, Kilometros = 10, Placa = "7897978" });
+            return VehiculoDAO.ListarTodos().ToList();
+        }
 
-            return lista;
+        #endregion
+
+        #region "Marcas"
+
+        private MarcaDAO marcaDAO = null;
+
+        private MarcaDAO MarcaDAO
+        {
+            get
+            {
+                if (marcaDAO == null)
+                    marcaDAO = new MarcaDAO();
+
+                return marcaDAO;
+            }
         }
 
         public List<MarcaEN> ListarMarcas()
         {
-            throw new NotImplementedException();
+            return MarcaDAO.ListarTodos().ToList();
         }
 
         public MarcaEN ObtenerMarca(int codigo)
         {
-            throw new NotImplementedException();
+            return MarcaDAO.Obtener(codigo);
+        }
+
+        #endregion
+
+        #region "Modelos"
+
+        private ModeloDAO modeloDAO = null;
+
+        private ModeloDAO ModeloDAO
+        {
+            get
+            {
+                if (modeloDAO == null)
+                    modeloDAO = new ModeloDAO();
+
+                return modeloDAO;
+            }
         }
 
         public List<ModeloEN> ListarModelos()
         {
-            throw new NotImplementedException();
+            return ModeloDAO.ListarTodos().ToList();
+        }
+
+        public List<ModeloEN> ListarModelosXMarca(MarcaEN marca)
+        {
+            return ModeloDAO.ListarModelosXMarca(marca).ToList();
         }
 
         public ModeloEN ObtenerModelo(int codigo)
         {
-            throw new NotImplementedException();
+            return ModeloDAO.Obtener(codigo);
+        }
+
+        #endregion
+
+        #region "Colores"
+
+        private ColorDAO colorDAO = null;
+
+        private ColorDAO ColorDAO
+        {
+            get
+            {
+                if (colorDAO == null)
+                    colorDAO = new ColorDAO();
+
+                return colorDAO;
+            }
         }
 
         public List<ColorEN> ListarColores()
         {
-            throw new NotImplementedException();
+            return ColorDAO.ListarTodos().ToList();
         }
 
         public ColorEN ObtenerColor(int codigo)
         {
-            throw new NotImplementedException();
+            return ColorDAO.Obtener(codigo);
         }
+
+        #endregion
+
     }
 }
