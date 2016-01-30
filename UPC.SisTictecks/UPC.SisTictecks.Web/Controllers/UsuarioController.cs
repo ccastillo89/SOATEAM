@@ -1,21 +1,26 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.ServiceModel;
 using System.Web;
 using System.Web.Mvc;
+using UPC.SisTictecks.EL;
 
 namespace UPC.SisTictecks.Web.Controllers
 {
     public class UsuarioController : Controller
-    {
-        //private UsuarioBL usuarioBL = new UsuarioBL();
+    {        
+        private UsuariosWS.UsuariosServiceClient UsuariosProxy = new UsuariosWS.UsuariosServiceClient();
 
-        //
-        // GET: /Usuario/
-        //public ActionResult Index()
-        //{
-        //    return View(usuarioBL.Listar());
-        //}
+        
+        //GET: /Usuario/
+        public ActionResult Index()
+        {
+          
+            List<UsuarioEN> listaUsuarios;
+            listaUsuarios = UsuariosProxy.ListarUsuarios().ToList();
+            return View(listaUsuarios);
+        }
 
         ////
         //// GET: /Usuario/Detalles/1
@@ -29,95 +34,101 @@ namespace UPC.SisTictecks.Web.Controllers
         //    return View(usuario);
         //}
 
-        ////
-        //// GET: /Usuario/Registrar
-        //public ActionResult Registrar()
-        //{
-        //    return View();
-        //}
+        //
+        // GET: /Usuario/Registrar
+        public ActionResult Registrar()
+        {            
+            return View();
+        }
 
 
-        ////
-        //// POST: /Usuario/Registrar
-        //[HttpPost]
-        //public ActionResult Registrar(UsuarioEN usuarioEN) 
-        //{
-        //    try
-        //    {
-        //        if (ModelState.IsValid) 
-        //        {
-        //            bool correcto = usuarioBL.Registrar(usuarioEN);
-        //            if (correcto)
-        //            {
-        //                return RedirectToAction("Index");
-        //            }
-        //            else
-        //            {
+        //
+        // POST: /Usuario/Registrar
+        [HttpPost]
+        public ActionResult Registrar(UsuarioEN usuarioEN, int cboPerfiles)
+        {
+            try
+            {
+                if (ModelState.IsValid)
+                {                    
+                    try
+                    {
+                        usuarioEN.Perfil = new PerfilEN { Codigo = cboPerfiles };
+                        usuarioEN = UsuariosProxy.CrearUsuario(usuarioEN);                        
+                    }
+                    catch (FaultException<RepetidoException> fe)
+                    {
+                        ModelState.AddModelError("MensajeError", fe.Message+": "+ fe.Detail.Mensaje);
+                        return View(usuarioEN);
+                    }                    
 
-        //            }
-                    
-        //        }
-        //        return View(usuarioEN);
-        //    }
-        //    catch
-        //    {
-        //        return View(usuarioEN);
-        //    }
-        //}
+                }
+                return RedirectToAction("Index");
+            }
+            catch
+            {
+                ModelState.AddModelError("MensajeError", "Ocurrió un error al grabar el registro.");
+                return View(usuarioEN);
+            }
+        }
 
-        ////
-        //// GET: /Usuario/Editar/5
-        //public ActionResult Editar(int id)
-        //{
-        //    UsuarioEN usuario = usuarioBL.Obtener(id);
-        //    if (usuario == null)
-        //    {
-        //        return HttpNotFound();
-        //    }
-        //    return View(usuario);
-        //}
+        // GET: /Usuario/Editar/5
+        public ActionResult Editar(int id)
+        {
+            UsuarioEN usuario = new UsuarioEN();
+            if (ModelState.IsValid)
+            {                
+                try
+                {
+                    usuario = UsuariosProxy.ObtenerUsuario(id);
+                }
+                catch (FaultException<RepetidoException> fe)
+                {
+                    ModelState.AddModelError("MensajeError", fe.Message + ": " + fe.Detail.Mensaje);
+                }
+            }           
+            return View(usuario);
+        }
 
 
-        ////
-        //// POST: /Usuario/Editar/5
-        //[HttpPost]
-        //public ActionResult Editar(UsuarioEN usuarioEN)
-        //{
-        //    try
-        //    {
-        //        if (ModelState.IsValid)
-        //        {
-        //            bool correcto = usuarioBL.Actualizar(usuarioEN);
-        //            if (correcto)
-        //            {
-        //                return RedirectToAction("Index");
-        //            }
-        //            else
-        //            {
+        //
+        // POST: /Usuario/Editar/5
+        [HttpPost]
+        public ActionResult Editar(UsuarioEN usuarioEN,int cboPerfiles)
+        {
+            UsuarioEN usuario = new UsuarioEN();
+            if (ModelState.IsValid)
+            {
+                try
+                {
+                    usuarioEN.Perfil = new PerfilEN { Codigo = cboPerfiles };
+                    UsuariosProxy.ModificarUsuario(usuarioEN);
+                }
+                catch (FaultException<RepetidoException> fe)
+                {
+                    ModelState.AddModelError("MensajeError", fe.Message + ": " + fe.Detail.Mensaje);
+                    return View(usuarioEN);
+                }
+            }
 
-        //            }
+            return RedirectToAction("Index");
+        }
 
-        //        }
-        //        return View(usuarioEN);
-
-        //    }
-        //    catch
-        //    {
-        //        return View();
-        //    }
-        //}
-
-        ////
-        //// GET: /Usuario/Eliminar/5
-        //public ActionResult Eliminar(int id)
-        //{
-        //    UsuarioEN usuarioEN = usuarioBL.Obtener(id);
-        //    if (usuarioEN == null)
-        //    {
-        //        return HttpNotFound();
-        //    }
-        //    return View(usuarioEN);
-        //}
+       
+        // GET: /Usuario/Eliminar/5
+        public ActionResult Eliminar(int id)
+        {
+            try
+            {
+                UsuariosProxy.EliminarUsuario(id);
+            }
+            catch (FaultException<RepetidoException> fe)
+            {
+                ModelState.AddModelError("MensajeError", fe.Message + ": " + fe.Detail.Mensaje);                
+            }
+                        
+            return RedirectToAction("Index");
+        }
 
         ////
         //// POST: /Usuario/Eliminar/5
@@ -135,6 +146,11 @@ namespace UPC.SisTictecks.Web.Controllers
         //        return View();
         //    }
         //}
+
+        public JsonResult ListaPerfiles()
+        {
+            return Json(UsuariosProxy.ListarPerfiles().ToList(), JsonRequestBehavior.AllowGet);
+        }
 
         protected override void Dispose(bool disposing)
         {

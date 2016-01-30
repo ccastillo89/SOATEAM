@@ -32,9 +32,9 @@ namespace UPC.SisTictecks.SOAPGestionTicketsWS
 
             if (usuario != null)
             {
-                existeUsuario = usuarioDAO.ValidarNombreDeUsuario(usuario.ToUpper());
+                existeUsuario = UsuarioDAO.ValidarNombreDeUsuario(usuario.ToUpper());
 
-                if (existeUsuario)
+                if (!existeUsuario)
                 {
                     throw new FaultException<RepetidoException>(new RepetidoException()
                     {
@@ -45,7 +45,7 @@ namespace UPC.SisTictecks.SOAPGestionTicketsWS
                 }
             }
 
-            usuarioLogeado = usuarioDAO.ValidarLogin(usuario, pass);
+            usuarioLogeado = UsuarioDAO.ValidarLogin(usuario, pass);
 
             if (usuarioLogeado == null)
             {

@@ -20,7 +20,7 @@ namespace UPC.SisTictecks.DAL
 
                 oUser = session
                     .CreateCriteria(typeof(UsuarioEN))
-                    .Add(Restrictions.Eq("Usuario", usuario))
+                    .Add(Restrictions.Eq("Usuario", usuario.ToUpper()))
                     .Add(Restrictions.Eq("Pass", password))
                     .UniqueResult<UsuarioEN>();
 
@@ -31,15 +31,14 @@ namespace UPC.SisTictecks.DAL
         public int ValidarCantidadAdministradores()
         {
             int cantidad = 0;
-            int perfilAdmistrador = 1;
-
+            PerfilEN perfilAdmistrador = new PerfilEN() { Codigo = 1, Estado = true};
 
             using (ISession session = NHibernateHelper.ObtenerSesion())
             {
 
                 cantidad = session
                     .CreateCriteria(typeof(UsuarioEN))
-                    .Add(Restrictions.Eq("PerfilID", perfilAdmistrador))
+                    .Add(Restrictions.Eq("Perfil", perfilAdmistrador))
                     .List<UsuarioEN>().Count;
             }
 
@@ -76,7 +75,7 @@ namespace UPC.SisTictecks.DAL
             {
                 cantidad = session
                     .CreateCriteria(typeof(UsuarioEN))
-                    .Add(Restrictions.Eq("Correo", correo.ToUpper()))
+                    .Add(Restrictions.Eq("Correo", correo))
                     .List<UsuarioEN>().Count;
             }
 

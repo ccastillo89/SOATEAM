@@ -37,5 +37,7 @@ namespace UPC.SisTictecks.SOAPGestionTicketsWS
         [OperationContract]
         bool ValidarCorreoExistente(string correo);
 
+        [OperationContract]
+        List<PerfilEN> ListarPerfiles();
     }
 }

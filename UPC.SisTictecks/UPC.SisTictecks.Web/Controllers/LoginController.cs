@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.ServiceModel;
 using System.Web;
 using System.Web.Mvc;
+using UPC.SisTictecks.EL;
 using formsAuth = System.Web.Security.FormsAuthentication;
 
 namespace UPC.SisTictecks.Web.Controllers
@@ -11,6 +13,9 @@ namespace UPC.SisTictecks.Web.Controllers
     {
         //Varibles de Invocacion
         //private UsuarioBL usuarioBL = new UsuarioBL();
+        private UsuariosWS.UsuariosServiceClient UsuariosProxy = new UsuariosWS.UsuariosServiceClient();
+        private SeguridadWS.SeguridadServiceClient SeguridadProxy = new SeguridadWS.SeguridadServiceClient();
+
 
         //
         // GET: /Login/
@@ -26,25 +31,30 @@ namespace UPC.SisTictecks.Web.Controllers
             return View();
         }
 
-        //[HttpPost]
-        //[AllowAnonymous]
-        //[ValidateAntiForgeryToken]
-        //public ActionResult Login(UsuarioEN user)
-        //{
-        //    if (ModelState.IsValid)
-        //    {
-        //        if (usuarioBL.Login(user.Usuario, user.Pass))
-        //        {
-        //            formsAuth.SetAuthCookie(user.Usuario, user.Recordarme);
-        //            return RedirectToAction("Index", "Home");
-        //        }
-        //        else
-        //        {
-        //            ModelState.AddModelError("", "Usuario o password es incorrecto!");
-        //        }
-        //    }
-        //    return View(user);
-        //}
+        [HttpPost]
+        [AllowAnonymous]
+        [ValidateAntiForgeryToken]
+        public ActionResult Login(Login user)
+        {
+            UsuarioEN UsuLogin = new UsuarioEN();
+                
+            if (ModelState.IsValid)
+            {
+                try
+                {
+                    UsuLogin = SeguridadProxy.AutenticarUsuario(user.Usuario, user.Clave);
+                    return RedirectToAction("Index", "Home");
+                }
+                catch (FaultException<RepetidoException> fe)
+                {
+                    ModelState.AddModelError("MensajeError", fe.Message + ": " + fe.Detail.Mensaje);
+                }
+                                   
+                //    formsAuth.SetAuthCookie(user.Usuario, true);                                               
+            }
+            
+            return View(user);
+        }
 
         [HttpPost]
         [ValidateAntiForgeryToken]

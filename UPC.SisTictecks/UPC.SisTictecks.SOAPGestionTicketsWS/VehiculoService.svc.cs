@@ -35,7 +35,12 @@ namespace UPC.SisTictecks.SOAPGestionTicketsWS
 
         public List<VehiculoEN> ListarVehiculos()
         {
-            throw new NotImplementedException();
+            List<VehiculoEN> lista = new List<VehiculoEN>();
+            lista.Add(new VehiculoEN { Codigo = 1, Descripcion = "Toyota", Anio = 2015, Kilometros = 1000, Placa = "123333" });
+            lista.Add(new VehiculoEN { Codigo = 1, Descripcion = "Audi", Anio = 2015, Kilometros = 5000, Placa = "6465" });
+            lista.Add(new VehiculoEN { Codigo = 1, Descripcion = "Mercedes Benz", Anio = 2016, Kilometros = 10, Placa = "7897978" });
+
+            return lista;
         }
 
         public List<MarcaEN> ListarMarcas()

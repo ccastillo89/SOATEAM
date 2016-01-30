@@ -1,4 +1,4 @@
-﻿@model UPC.SisTictecks.EL.UsuarioEN
+﻿@model UPC.SisTictecks.EL.Login
 @{
     ViewBag.Title = "Iniciar Sesión";
     Layout = null;
@@ -9,7 +9,7 @@
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
-    <title>SOATEAN</title>
+    <title>SOATEAM</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
 </head>
@@ -21,12 +21,19 @@
                     <div style="width:auto; text-align:center; color:darkgray; opacity:0.9; font-family:'Lucida Sans Unicode'">
                         <h1>Sistema de Gestión de tickets</h1>
                     </div>
+                    <br />
                     <h5>Iniciar Sesión</h5>
                 </div>
+                <br />
+                <br />
+                <br />
+                <br />
+
                 @using (Html.BeginForm("Login", "Login", FormMethod.Post))
                 {
                     <hr />
-                    @Html.ValidationSummary(true, "No se ha podido iniciar sesion. Verifique.");
+                    @*@Html.ValidationSummary(true, "No se ha podido iniciar sesion. Verifique.");*@                    
+                    @Html.ValidationSummary()
                     @Html.AntiForgeryToken()
 
 
@@ -34,23 +41,23 @@
                         @Html.LabelFor(u => u.Usuario, new { @class = "col-md-2 control-label" })
                         <div class="col-md-10">
                             @Html.TextBoxFor(u => u.Usuario, new { @class = "form-control" })
-                            @Html.ValidationMessageFor(u => u.Usuario)
+                            @*@Html.ValidationMessageFor(u => u.Usuario)*@
                         </div>
                     </div>
 
                     <div class="form-group">
-                        @Html.LabelFor(u => u.Pass, new { @class = "col-md-2 control-label" })
+                        @Html.LabelFor(u => u.Clave, new { @class = "col-md-2 control-label" })
                         <div class="col-md-10">
-                            @Html.PasswordFor(u => u.Pass, new { @class = "form-control" })
-                            @Html.ValidationMessageFor(u => u.Pass)
+                            @Html.PasswordFor(u => u.Clave, new { @class = "form-control" })
+                            @*@Html.ValidationMessageFor(u => u.Pass)*@
                         </div>
                     </div>
 
                     <div class="form-group">
                         <div class="col-md-offset-2 col-md-10">
                             <div class="checkbox">
-                                @Html.CheckBoxFor(u => u.Recordarme)
-                                @Html.LabelFor(u => u.Recordarme)
+                                @*@Html.CheckBoxFor(u => u.Recordarme)
+                                @Html.LabelFor(u => u.Recordarme)*@
                             </div>
                         </div>
                     </div>
@@ -62,7 +69,7 @@
                     </div>
 
                     <p>
-                        @Html.ActionLink("Registrar", "Login")
+                        @Html.ActionLink("Registrar", "Registrar","Usuario")
                     </p>
                 }
             </section>

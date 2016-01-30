@@ -11,6 +11,8 @@ namespace UPC.SisTictecks.SOAPGestionTicketsWS
     [ServiceContract]
     public interface IGestionCitasService
     {
-
+        [FaultContract(typeof(RepetidoException))]
+        [OperationContract]
+        List<CitaEN> ListarCitas();
     }
 }

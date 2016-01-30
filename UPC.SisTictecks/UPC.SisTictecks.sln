@@ -4,6 +4,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 VisualStudioVersion = 12.0.21005.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UPC.SisTictecks.Web", "UPC.SisTictecks.Web\UPC.SisTictecks.Web.csproj", "{C282FEDC-6D4B-452D-967E-DD0FCAD382D6}"
+	ProjectSection(ProjectDependencies) = postProject
+		{F758F78A-D970-4C2B-B78E-CD74C72B6C6E} = {F758F78A-D970-4C2B-B78E-CD74C72B6C6E}
+	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Comun", "Comun", "{C8C4F673-23DD-4793-86DC-62C0A4DCD617}"
 EndProject

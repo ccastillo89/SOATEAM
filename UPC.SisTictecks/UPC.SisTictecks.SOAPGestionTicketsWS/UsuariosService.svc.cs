@@ -11,7 +11,7 @@ namespace UPC.SisTictecks.SOAPGestionTicketsWS
 {
     public class Usuarios : IUsuariosService
     {
-        private UsuarioDAO usuarioDAO = null;
+        private UsuarioDAO usuarioDAO = null;      
 
         private UsuarioDAO UsuarioDAO
         {
@@ -22,7 +22,7 @@ namespace UPC.SisTictecks.SOAPGestionTicketsWS
 
                 return usuarioDAO;
             }
-        }
+        }        
 
         public UsuarioEN CrearUsuario(UsuarioEN usuarioCrear)
         {
@@ -33,7 +33,7 @@ namespace UPC.SisTictecks.SOAPGestionTicketsWS
 
             if (usuarioCrear.Perfil.Codigo == 1)
             {
-                cantidadAdm = usuarioDAO.ValidarCantidadAdministradores();
+                cantidadAdm = UsuarioDAO.ValidarCantidadAdministradores();
 
                 if (cantidadAdm == 3)
                 {
@@ -48,7 +48,7 @@ namespace UPC.SisTictecks.SOAPGestionTicketsWS
 
             if (usuarioCrear.Usuario != null)
             {
-                existeNombreUsuario = usuarioDAO.ValidarNombreDeUsuario(usuarioCrear.Usuario.ToUpper());
+                existeNombreUsuario = UsuarioDAO.ValidarNombreDeUsuario(usuarioCrear.Usuario.ToUpper());
 
                 if (existeNombreUsuario)
                 {
@@ -63,7 +63,7 @@ namespace UPC.SisTictecks.SOAPGestionTicketsWS
 
             if (usuarioCrear.Correo != null)
             {
-                existeCorreo = usuarioDAO.ValidarCorreoExistente(usuarioCrear.Correo);
+                existeCorreo = UsuarioDAO.ValidarCorreoExistente(usuarioCrear.Correo);
 
                 if (existeCorreo)
                 {
@@ -78,7 +78,7 @@ namespace UPC.SisTictecks.SOAPGestionTicketsWS
 
             if (usuarioCrear.Dni != null)
             {
-                existeDNI = usuarioDAO.ValidarDniExistente(usuarioCrear.Dni);
+                existeDNI = UsuarioDAO.ValidarDniExistente(usuarioCrear.Dni);
 
                 if (existeDNI)
                 {
@@ -110,7 +110,7 @@ namespace UPC.SisTictecks.SOAPGestionTicketsWS
 
             if (usuarioModificar.Perfil.Codigo == 1 && usuarioModificar.Perfil.Codigo != usuarioExistente.Perfil.Codigo)
             {
-                cantidadAdm = usuarioDAO.ValidarCantidadAdministradores();
+                cantidadAdm = UsuarioDAO.ValidarCantidadAdministradores();
 
                 if (cantidadAdm == 3)
                 {
@@ -125,7 +125,7 @@ namespace UPC.SisTictecks.SOAPGestionTicketsWS
 
             if (usuarioModificar.Usuario != null && usuarioModificar.Usuario != usuarioExistente.Usuario)
             {
-                existeNombreUsuario = usuarioDAO.ValidarNombreDeUsuario(usuarioModificar.Usuario.ToUpper());
+                existeNombreUsuario = UsuarioDAO.ValidarNombreDeUsuario(usuarioModificar.Usuario.ToUpper());
 
                 if (existeNombreUsuario)
                 {
@@ -140,7 +140,7 @@ namespace UPC.SisTictecks.SOAPGestionTicketsWS
 
             if (usuarioModificar.Correo != null && usuarioModificar.Correo.ToUpper() != usuarioExistente.Correo.ToUpper())
             {
-                existeCorreo = usuarioDAO.ValidarCorreoExistente(usuarioModificar.Correo);
+                existeCorreo = UsuarioDAO.ValidarCorreoExistente(usuarioModificar.Correo);
 
                 if (existeCorreo)
                 {
@@ -155,7 +155,7 @@ namespace UPC.SisTictecks.SOAPGestionTicketsWS
 
             if (usuarioModificar.Dni != null && usuarioModificar.Dni != usuarioExistente.Dni)
             {
-                existeDNI = usuarioDAO.ValidarDniExistente(usuarioModificar.Dni);
+                existeDNI = UsuarioDAO.ValidarDniExistente(usuarioModificar.Dni);
 
                 if (existeDNI)
                 {
@@ -193,12 +193,17 @@ namespace UPC.SisTictecks.SOAPGestionTicketsWS
 
         public bool ValidarNombreDeUsuarioExistente(string usuario)
         {
-            return usuarioDAO.ValidarNombreDeUsuario(usuario);
+            return UsuarioDAO.ValidarNombreDeUsuario(usuario);
         }
 
         public bool ValidarCorreoExistente(string correo)
         {
-            return usuarioDAO.ValidarCorreoExistente(correo);
+            return UsuarioDAO.ValidarCorreoExistente(correo);
+        }
+
+        public List<PerfilEN> ListarPerfiles()
+        {
+            return new UPC.SisTictecks.DAL.PerfilDAO().ListarTodos().ToList();
         }
 
     }

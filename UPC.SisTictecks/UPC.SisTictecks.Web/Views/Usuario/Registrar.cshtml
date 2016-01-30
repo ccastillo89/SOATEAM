@@ -2,64 +2,86 @@
 
 @{
     ViewBag.Title = "Registrar";
-    Layout = "~/Views/Shared/_Layout.cshtml";
+    Layout = "~/Views/Shared/_Layout.cshtml";    
 }
 
 <h2>Usuario</h2>
-
 
 @using (Html.BeginForm()) 
 {
     <div class="form-horizontal">
         <h4>Nuevo</h4>
         <hr />
-        @Html.ValidationSummary(true)
+        @Html.ValidationSummary()
+        
+        @*<div class="form-group">
+            @Html.LabelFor(model => model.Codigo, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Codigo)                
+            </div>
+        </div>*@
 
         <div class="form-group">
             @Html.LabelFor(model => model.Nombres, new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.EditorFor(model => model.Nombres)
-                @Html.ValidationMessageFor(model => model.Nombres)
             </div>
         </div>
 
         <div class="form-group">
             @Html.LabelFor(model => model.Apellidos, new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.Apellidos)
-                @Html.ValidationMessageFor(model => model.Apellidos)
+                @Html.EditorFor(model => model.Apellidos)            
             </div>
         </div>
 
         <div class="form-group">
             @Html.LabelFor(model => model.Usuario, new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.Usuario)
-                @Html.ValidationMessageFor(model => model.Usuario)
+                @Html.EditorFor(model => model.Usuario)                
             </div>
         </div>
 
         <div class="form-group">
             @Html.LabelFor(model => model.Pass, new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.Pass)
-                @Html.ValidationMessageFor(model => model.Pass)
+                @Html.EditorFor(model => model.Pass)                
             </div>
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.Activo, new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.Estado, new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.Activo)
-                @Html.ValidationMessageFor(model => model.Activo)
+                @Html.CheckBoxFor(Model => Model.Estado)
             </div>
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.PerfilId, new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.Dni, new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.PerfilId)
-                @Html.ValidationMessageFor(model => model.PerfilId)
+                @Html.EditorFor(model => model.Dni)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Perfil.Descripcion, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">                
+                @*@Html.DropDownListFor(model => model.Perfil.Codigo, ViewBag.ListaPerfiles as SelectList)*@
+                <select class="frm_txt" name="cboPerfiles" id="cboPerfiles" style="width:150px"></select>
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Telefono, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Telefono)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Correo, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Correo)
             </div>
         </div>
 
@@ -77,4 +99,30 @@
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
-}
+    <script>
+        $(document).ready(function () {
+
+            cargarPerfiles();
+
+        });
+
+        function cargarPerfiles() {
+            $.get('@Url.Action("ListaPerfiles", "Usuario")')
+            .done(function (data) {                
+                $('#cboPerfiles').append('<option value="0"></option>');
+                $.each(data, function (i, row) {                    
+                    var $option = $('<option>');
+                    $option.val(row.Codigo);
+                    $option.html(row.Descripcion);                    
+                    $('#cboPerfiles').append($option);
+
+                })
+            })
+            .fail(function (data) {
+                console.log('error');
+            });
+     
+        }
+
+    </script>
+    }

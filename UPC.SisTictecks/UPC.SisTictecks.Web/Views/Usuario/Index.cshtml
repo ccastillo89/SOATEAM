@@ -42,9 +42,9 @@
             @Html.DisplayFor(modelItem => item.Perfil.Descripcion)
         </td>
         <td>
-            @Html.ActionLink("Editar", "Editar", new { id = item.Id }) |
-            @Html.ActionLink("Detalle", "Detalles", new { id = item.Id }) |
-            @Html.ActionLink("Eliminar", "Eliminar", new { id = item.Id })
+            @Html.ActionLink("Editar", "Editar", new { id = item.Codigo }) |
+            @Html.ActionLink("Detalle", "Detalles", new { id = item.Codigo }) |
+            @Html.ActionLink("Eliminar", "Eliminar", new { id = item.Codigo })
         </td>
     </tr>
 }

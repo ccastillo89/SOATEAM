@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="4676c3b5-86c7-4ed1-8363-ffd9c7a74049" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings>
+      <CollectionMapping TypeName="System.Collections.Generic.List`1" Category="List" />
+    </CollectionMappings>
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:16005/GestionCitasService.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="GestionCitasService.xsd" MetadataType="Schema" ID="40d0f49c-9b7b-4d3f-9507-45d3181de14d" SourceId="1" SourceUrl="http://localhost:16005/GestionCitasService.svc?xsd=xsd1" />
+    <MetadataFile FileName="GestionCitasService.disco" MetadataType="Disco" ID="23db4ad6-ef44-4f67-bcef-b98c37b5f255" SourceId="1" SourceUrl="http://localhost:16005/GestionCitasService.svc?disco" />
+    <MetadataFile FileName="GestionCitasService.wsdl" MetadataType="Wsdl" ID="ab786fdc-766f-4309-9731-53b557591525" SourceId="1" SourceUrl="http://localhost:16005/GestionCitasService.svc?wsdl" />
+    <MetadataFile FileName="GestionCitasService1.xsd" MetadataType="Schema" ID="7ae13e9b-d8fa-4d16-84d7-dbdb4063585b" SourceId="1" SourceUrl="http://localhost:16005/GestionCitasService.svc?xsd=xsd2" />
+    <MetadataFile FileName="GestionCitasService2.xsd" MetadataType="Schema" ID="a0742cae-ea9a-413b-91a7-c038d8ecef71" SourceId="1" SourceUrl="http://localhost:16005/GestionCitasService.svc?xsd=xsd0" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

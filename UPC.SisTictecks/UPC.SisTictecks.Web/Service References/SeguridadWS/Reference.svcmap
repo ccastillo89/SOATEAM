@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="f2e57f84-9060-4799-9c2f-46120fcf96cc" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings>
+      <CollectionMapping TypeName="System.Collections.Generic.List`1" Category="List" />
+    </CollectionMappings>
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:16005/SeguridadService.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="SeguridadService.disco" MetadataType="Disco" ID="11dd014e-0f09-47dc-9d94-647946531afc" SourceId="1" SourceUrl="http://localhost:16005/SeguridadService.svc?disco" />
+    <MetadataFile FileName="SeguridadService.xsd" MetadataType="Schema" ID="be6d1686-0fb0-4e6a-ab84-6cf8cd796595" SourceId="1" SourceUrl="http://localhost:16005/SeguridadService.svc?xsd=xsd1" />
+    <MetadataFile FileName="SeguridadService.wsdl" MetadataType="Wsdl" ID="24ae706c-fc01-4b60-98ae-00e4aed19410" SourceId="1" SourceUrl="http://localhost:16005/SeguridadService.svc?wsdl" />
+    <MetadataFile FileName="SeguridadService1.xsd" MetadataType="Schema" ID="2cc63856-64b3-451b-aa6c-e6019013bc79" SourceId="1" SourceUrl="http://localhost:16005/SeguridadService.svc?xsd=xsd2" />
+    <MetadataFile FileName="SeguridadService2.xsd" MetadataType="Schema" ID="dde54b7e-e1df-4c89-8b83-0c03ed7a4d64" SourceId="1" SourceUrl="http://localhost:16005/SeguridadService.svc?xsd=xsd0" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>
