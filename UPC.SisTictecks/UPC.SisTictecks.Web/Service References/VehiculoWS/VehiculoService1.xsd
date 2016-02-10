@@ -69,6 +69,49 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
+  <xs:element name="ListarVehiculosPorUsuario">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="codigoUsuario" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ListarVehiculosPorUsuarioResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/UPC.SisTictecks.EL" minOccurs="0" name="ListarVehiculosPorUsuarioResult" nillable="true" type="q7:ArrayOfVehiculoEN" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ValidarPlacaExistente">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strPlaca" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ValidarPlacaExistenteResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ValidarPlacaExistenteResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ValidarKMMenorAnterior">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="kilometros" type="xs:int" />
+        <xs:element minOccurs="0" name="idVehiculo" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ValidarKMMenorAnteriorResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ValidarKMMenorAnteriorResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
   <xs:element name="ListarMarcas">
     <xs:complexType>
       <xs:sequence />
@@ -77,7 +120,7 @@
   <xs:element name="ListarMarcasResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/UPC.SisTictecks.EL" minOccurs="0" name="ListarMarcasResult" nillable="true" type="q7:ArrayOfMarcaEN" />
+        <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/UPC.SisTictecks.EL" minOccurs="0" name="ListarMarcasResult" nillable="true" type="q8:ArrayOfMarcaEN" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -91,7 +134,7 @@
   <xs:element name="ObtenerMarcaResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/UPC.SisTictecks.EL" minOccurs="0" name="ObtenerMarcaResult" nillable="true" type="q8:MarcaEN" />
+        <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/UPC.SisTictecks.EL" minOccurs="0" name="ObtenerMarcaResult" nillable="true" type="q9:MarcaEN" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -103,7 +146,21 @@
   <xs:element name="ListarModelosResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/UPC.SisTictecks.EL" minOccurs="0" name="ListarModelosResult" nillable="true" type="q9:ArrayOfModeloEN" />
+        <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/UPC.SisTictecks.EL" minOccurs="0" name="ListarModelosResult" nillable="true" type="q10:ArrayOfModeloEN" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ListarModelosXMarca">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q11="http://schemas.datacontract.org/2004/07/UPC.SisTictecks.EL" minOccurs="0" name="marca" nillable="true" type="q11:MarcaEN" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ListarModelosXMarcaResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q12="http://schemas.datacontract.org/2004/07/UPC.SisTictecks.EL" minOccurs="0" name="ListarModelosXMarcaResult" nillable="true" type="q12:ArrayOfModeloEN" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -117,7 +174,7 @@
   <xs:element name="ObtenerModeloResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/UPC.SisTictecks.EL" minOccurs="0" name="ObtenerModeloResult" nillable="true" type="q10:ModeloEN" />
+        <xs:element xmlns:q13="http://schemas.datacontract.org/2004/07/UPC.SisTictecks.EL" minOccurs="0" name="ObtenerModeloResult" nillable="true" type="q13:ModeloEN" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -129,7 +186,7 @@
   <xs:element name="ListarColoresResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q11="http://schemas.datacontract.org/2004/07/UPC.SisTictecks.EL" minOccurs="0" name="ListarColoresResult" nillable="true" type="q11:ArrayOfColorEN" />
+        <xs:element xmlns:q14="http://schemas.datacontract.org/2004/07/UPC.SisTictecks.EL" minOccurs="0" name="ListarColoresResult" nillable="true" type="q14:ArrayOfColorEN" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -143,7 +200,7 @@
   <xs:element name="ObtenerColorResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q12="http://schemas.datacontract.org/2004/07/UPC.SisTictecks.EL" minOccurs="0" name="ObtenerColorResult" nillable="true" type="q12:ColorEN" />
+        <xs:element xmlns:q15="http://schemas.datacontract.org/2004/07/UPC.SisTictecks.EL" minOccurs="0" name="ObtenerColorResult" nillable="true" type="q15:ColorEN" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>

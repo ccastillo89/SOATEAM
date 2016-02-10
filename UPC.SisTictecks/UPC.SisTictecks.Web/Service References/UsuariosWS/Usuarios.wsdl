@@ -64,6 +64,12 @@
   <wsdl:message name="IUsuariosService_ValidarCorreoExistente_OutputMessage">
     <wsdl:part name="parameters" element="tns:ValidarCorreoExistenteResponse" />
   </wsdl:message>
+  <wsdl:message name="IUsuariosService_ObtenerPerfil_InputMessage">
+    <wsdl:part name="parameters" element="tns:ObtenerPerfil" />
+  </wsdl:message>
+  <wsdl:message name="IUsuariosService_ObtenerPerfil_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ObtenerPerfilResponse" />
+  </wsdl:message>
   <wsdl:message name="IUsuariosService_ListarPerfiles_InputMessage">
     <wsdl:part name="parameters" element="tns:ListarPerfiles" />
   </wsdl:message>
@@ -103,6 +109,10 @@
     <wsdl:operation name="ValidarCorreoExistente">
       <wsdl:input wsaw:Action="http://tempuri.org/IUsuariosService/ValidarCorreoExistente" message="tns:IUsuariosService_ValidarCorreoExistente_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IUsuariosService/ValidarCorreoExistenteResponse" message="tns:IUsuariosService_ValidarCorreoExistente_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerPerfil">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUsuariosService/ObtenerPerfil" message="tns:IUsuariosService_ObtenerPerfil_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUsuariosService/ObtenerPerfilResponse" message="tns:IUsuariosService_ObtenerPerfil_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="ListarPerfiles">
       <wsdl:input wsaw:Action="http://tempuri.org/IUsuariosService/ListarPerfiles" message="tns:IUsuariosService_ListarPerfiles_InputMessage" />
@@ -182,6 +192,15 @@
     </wsdl:operation>
     <wsdl:operation name="ValidarCorreoExistente">
       <soap:operation soapAction="http://tempuri.org/IUsuariosService/ValidarCorreoExistente" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerPerfil">
+      <soap:operation soapAction="http://tempuri.org/IUsuariosService/ObtenerPerfil" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

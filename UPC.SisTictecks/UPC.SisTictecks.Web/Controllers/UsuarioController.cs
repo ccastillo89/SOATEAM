@@ -12,27 +12,26 @@ namespace UPC.SisTictecks.Web.Controllers
     {        
         private UsuariosWS.UsuariosServiceClient UsuariosProxy = new UsuariosWS.UsuariosServiceClient();
 
-        
         //GET: /Usuario/
         public ActionResult Index()
         {
-          
             List<UsuarioEN> listaUsuarios;
             listaUsuarios = UsuariosProxy.ListarUsuarios().ToList();
             return View(listaUsuarios);
         }
 
-        ////
-        //// GET: /Usuario/Detalles/1
-        //public ActionResult Detalles(int id)
-        //{
-        //    UsuarioEN usuario = usuarioBL.Obtener(id);
-        //    if (usuario == null)
-        //    {
-        //        return HttpNotFound();
-        //    }
-        //    return View(usuario);
-        //}
+        //
+        // GET: /Usuario/Detalles/1
+        public ActionResult Detalles(int id)
+        {
+            UsuarioEN usuario;
+            usuario = UsuariosProxy.ObtenerUsuario(id);
+            if (usuario == null)
+            {
+                return HttpNotFound();
+            }
+            return View(usuario);
+        }
 
         //
         // GET: /Usuario/Registrar
@@ -91,13 +90,11 @@ namespace UPC.SisTictecks.Web.Controllers
             return View(usuario);
         }
 
-
         //
         // POST: /Usuario/Editar/5
         [HttpPost]
         public ActionResult Editar(UsuarioEN usuarioEN,int cboPerfiles)
         {
-            UsuarioEN usuario = new UsuarioEN();
             if (ModelState.IsValid)
             {
                 try
@@ -116,7 +113,6 @@ namespace UPC.SisTictecks.Web.Controllers
             return RedirectToAction("Index");
         }
 
-       
         // GET: /Usuario/Eliminar/5
         public ActionResult Eliminar(int id)
         {
@@ -131,23 +127,6 @@ namespace UPC.SisTictecks.Web.Controllers
                         
             return RedirectToAction("Index");
         }
-
-        ////
-        //// POST: /Usuario/Eliminar/5
-        //[HttpPost]
-        //public ActionResult Eliminar(UsuarioEN usuarioEN)
-        //{
-        //    try
-        //    {
-        //        int id = usuarioEN.Id;
-        //        bool correcto = usuarioBL.Eliminar(id);
-        //        return RedirectToAction("Index");
-        //    }
-        //    catch
-        //    {
-        //        return View();
-        //    }
-        //}
 
         public JsonResult ListaPerfiles()
         {

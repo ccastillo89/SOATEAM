@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using UPC.SisTictecks.EL;
+using System.ServiceModel;
 
 namespace UPC.SisTictecks.Web.Controllers
 {
@@ -14,86 +16,146 @@ namespace UPC.SisTictecks.Web.Controllers
         // GET: /GestionCitas/
         public ActionResult Index()
         {
-            return View(GestionCitasProxy.ListarCitas().ToList());
+            List<CitaEN> listaCitas;
+            listaCitas = GestionCitasProxy.ListarCitas().ToList();
+            return View(listaCitas);
         }
 
         //
-        // GET: /GestionCitas/Details/5
-        public ActionResult Details(int id)
+        // GET: /GestionCitas/Detalle/5
+        public ActionResult Detalle(int id)
+        {
+            CitaEN cita;
+            cita = GestionCitasProxy.ObtenerCita(id);
+            if (cita == null)
+            {
+                return HttpNotFound();
+            }
+            return View(cita);
+        }
+
+        //
+        // GET: /GestionCitas/Registrar
+        public ActionResult Registrar()
         {
             return View();
         }
 
         //
-        // GET: /GestionCitas/Create
-        public ActionResult Create()
-        {
-            return View();
-        }
-
-        //
-        // POST: /GestionCitas/Create
+        // POST: /GestionCitas/Registrar
         [HttpPost]
-        public ActionResult Create(FormCollection collection)
+        public ActionResult Registrar(CitaEN citaEN, int cboServicio, int cboTaller, int cboUsuario, int cboVehiculo)
         {
             try
             {
-                // TODO: Add insert logic here
+                if (ModelState.IsValid)
+                {
+                    try
+                    {
+                        citaEN.Servicio = new ServicioEN { Codigo = cboServicio };
+                        citaEN.Usuario = new UsuarioEN { Codigo = cboUsuario };
+                        citaEN.Vehiculo = new VehiculoEN { Codigo = cboVehiculo };
+                        citaEN.Taller = new TallerEN { Codigo = cboTaller };
+                        citaEN = GestionCitasProxy.CrearCita(citaEN);
+                    }
+                    catch (FaultException<RepetidoException> fe)
+                    {
+                        ModelState.AddModelError("MensajeError", fe.Message + ": " + fe.Detail.Mensaje);
+                        return View(citaEN);
+                    }
 
+                }
                 return RedirectToAction("Index");
             }
             catch
             {
-                return View();
+                ModelState.AddModelError("MensajeError", "Ocurrió un error al grabar el registro.");
+                return View(citaEN);
             }
         }
 
         //
-        // GET: /GestionCitas/Edit/5
-        public ActionResult Edit(int id)
+        // GET: /GestionCitas/Editar/5
+        public ActionResult Editar(int id)
         {
-            return View();
+            CitaEN citaEN = new CitaEN();
+            if (ModelState.IsValid)
+            {
+                try
+                {
+                    citaEN = GestionCitasProxy.ObtenerCita(id);
+                }
+                catch (FaultException<RepetidoException> fe)
+                {
+                    ModelState.AddModelError("MensajeError", fe.Message + ": " + fe.Detail.Mensaje);
+                }
+            }
+            return View(citaEN);
         }
 
         //
-        // POST: /GestionCitas/Edit/5
+        // POST: /GestionCitas/Editar/5
         [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
+        public ActionResult Editar(CitaEN citaEN, int cboServicio, int cboTaller, int cboUsuario, int cboVehiculo)
+        {
+            if (ModelState.IsValid)
+            {
+                try
+                {
+                    citaEN.Servicio = new ServicioEN { Codigo = cboServicio };
+                    citaEN.Usuario = new UsuarioEN { Codigo = cboUsuario };
+                    citaEN.Vehiculo = new VehiculoEN { Codigo = cboVehiculo };
+                    citaEN.Taller = new TallerEN { Codigo = cboTaller };
+                    GestionCitasProxy.ModificarCita(citaEN);
+                }
+                catch (FaultException<RepetidoException> fe)
+                {
+                    ModelState.AddModelError("MensajeError", fe.Message + ": " + fe.Detail.Mensaje);
+                    return View(citaEN);
+                }
+            }
+
+            return RedirectToAction("Index");
+        }
+
+        //
+        // GET: /GestionCitas/Eliminar/5
+        public ActionResult Eliminar(int id)
         {
             try
             {
-                // TODO: Add update logic here
-
-                return RedirectToAction("Index");
+                GestionCitasProxy.EliminarCita(id);
             }
-            catch
+            catch (FaultException<RepetidoException> fe)
             {
-                return View();
+                ModelState.AddModelError("MensajeError", fe.Message + ": " + fe.Detail.Mensaje);
             }
+            return RedirectToAction("Index");
         }
 
-        //
-        // GET: /GestionCitas/Delete/5
-        public ActionResult Delete(int id)
+
+        public JsonResult ListaVehiculos()
         {
-            return View();
+            VehiculoWS.VehiculoServiceClient _Proxy = new VehiculoWS.VehiculoServiceClient();
+            return Json(_Proxy.ListarVehiculos().ToList(), JsonRequestBehavior.AllowGet);
         }
 
-        //
-        // POST: /GestionCitas/Delete/5
-        [HttpPost]
-        public ActionResult Delete(int id, FormCollection collection)
+        public JsonResult ListaServicios()
         {
-            try
-            {
-                // TODO: Add delete logic here
-
-                return RedirectToAction("Index");
-            }
-            catch
-            {
-                return View();
-            }
+            ServiciosWS.ServicioServiceClient _proxy = new ServiciosWS.ServicioServiceClient();
+            return Json(_proxy.ListarServicios().ToList(), JsonRequestBehavior.AllowGet);
         }
+
+        public JsonResult ListaTalleres()
+        {
+            TalleresWS.TallerServiceClient _proxy = new TalleresWS.TallerServiceClient();
+            return Json(_proxy.ListarTalleres().ToList(), JsonRequestBehavior.AllowGet);
+        }
+
+        protected override void Dispose(bool disposing)
+        {
+            base.Dispose(disposing);
+        }
+
     }
 }

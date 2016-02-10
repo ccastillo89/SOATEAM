@@ -62,6 +62,12 @@ namespace UPC.SisTictecks.Web.UsuariosWS {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUsuariosService/ValidarCorreoExistente", ReplyAction="http://tempuri.org/IUsuariosService/ValidarCorreoExistenteResponse")]
         System.Threading.Tasks.Task<bool> ValidarCorreoExistenteAsync(string correo);
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUsuariosService/ObtenerPerfil", ReplyAction="http://tempuri.org/IUsuariosService/ObtenerPerfilResponse")]
+        UPC.SisTictecks.EL.PerfilEN ObtenerPerfil(int codigo);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUsuariosService/ObtenerPerfil", ReplyAction="http://tempuri.org/IUsuariosService/ObtenerPerfilResponse")]
+        System.Threading.Tasks.Task<UPC.SisTictecks.EL.PerfilEN> ObtenerPerfilAsync(int codigo);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUsuariosService/ListarPerfiles", ReplyAction="http://tempuri.org/IUsuariosService/ListarPerfilesResponse")]
         System.Collections.Generic.List<UPC.SisTictecks.EL.PerfilEN> ListarPerfiles();
         
@@ -150,6 +156,14 @@ namespace UPC.SisTictecks.Web.UsuariosWS {
         
         public System.Threading.Tasks.Task<bool> ValidarCorreoExistenteAsync(string correo) {
             return base.Channel.ValidarCorreoExistenteAsync(correo);
+        }
+        
+        public UPC.SisTictecks.EL.PerfilEN ObtenerPerfil(int codigo) {
+            return base.Channel.ObtenerPerfil(codigo);
+        }
+        
+        public System.Threading.Tasks.Task<UPC.SisTictecks.EL.PerfilEN> ObtenerPerfilAsync(int codigo) {
+            return base.Channel.ObtenerPerfilAsync(codigo);
         }
         
         public System.Collections.Generic.List<UPC.SisTictecks.EL.PerfilEN> ListarPerfiles() {

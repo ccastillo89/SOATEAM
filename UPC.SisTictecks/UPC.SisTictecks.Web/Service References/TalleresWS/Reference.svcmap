@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="7bd68f08-9260-4cb4-b584-8752ddeadb2d" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings>
+      <CollectionMapping TypeName="System.Collections.Generic.List`1" Category="List" />
+    </CollectionMappings>
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:16005/TallerService.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="TallerService.disco" MetadataType="Disco" ID="a8bcc3ad-e2f3-4d56-b8d1-f68f1e951b34" SourceId="1" SourceUrl="http://localhost:16005/TallerService.svc?disco" />
+    <MetadataFile FileName="TallerService.xsd" MetadataType="Schema" ID="cb030912-8069-4b38-92ab-365bafa06b88" SourceId="1" SourceUrl="http://localhost:16005/TallerService.svc?xsd=xsd2" />
+    <MetadataFile FileName="TallerService1.xsd" MetadataType="Schema" ID="634952ab-9600-4b2a-bd53-a1e3f96b670c" SourceId="1" SourceUrl="http://localhost:16005/TallerService.svc?xsd=xsd1" />
+    <MetadataFile FileName="TallerService2.xsd" MetadataType="Schema" ID="5d8e3c88-cebe-4a80-8e13-27e98c8e469f" SourceId="1" SourceUrl="http://localhost:16005/TallerService.svc?xsd=xsd0" />
+    <MetadataFile FileName="TallerService.wsdl" MetadataType="Wsdl" ID="fe8bae50-748b-4151-ab03-1bb3fb11f0a4" SourceId="1" SourceUrl="http://localhost:16005/TallerService.svc?wsdl" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

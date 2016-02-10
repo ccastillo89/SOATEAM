@@ -10,6 +10,7 @@
       <xs:element minOccurs="0" name="Marca" nillable="true" type="tns:MarcaEN" />
       <xs:element minOccurs="0" name="Modelo" nillable="true" type="tns:ModeloEN" />
       <xs:element minOccurs="0" name="Placa" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Usuario" nillable="true" type="tns:UsuarioEN" />
     </xs:sequence>
   </xs:complexType>
   <xs:element name="VehiculoEN" nillable="true" type="tns:VehiculoEN" />
@@ -35,6 +36,37 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="ModeloEN" nillable="true" type="tns:ModeloEN" />
+  <xs:complexType name="UsuarioEN">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Apellidos" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Codigo" type="xs:int" />
+      <xs:element minOccurs="0" name="Correo" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Dni" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Estado" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Nombres" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Pass" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Perfil" nillable="true" type="tns:PerfilEN" />
+      <xs:element minOccurs="0" name="Telefono" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Usuario" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="login" nillable="true" type="tns:Login" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="UsuarioEN" nillable="true" type="tns:UsuarioEN" />
+  <xs:complexType name="PerfilEN">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Codigo" type="xs:int" />
+      <xs:element minOccurs="0" name="Descripcion" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Estado" type="xs:boolean" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="PerfilEN" nillable="true" type="tns:PerfilEN" />
+  <xs:complexType name="Login">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Clave" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Usuario" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Login" nillable="true" type="tns:Login" />
   <xs:complexType name="RepetidoException">
     <xs:sequence>
       <xs:element minOccurs="0" name="Codigo" type="xs:int" />

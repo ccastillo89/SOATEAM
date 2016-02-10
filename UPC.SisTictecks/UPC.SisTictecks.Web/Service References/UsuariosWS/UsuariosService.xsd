@@ -97,6 +97,20 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
+  <xs:element name="ObtenerPerfil">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="codigo" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ObtenerPerfilResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/UPC.SisTictecks.EL" minOccurs="0" name="ObtenerPerfilResult" nillable="true" type="q7:PerfilEN" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
   <xs:element name="ListarPerfiles">
     <xs:complexType>
       <xs:sequence />
@@ -105,7 +119,7 @@
   <xs:element name="ListarPerfilesResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/UPC.SisTictecks.EL" minOccurs="0" name="ListarPerfilesResult" nillable="true" type="q7:ArrayOfPerfilEN" />
+        <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/UPC.SisTictecks.EL" minOccurs="0" name="ListarPerfilesResult" nillable="true" type="q8:ArrayOfPerfilEN" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
