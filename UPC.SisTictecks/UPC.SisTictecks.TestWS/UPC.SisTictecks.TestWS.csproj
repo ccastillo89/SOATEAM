@@ -53,8 +53,14 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
+    <Compile Include="GestionCitasTest.cs" />
     <Compile Include="SeguridadTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Service References\GestionCitasWS\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
     <Compile Include="Service References\GestionUsuariosWS\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -65,11 +71,23 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
+    <Compile Include="Service References\ServiciosWS\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\TalleresWS\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
     <Compile Include="Service References\VehiculoWS\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
+    <Compile Include="ServiciosTest.cs" />
+    <Compile Include="TalleresTest.cs" />
     <Compile Include="UsuariosTest.cs" />
     <Compile Include="VehiculoTest.cs" />
   </ItemGroup>
@@ -78,6 +96,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
+    <None Include="Properties\DataSources\UPC.SisTictecks.EL.CitaEN.datasource" />
     <None Include="Properties\DataSources\UPC.SisTictecks.EL.ColorEN.datasource" />
     <None Include="Properties\DataSources\UPC.SisTictecks.EL.MarcaEN.datasource" />
     <None Include="Properties\DataSources\UPC.SisTictecks.EL.ModeloEN.datasource" />
@@ -86,6 +105,16 @@
     <None Include="Properties\DataSources\UPC.SisTictecks.EL.TallerEN.datasource" />
     <None Include="Properties\DataSources\UPC.SisTictecks.EL.UsuarioEN.datasource" />
     <None Include="Properties\DataSources\UPC.SisTictecks.EL.VehiculoEN.datasource" />
+    <None Include="Service References\GestionCitasWS\GestionCitasService.wsdl" />
+    <None Include="Service References\GestionCitasWS\GestionCitasService.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\GestionCitasWS\GestionCitasService1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\GestionCitasWS\GestionCitasService2.xsd">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Service References\GestionUsuariosWS\Usuarios.wsdl" />
     <None Include="Service References\GestionUsuariosWS\UsuariosService.xsd">
       <SubType>Designer</SubType>
@@ -106,6 +135,26 @@
     <None Include="Service References\SeguridadWS\SeguridadService2.xsd">
       <SubType>Designer</SubType>
     </None>
+    <None Include="Service References\ServiciosWS\ServicioService.wsdl" />
+    <None Include="Service References\ServiciosWS\ServicioService.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ServiciosWS\ServicioService1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ServiciosWS\ServicioService2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\TalleresWS\TallerService.wsdl" />
+    <None Include="Service References\TalleresWS\TallerService.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\TalleresWS\TallerService1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\TalleresWS\TallerService2.xsd">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Service References\VehiculoWS\VehiculoService.wsdl" />
     <None Include="Service References\VehiculoWS\VehiculoService.xsd">
       <SubType>Designer</SubType>
@@ -124,8 +173,11 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <WCFMetadataStorage Include="Service References\GestionCitasWS\" />
     <WCFMetadataStorage Include="Service References\GestionUsuariosWS\" />
     <WCFMetadataStorage Include="Service References\SeguridadWS\" />
+    <WCFMetadataStorage Include="Service References\ServiciosWS\" />
+    <WCFMetadataStorage Include="Service References\TalleresWS\" />
     <WCFMetadataStorage Include="Service References\VehiculoWS\" />
   </ItemGroup>
   <ItemGroup>
@@ -169,6 +221,51 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Service References\SeguridadWS\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\GestionCitasWS\GestionCitasService.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\GestionCitasWS\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\GestionCitasWS\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\GestionCitasWS\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ServiciosWS\ServicioService.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ServiciosWS\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ServiciosWS\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ServiciosWS\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\TalleresWS\TallerService.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\TalleresWS\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\TalleresWS\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\TalleresWS\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
