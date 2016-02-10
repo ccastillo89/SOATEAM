@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Runtime.Serialization;
+using System.ComponentModel.DataAnnotations;
 
 namespace UPC.SisTictecks.EL
 {
@@ -13,6 +14,7 @@ namespace UPC.SisTictecks.EL
         [DataMember]
         public int Codigo { get; set; }
         [DataMember]
+        [Display(Name = "Servicio")]
         public string Descripcion { get; set; }
         [DataMember]
         public decimal Valor { get; set; }

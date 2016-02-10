@@ -12,6 +12,7 @@ namespace UPC.SisTictecks.SOAPGestionTicketsWS
 
     public class GestionCitasService : IGestionCitasService
     {
+
         private CitaDAO citaDAO = null;
 
         private CitaDAO CitaDAO
@@ -27,6 +28,49 @@ namespace UPC.SisTictecks.SOAPGestionTicketsWS
 
         public CitaEN CrearCita(CitaEN citaCrear)
         {
+            string codigoNroCita = GenerarCodigoCitaNuevo();
+            citaCrear.NroCita = codigoNroCita;
+
+            //Obtener hora de termino calculada
+            ServicioService proxy = new ServicioService();
+            ServicioEN servicioAsociado = null;
+            servicioAsociado = proxy.ObtenerServicio(citaCrear.Servicio.Codigo);
+
+            int anio = Convert.ToInt32(citaCrear.Fecha.Substring(6, 4));
+            int mes = Convert.ToInt32(citaCrear.Fecha.Substring(3, 2));
+            int dia = Convert.ToInt32(citaCrear.Fecha.Substring(0, 2));
+            int hhInicio;
+            int hhFinal; int mmFinal = 0; int ssFinal = 0;
+            DateTime horaFinal;
+
+            hhInicio = citaCrear.HoraInicio.Hour;
+            hhFinal = hhInicio + servicioAsociado.TiempoEstimado;
+
+            horaFinal = new DateTime(anio, mes, dia, hhFinal, mmFinal, ssFinal);
+            citaCrear.HoraFin = horaFinal;
+
+            //Estado
+            citaCrear.Estado = 1; //Pendiente
+
+            //validar si el horario ya no esta disponible
+            bool bEstaDisponibleHorario = false;
+            bEstaDisponibleHorario = ValidarFechaHoraCitaXTaller( citaCrear.Fecha, 
+                                                                  citaCrear.HoraInicio,
+                                                                  citaCrear.HoraFin,
+                                                                  citaCrear.Taller.Codigo, citaCrear.Usuario.Codigo);
+
+            if (bEstaDisponibleHorario)
+            {
+                throw new FaultException<RepetidoException>(new RepetidoException()
+                {
+                    Codigo = 1,
+                    Mensaje = "La fecha y hora seleccionada no esta disponible."
+                },
+                new FaultReason("Validación de negocio"));
+            }
+
+            //
+
             return CitaDAO.Crear(citaCrear);
         }
 
@@ -57,16 +101,33 @@ namespace UPC.SisTictecks.SOAPGestionTicketsWS
             return ejecuto;
         }
 
+        public bool ValidarFechaHoraCitaXTaller(string fecha, DateTime horaIni, DateTime horaFin, int idTaller, int idUsuario)
+        {
+            return CitaDAO.ValidarFechaHoraCitaXTaller(fecha, horaIni, horaFin, idTaller, idUsuario);
+        }
+
         public List<CitaEN> ListarCitas()
         {
-			//return CitaDAO.ListarTodos().ToList();
-
-            List<CitaEN> lista = new List<CitaEN>();
-            lista.Add(new CitaEN { Codigo = 1, NroCita = "11111", Fecha = "01/02/2016", HoraInicio = DateTime.Today, HoraFin = DateTime.Today, Observacion = "MMMMMMM", Estado=true});
-            lista.Add(new CitaEN { Codigo = 2, NroCita = "2222", Fecha = "01/03/2016", HoraInicio = DateTime.Today, HoraFin = DateTime.Today, Observacion = "PPPPPP", Estado = true });
-            lista.Add(new CitaEN { Codigo = 3, NroCita = "3333", Fecha = "01/04/2016", HoraInicio = DateTime.Today, HoraFin = DateTime.Today, Observacion = "AAAAA", Estado = true });
-            
-            return lista;
+            return CitaDAO.ListarTodos().ToList();
         }
+
+        public List<CitaEN> ListarCitasPendientesDeAtencion(string codigoUsuario)
+        {
+            var codUsuario = Convert.ToInt32(codigoUsuario);
+            return CitaDAO.ListarCitasPendientesDeAtencion(codUsuario).ToList();
+        }
+
+        public List<CitaEN> ListarHistorialDeCitas(string codigoUsuario)
+        {
+            var codUsuario = Convert.ToInt32(codigoUsuario);
+            return CitaDAO.ListarHistorialDeCitas(codUsuario).ToList();
+        }
+
+        private string GenerarCodigoCitaNuevo()
+        {
+            string cadena = "R" + DateTime.Now.ToString("yyyyMMddHHmmssffff");
+            return cadena.Substring(0, 17);
+        }
+
     }
 }

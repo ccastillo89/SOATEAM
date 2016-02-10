@@ -32,6 +32,18 @@ namespace UPC.SisTictecks.SOAPGestionTicketsWS
         [OperationContract]
         List<CitaEN> ListarCitas();
 
+        [FaultContract(typeof(RepetidoException))]
+        [OperationContract]
+        bool ValidarFechaHoraCitaXTaller(string fecha, DateTime horaIni, DateTime horaFin,
+                                        int idTaller, int idUsuario);
+
+        [FaultContract(typeof(RepetidoException))]
+        [OperationContract]
+        List<CitaEN> ListarCitasPendientesDeAtencion(string codigoUsuario);
+
+        [FaultContract(typeof(RepetidoException))]
+        [OperationContract]
+        List<CitaEN> ListarHistorialDeCitas(string codigoUsuario);
 
     }
 }

@@ -14,5 +14,6 @@
     <many-to-one name="Marca" column="IdMarca" />
     <many-to-one name="Modelo" column="IdModelo" />
     <many-to-one name="Color" column="IdColor" />
+    <many-to-one name="Usuario" column="IdUsuario" />
   </class>
 </hibernate-mapping>

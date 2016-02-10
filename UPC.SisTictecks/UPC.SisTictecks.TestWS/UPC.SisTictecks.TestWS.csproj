@@ -53,15 +53,9 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
-    <Compile Include="ParametrosTest.cs" />
     <Compile Include="SeguridadTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Service References\GestionUsuariosWS\Reference.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Compile>
-    <Compile Include="Service References\ParametrosWS\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
@@ -102,16 +96,6 @@
     <None Include="Service References\GestionUsuariosWS\UsuariosService2.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\ParametrosWS\ParametrosService.wsdl" />
-    <None Include="Service References\ParametrosWS\ParametrosService.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\ParametrosWS\ParametrosService1.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\ParametrosWS\ParametrosService2.xsd">
-      <SubType>Designer</SubType>
-    </None>
     <None Include="Service References\SeguridadWS\SeguridadService.wsdl" />
     <None Include="Service References\SeguridadWS\SeguridadService.xsd">
       <SubType>Designer</SubType>
@@ -141,7 +125,6 @@
   </ItemGroup>
   <ItemGroup>
     <WCFMetadataStorage Include="Service References\GestionUsuariosWS\" />
-    <WCFMetadataStorage Include="Service References\ParametrosWS\" />
     <WCFMetadataStorage Include="Service References\SeguridadWS\" />
     <WCFMetadataStorage Include="Service References\VehiculoWS\" />
   </ItemGroup>
@@ -171,21 +154,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Service References\GestionUsuariosWS\Reference.svcmap">
-      <Generator>WCF Proxy Generator</Generator>
-      <LastGenOutput>Reference.cs</LastGenOutput>
-    </None>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Service References\ParametrosWS\ParametrosService.disco" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Service References\ParametrosWS\configuration91.svcinfo" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Service References\ParametrosWS\configuration.svcinfo" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Service References\ParametrosWS\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>

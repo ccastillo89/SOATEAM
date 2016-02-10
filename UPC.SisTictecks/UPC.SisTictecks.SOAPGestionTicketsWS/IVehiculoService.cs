@@ -35,6 +35,18 @@ namespace UPC.SisTictecks.SOAPGestionTicketsWS
         [OperationContract]
         List<VehiculoEN> ListarVehiculos();
 
+        [FaultContract(typeof(RepetidoException))]
+        [OperationContract]
+        List<VehiculoEN> ListarVehiculosPorUsuario(string codigoUsuario);
+
+        [FaultContract(typeof(RepetidoException))]
+        [OperationContract]
+        bool ValidarPlacaExistente(string strPlaca);
+
+        [FaultContract(typeof(RepetidoException))]
+        [OperationContract]
+        bool ValidarKMMenorAnterior(int kilometros, int idVehiculo);
+
         #endregion
         
         #region "Marca"

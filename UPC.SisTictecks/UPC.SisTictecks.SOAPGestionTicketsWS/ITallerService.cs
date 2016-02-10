@@ -8,23 +8,9 @@ using UPC.SisTictecks.EL;
 
 namespace UPC.SisTictecks.SOAPGestionTicketsWS
 {
-
     [ServiceContract]
-    public interface IParametrosService
+    public interface ITallerService
     {
-        #region "Servicios"
-
-        [FaultContract(typeof(RepetidoException))]
-        [OperationContract]
-        List<ServicioEN> ListarServicios();
-
-        [FaultContract(typeof(RepetidoException))]
-        [OperationContract]
-        ServicioEN ObtenerServicio(int codigo);
-
-        #endregion
-
-        #region "Taller"
 
         [FaultContract(typeof(RepetidoException))]
         [OperationContract]
@@ -33,8 +19,6 @@ namespace UPC.SisTictecks.SOAPGestionTicketsWS
         [FaultContract(typeof(RepetidoException))]
         [OperationContract]
         TallerEN ObtenerTaller(int codigo);
-
-        #endregion
 
     }
 }

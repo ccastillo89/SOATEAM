@@ -9,38 +9,8 @@ using UPC.SisTictecks.DAL;
 
 namespace UPC.SisTictecks.SOAPGestionTicketsWS
 {
-
-    public class ParametrosService : IParametrosService
+    public class TallerService : ITallerService
     {
-
-        #region "Servicios"
-
-        private ServicioDAO servicioDAO = null;
-        private ServicioDAO ServicioDAO
-        {
-            get
-            {
-                if (servicioDAO == null)
-                    servicioDAO = new ServicioDAO();
-
-                return servicioDAO;
-            }
-        }
-
-        public List<ServicioEN> ListarServicios()
-        {
-            return ServicioDAO.ListarTodos().ToList();
-        }
-
-        public ServicioEN ObtenerServicio(int codigo)
-        {
-            return ServicioDAO.Obtener(codigo);
-        }
-
-        #endregion
-
-        #region "Taller"
-
         private TallerDAO tallerDAO = null;
         private TallerDAO TallerDAO
         {
@@ -62,9 +32,6 @@ namespace UPC.SisTictecks.SOAPGestionTicketsWS
         {
             return TallerDAO.Obtener(codigo);
         }
-
-        #endregion
-
 
     }
 }
