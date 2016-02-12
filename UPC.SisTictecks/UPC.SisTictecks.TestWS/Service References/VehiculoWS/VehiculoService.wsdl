@@ -52,6 +52,33 @@
   <wsdl:message name="IVehiculoService_ListarVehiculos_RepetidoExceptionFault_FaultMessage">
     <wsdl:part xmlns:q5="http://schemas.datacontract.org/2004/07/UPC.SisTictecks.EL" name="detail" element="q5:RepetidoException" />
   </wsdl:message>
+  <wsdl:message name="IVehiculoService_ListarVehiculosPorUsuario_InputMessage">
+    <wsdl:part name="parameters" element="tns:ListarVehiculosPorUsuario" />
+  </wsdl:message>
+  <wsdl:message name="IVehiculoService_ListarVehiculosPorUsuario_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ListarVehiculosPorUsuarioResponse" />
+  </wsdl:message>
+  <wsdl:message name="IVehiculoService_ListarVehiculosPorUsuario_RepetidoExceptionFault_FaultMessage">
+    <wsdl:part xmlns:q6="http://schemas.datacontract.org/2004/07/UPC.SisTictecks.EL" name="detail" element="q6:RepetidoException" />
+  </wsdl:message>
+  <wsdl:message name="IVehiculoService_ValidarPlacaExistente_InputMessage">
+    <wsdl:part name="parameters" element="tns:ValidarPlacaExistente" />
+  </wsdl:message>
+  <wsdl:message name="IVehiculoService_ValidarPlacaExistente_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ValidarPlacaExistenteResponse" />
+  </wsdl:message>
+  <wsdl:message name="IVehiculoService_ValidarPlacaExistente_RepetidoExceptionFault_FaultMessage">
+    <wsdl:part xmlns:q7="http://schemas.datacontract.org/2004/07/UPC.SisTictecks.EL" name="detail" element="q7:RepetidoException" />
+  </wsdl:message>
+  <wsdl:message name="IVehiculoService_ValidarKMMenorAnterior_InputMessage">
+    <wsdl:part name="parameters" element="tns:ValidarKMMenorAnterior" />
+  </wsdl:message>
+  <wsdl:message name="IVehiculoService_ValidarKMMenorAnterior_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ValidarKMMenorAnteriorResponse" />
+  </wsdl:message>
+  <wsdl:message name="IVehiculoService_ValidarKMMenorAnterior_RepetidoExceptionFault_FaultMessage">
+    <wsdl:part xmlns:q8="http://schemas.datacontract.org/2004/07/UPC.SisTictecks.EL" name="detail" element="q8:RepetidoException" />
+  </wsdl:message>
   <wsdl:message name="IVehiculoService_ListarMarcas_InputMessage">
     <wsdl:part name="parameters" element="tns:ListarMarcas" />
   </wsdl:message>
@@ -59,7 +86,7 @@
     <wsdl:part name="parameters" element="tns:ListarMarcasResponse" />
   </wsdl:message>
   <wsdl:message name="IVehiculoService_ListarMarcas_RepetidoExceptionFault_FaultMessage">
-    <wsdl:part xmlns:q6="http://schemas.datacontract.org/2004/07/UPC.SisTictecks.EL" name="detail" element="q6:RepetidoException" />
+    <wsdl:part xmlns:q9="http://schemas.datacontract.org/2004/07/UPC.SisTictecks.EL" name="detail" element="q9:RepetidoException" />
   </wsdl:message>
   <wsdl:message name="IVehiculoService_ObtenerMarca_InputMessage">
     <wsdl:part name="parameters" element="tns:ObtenerMarca" />
@@ -68,7 +95,7 @@
     <wsdl:part name="parameters" element="tns:ObtenerMarcaResponse" />
   </wsdl:message>
   <wsdl:message name="IVehiculoService_ObtenerMarca_RepetidoExceptionFault_FaultMessage">
-    <wsdl:part xmlns:q7="http://schemas.datacontract.org/2004/07/UPC.SisTictecks.EL" name="detail" element="q7:RepetidoException" />
+    <wsdl:part xmlns:q10="http://schemas.datacontract.org/2004/07/UPC.SisTictecks.EL" name="detail" element="q10:RepetidoException" />
   </wsdl:message>
   <wsdl:message name="IVehiculoService_ListarModelos_InputMessage">
     <wsdl:part name="parameters" element="tns:ListarModelos" />
@@ -77,7 +104,7 @@
     <wsdl:part name="parameters" element="tns:ListarModelosResponse" />
   </wsdl:message>
   <wsdl:message name="IVehiculoService_ListarModelos_RepetidoExceptionFault_FaultMessage">
-    <wsdl:part xmlns:q8="http://schemas.datacontract.org/2004/07/UPC.SisTictecks.EL" name="detail" element="q8:RepetidoException" />
+    <wsdl:part xmlns:q11="http://schemas.datacontract.org/2004/07/UPC.SisTictecks.EL" name="detail" element="q11:RepetidoException" />
   </wsdl:message>
   <wsdl:message name="IVehiculoService_ListarModelosXMarca_InputMessage">
     <wsdl:part name="parameters" element="tns:ListarModelosXMarca" />
@@ -86,7 +113,7 @@
     <wsdl:part name="parameters" element="tns:ListarModelosXMarcaResponse" />
   </wsdl:message>
   <wsdl:message name="IVehiculoService_ListarModelosXMarca_RepetidoExceptionFault_FaultMessage">
-    <wsdl:part xmlns:q9="http://schemas.datacontract.org/2004/07/UPC.SisTictecks.EL" name="detail" element="q9:RepetidoException" />
+    <wsdl:part xmlns:q12="http://schemas.datacontract.org/2004/07/UPC.SisTictecks.EL" name="detail" element="q12:RepetidoException" />
   </wsdl:message>
   <wsdl:message name="IVehiculoService_ObtenerModelo_InputMessage">
     <wsdl:part name="parameters" element="tns:ObtenerModelo" />
@@ -95,7 +122,7 @@
     <wsdl:part name="parameters" element="tns:ObtenerModeloResponse" />
   </wsdl:message>
   <wsdl:message name="IVehiculoService_ObtenerModelo_RepetidoExceptionFault_FaultMessage">
-    <wsdl:part xmlns:q10="http://schemas.datacontract.org/2004/07/UPC.SisTictecks.EL" name="detail" element="q10:RepetidoException" />
+    <wsdl:part xmlns:q13="http://schemas.datacontract.org/2004/07/UPC.SisTictecks.EL" name="detail" element="q13:RepetidoException" />
   </wsdl:message>
   <wsdl:message name="IVehiculoService_ListarColores_InputMessage">
     <wsdl:part name="parameters" element="tns:ListarColores" />
@@ -104,7 +131,7 @@
     <wsdl:part name="parameters" element="tns:ListarColoresResponse" />
   </wsdl:message>
   <wsdl:message name="IVehiculoService_ListarColores_RepetidoExceptionFault_FaultMessage">
-    <wsdl:part xmlns:q11="http://schemas.datacontract.org/2004/07/UPC.SisTictecks.EL" name="detail" element="q11:RepetidoException" />
+    <wsdl:part xmlns:q14="http://schemas.datacontract.org/2004/07/UPC.SisTictecks.EL" name="detail" element="q14:RepetidoException" />
   </wsdl:message>
   <wsdl:message name="IVehiculoService_ObtenerColor_InputMessage">
     <wsdl:part name="parameters" element="tns:ObtenerColor" />
@@ -113,7 +140,7 @@
     <wsdl:part name="parameters" element="tns:ObtenerColorResponse" />
   </wsdl:message>
   <wsdl:message name="IVehiculoService_ObtenerColor_RepetidoExceptionFault_FaultMessage">
-    <wsdl:part xmlns:q12="http://schemas.datacontract.org/2004/07/UPC.SisTictecks.EL" name="detail" element="q12:RepetidoException" />
+    <wsdl:part xmlns:q15="http://schemas.datacontract.org/2004/07/UPC.SisTictecks.EL" name="detail" element="q15:RepetidoException" />
   </wsdl:message>
   <wsdl:portType name="IVehiculoService">
     <wsdl:operation name="CrearVehiculo">
@@ -140,6 +167,21 @@
       <wsdl:input wsaw:Action="http://tempuri.org/IVehiculoService/ListarVehiculos" message="tns:IVehiculoService_ListarVehiculos_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IVehiculoService/ListarVehiculosResponse" message="tns:IVehiculoService_ListarVehiculos_OutputMessage" />
       <wsdl:fault wsaw:Action="http://tempuri.org/IVehiculoService/ListarVehiculosRepetidoExceptionFault" name="RepetidoExceptionFault" message="tns:IVehiculoService_ListarVehiculos_RepetidoExceptionFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ListarVehiculosPorUsuario">
+      <wsdl:input wsaw:Action="http://tempuri.org/IVehiculoService/ListarVehiculosPorUsuario" message="tns:IVehiculoService_ListarVehiculosPorUsuario_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IVehiculoService/ListarVehiculosPorUsuarioResponse" message="tns:IVehiculoService_ListarVehiculosPorUsuario_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IVehiculoService/ListarVehiculosPorUsuarioRepetidoExceptionFault" name="RepetidoExceptionFault" message="tns:IVehiculoService_ListarVehiculosPorUsuario_RepetidoExceptionFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ValidarPlacaExistente">
+      <wsdl:input wsaw:Action="http://tempuri.org/IVehiculoService/ValidarPlacaExistente" message="tns:IVehiculoService_ValidarPlacaExistente_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IVehiculoService/ValidarPlacaExistenteResponse" message="tns:IVehiculoService_ValidarPlacaExistente_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IVehiculoService/ValidarPlacaExistenteRepetidoExceptionFault" name="RepetidoExceptionFault" message="tns:IVehiculoService_ValidarPlacaExistente_RepetidoExceptionFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ValidarKMMenorAnterior">
+      <wsdl:input wsaw:Action="http://tempuri.org/IVehiculoService/ValidarKMMenorAnterior" message="tns:IVehiculoService_ValidarKMMenorAnterior_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IVehiculoService/ValidarKMMenorAnteriorResponse" message="tns:IVehiculoService_ValidarKMMenorAnterior_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IVehiculoService/ValidarKMMenorAnteriorRepetidoExceptionFault" name="RepetidoExceptionFault" message="tns:IVehiculoService_ValidarKMMenorAnterior_RepetidoExceptionFault_FaultMessage" />
     </wsdl:operation>
     <wsdl:operation name="ListarMarcas">
       <wsdl:input wsaw:Action="http://tempuri.org/IVehiculoService/ListarMarcas" message="tns:IVehiculoService_ListarMarcas_InputMessage" />
@@ -229,6 +271,42 @@
     </wsdl:operation>
     <wsdl:operation name="ListarVehiculos">
       <soap:operation soapAction="http://tempuri.org/IVehiculoService/ListarVehiculos" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="RepetidoExceptionFault">
+        <soap:fault use="literal" name="RepetidoExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="ListarVehiculosPorUsuario">
+      <soap:operation soapAction="http://tempuri.org/IVehiculoService/ListarVehiculosPorUsuario" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="RepetidoExceptionFault">
+        <soap:fault use="literal" name="RepetidoExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="ValidarPlacaExistente">
+      <soap:operation soapAction="http://tempuri.org/IVehiculoService/ValidarPlacaExistente" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="RepetidoExceptionFault">
+        <soap:fault use="literal" name="RepetidoExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="ValidarKMMenorAnterior">
+      <soap:operation soapAction="http://tempuri.org/IVehiculoService/ValidarKMMenorAnterior" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

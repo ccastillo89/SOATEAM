@@ -37,6 +37,8 @@ namespace UPC.SisTictecks.SOAPGestionTicketsWS
         [OperationContract]
         bool ValidarCorreoExistente(string correo);
 
+        [OperationContract]
+        bool ValidarUsuarioTipoCliente(int codigoUsuario);
 
         #region "Perfiles"
 

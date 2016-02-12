@@ -42,6 +42,7 @@ namespace UPC.SisTictecks.SOAPGestionTicketsWS
             int hhInicio;
             int hhFinal; int mmFinal = 0; int ssFinal = 0;
             DateTime horaFinal;
+            DateTime fechaCita = Convert.ToDateTime(citaCrear.Fecha);
 
             hhInicio = citaCrear.HoraInicio.Hour;
             hhFinal = hhInicio + servicioAsociado.TiempoEstimado;
@@ -51,6 +52,26 @@ namespace UPC.SisTictecks.SOAPGestionTicketsWS
 
             //Estado
             citaCrear.Estado = 1; //Pendiente
+
+            if (fechaCita.Date < DateTime.Now.Date)
+            {
+                throw new FaultException<RepetidoException>(new RepetidoException()
+                {
+                    Codigo = 1,
+                    Mensaje = "La fecha seleccionada de la cita es incorrecta."
+                },
+                new FaultReason("Validación de negocio"));
+            }
+
+            if (citaCrear.HoraInicio <= DateTime.Now.AddHours(1))
+            {
+                throw new FaultException<RepetidoException>(new RepetidoException()
+                {
+                    Codigo = 2,
+                    Mensaje = "Las citas de servicios son registradas con 1 hora de anticipacion, por favor elija otro horario disponible."
+                },
+                new FaultReason("Validación de negocio"));
+            }
 
             //validar si el horario ya no esta disponible
             bool bEstaDisponibleHorario = false;
@@ -63,13 +84,11 @@ namespace UPC.SisTictecks.SOAPGestionTicketsWS
             {
                 throw new FaultException<RepetidoException>(new RepetidoException()
                 {
-                    Codigo = 1,
+                    Codigo = 3,
                     Mensaje = "La fecha y hora seleccionada no esta disponible."
                 },
                 new FaultReason("Validación de negocio"));
             }
-
-            //
 
             return CitaDAO.Crear(citaCrear);
         }
@@ -82,7 +101,6 @@ namespace UPC.SisTictecks.SOAPGestionTicketsWS
         public CitaEN ModificarCita(CitaEN citaModificar)
         {
             CitaEN citaExistente = CitaDAO.Obtener(citaModificar.Codigo);
-
             return CitaDAO.Modificar(citaModificar);
         }
 
@@ -127,6 +145,39 @@ namespace UPC.SisTictecks.SOAPGestionTicketsWS
         {
             string cadena = "R" + DateTime.Now.ToString("yyyyMMddHHmmssffff");
             return cadena.Substring(0, 17);
+        }
+
+        public CitaEN DarAltaCita(CitaEN citaAlta)
+        {
+            DateTime fecha = Convert.ToDateTime(citaAlta.Fecha);
+            if (DateTime.Now.Date < fecha.Date)
+            {
+                throw new FaultException<RepetidoException>(new RepetidoException()
+                {
+                    Codigo = 1,
+                    Mensaje = "No es posible el alta. La fecha de cita es posterior a la fecha actual."
+                },
+                new FaultReason("Validación de negocio"));
+            }
+
+            if (DateTime.Now.Date > fecha.Date.AddDays(1))
+            {
+                throw new FaultException<RepetidoException>(new RepetidoException()
+                {
+                    Codigo = 2,
+                    Mensaje = "No es posible el alta, debido a que ya se ha vencido el tiempo maximo de alta de cita (01 dias)."
+                },
+                new FaultReason("Validación de negocio"));
+            }
+
+            citaAlta.Estado = 2; //Realizado
+            return CitaDAO.Modificar(citaAlta);
+        }
+
+        public CitaEN DarBajaCita(CitaEN citaBaja)
+        {
+            citaBaja.Estado = 3; //Cancelado
+            return CitaDAO.Modificar(citaBaja);
         }
 
     }

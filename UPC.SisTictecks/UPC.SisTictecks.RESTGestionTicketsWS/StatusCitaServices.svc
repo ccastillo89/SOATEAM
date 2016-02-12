@@ -1,0 +1,1 @@
+﻿<%@ ServiceHost Language="C#" Debug="true" Service="UPC.SisTictecks.RESTGestionTicketsWS.StatusCitaServices" CodeBehind="StatusCitaServices.svc.cs" %>

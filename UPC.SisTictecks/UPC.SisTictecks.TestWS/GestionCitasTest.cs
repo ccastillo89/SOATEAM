@@ -118,14 +118,13 @@ namespace UPC.SisTictecks.TestWS
                 Codigo = 1
             };
 
-            var fecha = "09/02/2016";
+            var fecha = "10/02/2016";
             int anio = Convert.ToInt32(fecha.Substring(6, 4));
             int mes = Convert.ToInt32(fecha.Substring(3, 2));
             int dia = Convert.ToInt32(fecha.Substring(0, 2));
-            int hh = 9;
+            int hh = 13; //8  - 9 - 14 - 15 - 16
             int mm = 0;
             int ss = 0;
-
 
             CitaEN citaACrear = new CitaEN()
             {
@@ -148,6 +147,18 @@ namespace UPC.SisTictecks.TestWS
                 if (fe.Detail.Codigo == 1)
                 {
                     Assert.AreEqual(1, fe.Detail.Codigo);
+                    Assert.AreEqual("La fecha seleccionada de la cita es incorrecta.", fe.Detail.Mensaje);
+                    Assert.AreEqual("Validación de negocio", fe.Reason.ToString());
+                }
+                else if (fe.Detail.Codigo == 2)
+                {
+                    Assert.AreEqual(2, fe.Detail.Codigo);
+                    Assert.AreEqual("Las citas de servicios son registradas con 1 hora de anticipacion, por favor elija otro horario disponible.", fe.Detail.Mensaje);
+                    Assert.AreEqual("Validación de negocio", fe.Reason.ToString());
+                }
+                else if (fe.Detail.Codigo == 3)
+                {
+                    Assert.AreEqual(3, fe.Detail.Codigo);
                     Assert.AreEqual("La fecha y hora seleccionada no esta disponible.", fe.Detail.Mensaje);
                     Assert.AreEqual("Validación de negocio", fe.Reason.ToString());
                 }
@@ -159,5 +170,54 @@ namespace UPC.SisTictecks.TestWS
 
         }
 
+        [TestMethod]
+        public void DarAltaCitaTest()
+        {
+            CitaEN citaADarAlta = null;
+            int codigoCitaADarAlta = 6;
+            CitaEN citaEnAlta = null;
+
+            GestionCitasWS.GestionCitasServiceClient _proxy = new GestionCitasWS.GestionCitasServiceClient();
+            try
+            {
+                citaADarAlta = _proxy.ObtenerCita(codigoCitaADarAlta);
+                citaEnAlta = _proxy.DarAltaCita(citaADarAlta);
+                Assert.AreEqual(2, citaEnAlta.Estado);
+            }
+            catch (FaultException<RepetidoException> fe)
+            {
+                if (fe.Detail.Codigo == 1)
+                {
+                    Assert.AreEqual(1, fe.Detail.Codigo);
+                    Assert.AreEqual("No es posible el alta. La fecha de cita es posterior a la fecha actual.", fe.Detail.Mensaje);
+                    Assert.AreEqual("Validación de negocio", fe.Reason.ToString());
+                }
+                else if (fe.Detail.Codigo == 2)
+                {
+                    Assert.AreEqual(2, fe.Detail.Codigo);
+                    Assert.AreEqual("No es posible el alta, debido a que ya se ha vencido el tiempo maximo de alta de cita (01 dias).", fe.Detail.Mensaje);
+                    Assert.AreEqual("Validación de negocio", fe.Reason.ToString());
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        [TestMethod]
+        public void DarBajaCitaTest()
+        {
+            CitaEN citaADarBaja = null;
+            int codigoCitaADarBaja = 1;
+            CitaEN citaEnBaja = null;
+
+            GestionCitasWS.GestionCitasServiceClient _proxy = new GestionCitasWS.GestionCitasServiceClient();
+
+            citaADarBaja = _proxy.ObtenerCita(codigoCitaADarBaja);
+            citaADarBaja.Observacion = "Cancelado por el cliente";
+            citaEnBaja = _proxy.DarBajaCita(citaADarBaja);
+            Assert.AreEqual(3, citaEnBaja.Estado);
+        }
     }
 }

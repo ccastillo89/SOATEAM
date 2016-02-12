@@ -9,7 +9,7 @@ using UPC.SisTictecks.DAL;
 
 namespace UPC.SisTictecks.SOAPGestionTicketsWS
 {
-    public class Usuarios : IUsuariosService
+    public class UsuariosService : IUsuariosService
     {
         private UsuarioDAO usuarioDAO = null;      
 
@@ -201,6 +201,10 @@ namespace UPC.SisTictecks.SOAPGestionTicketsWS
             return UsuarioDAO.ValidarCorreoExistente(correo);
         }
 
+        public bool ValidarUsuarioTipoCliente(int codigoUsuario)
+        {
+            return UsuarioDAO.ValidarUsuarioTipoCliente(codigoUsuario);
+        }   
 
         #region "Perfiles"
 
@@ -219,7 +223,7 @@ namespace UPC.SisTictecks.SOAPGestionTicketsWS
 
         public PerfilEN ObtenerPerfil(int codigo)
         {
-            return  PerfilDAO.Obtener(codigo);
+            return PerfilDAO.Obtener(codigo);
         }
 
         public List<PerfilEN> ListarPerfiles()
@@ -228,6 +232,9 @@ namespace UPC.SisTictecks.SOAPGestionTicketsWS
         }
 
         #endregion
+
+
+
 
     }
 }

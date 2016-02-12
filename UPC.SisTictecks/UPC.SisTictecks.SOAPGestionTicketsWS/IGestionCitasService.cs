@@ -45,5 +45,13 @@ namespace UPC.SisTictecks.SOAPGestionTicketsWS
         [OperationContract]
         List<CitaEN> ListarHistorialDeCitas(string codigoUsuario);
 
+        [FaultContract(typeof(RepetidoException))]
+        [OperationContract]
+        CitaEN DarAltaCita(CitaEN citaAlta);
+
+        [FaultContract(typeof(RepetidoException))]
+        [OperationContract]
+        CitaEN DarBajaCita(CitaEN citaBaja);
+
     }
 }

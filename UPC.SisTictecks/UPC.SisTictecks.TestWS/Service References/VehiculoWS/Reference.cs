@@ -50,6 +50,28 @@ namespace UPC.SisTictecks.TestWS.VehiculoWS {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IVehiculoService/ListarVehiculos", ReplyAction="http://tempuri.org/IVehiculoService/ListarVehiculosResponse")]
         System.Threading.Tasks.Task<System.Collections.Generic.List<UPC.SisTictecks.EL.VehiculoEN>> ListarVehiculosAsync();
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IVehiculoService/ListarVehiculosPorUsuario", ReplyAction="http://tempuri.org/IVehiculoService/ListarVehiculosPorUsuarioResponse")]
+        [System.ServiceModel.FaultContractAttribute(typeof(UPC.SisTictecks.EL.RepetidoException), Action="http://tempuri.org/IVehiculoService/ListarVehiculosPorUsuarioRepetidoExceptionFau" +
+            "lt", Name="RepetidoException", Namespace="http://schemas.datacontract.org/2004/07/UPC.SisTictecks.EL")]
+        System.Collections.Generic.List<UPC.SisTictecks.EL.VehiculoEN> ListarVehiculosPorUsuario(string codigoUsuario);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IVehiculoService/ListarVehiculosPorUsuario", ReplyAction="http://tempuri.org/IVehiculoService/ListarVehiculosPorUsuarioResponse")]
+        System.Threading.Tasks.Task<System.Collections.Generic.List<UPC.SisTictecks.EL.VehiculoEN>> ListarVehiculosPorUsuarioAsync(string codigoUsuario);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IVehiculoService/ValidarPlacaExistente", ReplyAction="http://tempuri.org/IVehiculoService/ValidarPlacaExistenteResponse")]
+        [System.ServiceModel.FaultContractAttribute(typeof(UPC.SisTictecks.EL.RepetidoException), Action="http://tempuri.org/IVehiculoService/ValidarPlacaExistenteRepetidoExceptionFault", Name="RepetidoException", Namespace="http://schemas.datacontract.org/2004/07/UPC.SisTictecks.EL")]
+        bool ValidarPlacaExistente(string strPlaca);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IVehiculoService/ValidarPlacaExistente", ReplyAction="http://tempuri.org/IVehiculoService/ValidarPlacaExistenteResponse")]
+        System.Threading.Tasks.Task<bool> ValidarPlacaExistenteAsync(string strPlaca);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IVehiculoService/ValidarKMMenorAnterior", ReplyAction="http://tempuri.org/IVehiculoService/ValidarKMMenorAnteriorResponse")]
+        [System.ServiceModel.FaultContractAttribute(typeof(UPC.SisTictecks.EL.RepetidoException), Action="http://tempuri.org/IVehiculoService/ValidarKMMenorAnteriorRepetidoExceptionFault", Name="RepetidoException", Namespace="http://schemas.datacontract.org/2004/07/UPC.SisTictecks.EL")]
+        bool ValidarKMMenorAnterior(int kilometros, int idVehiculo);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IVehiculoService/ValidarKMMenorAnterior", ReplyAction="http://tempuri.org/IVehiculoService/ValidarKMMenorAnteriorResponse")]
+        System.Threading.Tasks.Task<bool> ValidarKMMenorAnteriorAsync(int kilometros, int idVehiculo);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IVehiculoService/ListarMarcas", ReplyAction="http://tempuri.org/IVehiculoService/ListarMarcasResponse")]
         [System.ServiceModel.FaultContractAttribute(typeof(UPC.SisTictecks.EL.RepetidoException), Action="http://tempuri.org/IVehiculoService/ListarMarcasRepetidoExceptionFault", Name="RepetidoException", Namespace="http://schemas.datacontract.org/2004/07/UPC.SisTictecks.EL")]
         System.Collections.Generic.List<UPC.SisTictecks.EL.MarcaEN> ListarMarcas();
@@ -165,6 +187,30 @@ namespace UPC.SisTictecks.TestWS.VehiculoWS {
         
         public System.Threading.Tasks.Task<System.Collections.Generic.List<UPC.SisTictecks.EL.VehiculoEN>> ListarVehiculosAsync() {
             return base.Channel.ListarVehiculosAsync();
+        }
+        
+        public System.Collections.Generic.List<UPC.SisTictecks.EL.VehiculoEN> ListarVehiculosPorUsuario(string codigoUsuario) {
+            return base.Channel.ListarVehiculosPorUsuario(codigoUsuario);
+        }
+        
+        public System.Threading.Tasks.Task<System.Collections.Generic.List<UPC.SisTictecks.EL.VehiculoEN>> ListarVehiculosPorUsuarioAsync(string codigoUsuario) {
+            return base.Channel.ListarVehiculosPorUsuarioAsync(codigoUsuario);
+        }
+        
+        public bool ValidarPlacaExistente(string strPlaca) {
+            return base.Channel.ValidarPlacaExistente(strPlaca);
+        }
+        
+        public System.Threading.Tasks.Task<bool> ValidarPlacaExistenteAsync(string strPlaca) {
+            return base.Channel.ValidarPlacaExistenteAsync(strPlaca);
+        }
+        
+        public bool ValidarKMMenorAnterior(int kilometros, int idVehiculo) {
+            return base.Channel.ValidarKMMenorAnterior(kilometros, idVehiculo);
+        }
+        
+        public System.Threading.Tasks.Task<bool> ValidarKMMenorAnteriorAsync(int kilometros, int idVehiculo) {
+            return base.Channel.ValidarKMMenorAnteriorAsync(kilometros, idVehiculo);
         }
         
         public System.Collections.Generic.List<UPC.SisTictecks.EL.MarcaEN> ListarMarcas() {

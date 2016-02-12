@@ -4,19 +4,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using UPC.SisTictecks.EL;
+using UPC.SisTictecks.Helpers;
 using NHibernate;
 using NHibernate.Criterion;
 
 namespace UPC.SisTictecks.DAL
 {
     public class CitaDAO : BaseDAO<CitaEN, int>
-    {
-
-        enum EstadosCita : int { 
-            Pendiente = 1,
-            Realizado = 2,
-            Cancelado = 3
-        }
+    {       
 
         public ICollection<CitaEN> ListarCitasPendientesDeAtencion(int codigoUsuario)
         {
@@ -29,7 +24,7 @@ namespace UPC.SisTictecks.DAL
                 lista = session
                     .CreateCriteria(typeof(CitaEN))
                     .Add(Restrictions.Eq("Usuario", usuario))
-                    .Add(Restrictions.Eq("Estado", (int)EstadosCita.Pendiente))
+                    .Add(Restrictions.Eq("Estado", (int)eEstadosCita.Pendiente))
                     .List<CitaEN>();
             }
             return lista;
@@ -46,7 +41,7 @@ namespace UPC.SisTictecks.DAL
                 lista = session
                     .CreateCriteria(typeof(CitaEN))
                     .Add(Restrictions.Eq("Usuario", usuario))
-                    .Add(Restrictions.Gt("Estado", (int)EstadosCita.Realizado))
+                    .Add(Restrictions.Ge("Estado", (int)eEstadosCita.realizado))
                     .List<CitaEN>();
             }
             return lista;
@@ -55,32 +50,44 @@ namespace UPC.SisTictecks.DAL
         public bool ValidarFechaHoraCitaXTaller(string fecha, DateTime horaIni, DateTime horaFin,
                                         int codigoTaller, int codigoUsuario)
         {
-            int cantidad = 0;
-            bool resultado = false;
+            int cantidadIni = 0;
+            int cantidadFin = 0;
+            int iRes = 0;
+            bool bResult = false;
 
             UsuarioEN usuario = new UsuarioEN() { Codigo = codigoUsuario };
             TallerEN taller = new TallerEN() { Codigo = codigoTaller };
 
             using (ISession session = NHibernateHelper.ObtenerSesion())
             {
-                cantidad = session
-                    .CreateCriteria(typeof(CitaEN))
-                    .Add(Restrictions.Eq("Usuario", usuario))
-                    .Add(Restrictions.Eq("Taller", taller))
-                    .Add(Restrictions.Eq("Fecha", fecha))
-                    .Add(Restrictions.Ge("HoraInicio", horaIni))
-                    .Add(Restrictions.Le("HoraInicio", horaIni))
-                    .Add(Restrictions.Ge("HoraFin", horaFin))
-                    .Add(Restrictions.Le("HoraFin", horaFin))
-                    .List<CitaEN>().Count;
+                cantidadIni = session
+                        .CreateCriteria(typeof(CitaEN))
+                        .Add(Restrictions.Eq("Usuario", usuario))
+                        .Add(Restrictions.Eq("Taller", taller))
+                        .Add(Restrictions.Eq("Fecha", fecha))
+                        .Add(Restrictions.Ge("HoraInicio", horaIni))
+                        .Add(Restrictions.Eq("Estado", (int)eEstadosCita.Pendiente))
+                        .List<CitaEN>().Count;
+
+                cantidadFin = session
+                        .CreateCriteria(typeof(CitaEN))
+                        .Add(Restrictions.Eq("Usuario", usuario))
+                        .Add(Restrictions.Eq("Taller", taller))
+                        .Add(Restrictions.Eq("Fecha", fecha))
+                        .Add(Restrictions.Gt("HoraFin", horaIni))
+                        .Add(Restrictions.Eq("Estado", (int)eEstadosCita.Pendiente))
+                        .List<CitaEN>().Count;
             }
 
-            if (cantidad == 0)
-                resultado = false;
-            else
-                resultado = true;
+            iRes = cantidadIni + cantidadFin;
 
-            return resultado;
+            if (iRes == 0)
+                bResult = false;
+            else
+                bResult = true;
+
+            return bResult;
         }
+
     }
 }

@@ -17,5 +17,7 @@ namespace UPC.SisTictecks.EL
         [DataMember]
         [Required(ErrorMessage = "Ingrese Contraseña", AllowEmptyStrings = false)]
         public string Clave { get; set; }
+        [DataMember]        
+        public string PerfilId { get; set; }
     }
 }

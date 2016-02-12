@@ -15,12 +15,16 @@ namespace UPC.SisTictecks.EL
         public int Codigo { get; set; }
         [DataMember]
         [Display(Name = "Vehículo")]
+        [Required(ErrorMessage = "Ingrese Descripción", AllowEmptyStrings = false)]
         public string Descripcion { get; set; }
         [DataMember]
+        [Required(ErrorMessage = "Ingrese Placa", AllowEmptyStrings = false)]
         public string Placa { get; set; }
         [DataMember]
+        [Required(ErrorMessage = "Ingrese Nro de Kilómetros", AllowEmptyStrings = false)]
         public int Kilometros { get; set; }
         [DataMember]
+        [Required(ErrorMessage = "Ingrese Año", AllowEmptyStrings = false)]
         [Display(Name = "Año")]
         public int Anio { get; set; }
         [DataMember]

@@ -30,13 +30,27 @@ namespace UPC.SisTictecks.SOAPGestionTicketsWS
         public VehiculoEN CrearVehiculo(VehiculoEN vehiculoCrear)
         {
             bool bPlacaExistente = false;
+            bool bUsuarioTipoCliente = false;
             bPlacaExistente = VehiculoDAO.ValidarPlacaExistente(vehiculoCrear.Placa);
+
+            UsuariosService usuarioProxy = new UsuariosService();
+            bUsuarioTipoCliente = usuarioProxy.ValidarUsuarioTipoCliente(vehiculoCrear.Usuario.Codigo);
+
+            if (!bUsuarioTipoCliente)
+            {
+                throw new FaultException<RepetidoException>(new RepetidoException()
+                {
+                    Codigo = 1,
+                    Mensaje = "Para registrar el vehiculo debe ser cliente, no administrador."
+                },
+                new FaultReason("Validación de negocio"));
+            }
 
             if (bPlacaExistente)
             {
                 throw new FaultException<RepetidoException>(new RepetidoException()
                 {
-                    Codigo = 1,
+                    Codigo = 2,
                     Mensaje = "La placa ya ha sido registrada"
                 },
                 new FaultReason("Validación de negocio"));

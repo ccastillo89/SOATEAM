@@ -48,7 +48,8 @@ namespace UPC.SisTictecks.SOAPGestionTicketsWS
         bool ValidarKMMenorAnterior(int kilometros, int idVehiculo);
 
         #endregion
-        
+
+
         #region "Marca"
 
         [FaultContract(typeof(RepetidoException))]

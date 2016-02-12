@@ -14,12 +14,13 @@ namespace UPC.SisTictecks.DAL
         public ICollection<VehiculoEN> ListarVehiculosPorUsuario(string codigoUsuario)
         {
             IList<VehiculoEN> lista = null;
+            UsuarioEN usuario = new UsuarioEN() { Codigo = Convert.ToInt32(codigoUsuario)};
 
             using (ISession session = NHibernateHelper.ObtenerSesion())
             {
                 lista = session
                     .CreateCriteria(typeof(VehiculoEN))
-                    .Add(Restrictions.Eq("IdUsuario", codigoUsuario))
+                    .Add(Restrictions.Eq("Usuario", usuario))
                     .List<VehiculoEN>();
             }
             return lista;

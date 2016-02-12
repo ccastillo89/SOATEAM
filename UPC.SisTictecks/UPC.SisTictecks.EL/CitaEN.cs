@@ -17,12 +17,18 @@ namespace UPC.SisTictecks.EL
         [Display(Name = "Número Cita")]
         public string NroCita { get; set; }
         [DataMember]
+        [Required(ErrorMessage = "Seleccione Fecha")]
         [DisplayFormat(DataFormatString="{0:dd/MM/yyyy}",ApplyFormatInEditMode=true)]
         public string Fecha { get; set; }
         [DataMember]
         [DisplayFormat(DataFormatString = "{0:HH:mm }", ApplyFormatInEditMode = true)]
         [Display(Name = "Hora de Inicio")]
         public DateTime HoraInicio { get; set; }
+        [DataMember]
+        [Required(ErrorMessage="Seleccione Hora de Inicio")]
+        [Range(1,24,ErrorMessage="Selecciona la Hora de Inicio entre 1 y 24")]
+        [Display(Name = "Hora de Inicio")]
+        public int RangoHora { get; set; }
         [DataMember]
         [DisplayFormat(DataFormatString = "{0:HH:mm }", ApplyFormatInEditMode = true)]
         [Display(Name = "Hora de Fin")]

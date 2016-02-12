@@ -108,5 +108,29 @@ namespace UPC.SisTictecks.DAL
             return resultado;
         }
 
+        public bool ValidarUsuarioTipoCliente(int codigoUsuario)
+        {
+            int cantidad = 0;
+            bool resultado = false;
+
+            PerfilEN perfil = new PerfilEN() { Codigo = 2}; //Perfil : Cliente
+
+            using (ISession session = NHibernateHelper.ObtenerSesion())
+            {
+                cantidad = session
+                    .CreateCriteria(typeof(UsuarioEN))
+                    .Add(Restrictions.Eq("Codigo", codigoUsuario))
+                    .Add(Restrictions.Eq("Perfil", perfil))
+                    .List<UsuarioEN>().Count;
+            }
+
+            if (cantidad == 0)
+                resultado = false;
+            else
+                resultado = true;
+
+            return resultado;
+        }
+
     }
 }
