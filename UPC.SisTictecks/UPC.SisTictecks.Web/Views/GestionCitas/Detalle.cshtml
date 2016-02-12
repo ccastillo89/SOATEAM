@@ -1,0 +1,59 @@
+﻿@model UPC.SisTictecks.EL.CitaEN
+
+@{
+    ViewBag.Title = "Detalle";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Detalle de la cita</h2>
+
+<fieldset>
+    <legend>Cita</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Codigo)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Codigo)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.NroCita)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.NroCita)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Fecha)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Fecha)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.HoraInicio)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.HoraInicio)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.HoraFin)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.HoraFin)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Observacion)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Observacion)
+    </div>
+
+</fieldset>
+<p>
+    @Html.ActionLink("Editar", "Edit", new {  id=Model.Codigo }) |
+    @Html.ActionLink("Volver", "Index")
+</p>

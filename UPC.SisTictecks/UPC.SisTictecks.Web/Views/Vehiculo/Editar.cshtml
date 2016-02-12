@@ -1,0 +1,165 @@
+﻿@model UPC.SisTictecks.EL.VehiculoEN
+
+@{
+    ViewBag.Title = "Editar";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Vehiculo</h2>
+
+
+@using (Html.BeginForm())
+{
+    
+    <div class="form-horizontal">
+        <h4>Editar</h4>
+        <hr />
+        @Html.ValidationSummary()
+        @Html.HiddenFor(model => model.Codigo)
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Descripcion, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.TextBoxFor(model => model.Descripcion, new { @class = "form-control" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Placa, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.TextBoxFor(model => model.Placa, new { @class = "form-control" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Kilometros, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.TextBoxFor(model => model.Kilometros, new { @class = "form-control" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Anio, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.TextBoxFor(model => model.Anio, new { @class = "form-control" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Marca.Marca, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <select class="frm_txt" name="cboMarca" id="cboMarca" style="width:150px"></select>
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Modelo.Modelo, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <select class="frm_txt" name="cboModelo" id="cboModelo" style="width:150px"></select>
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Color.Color, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <select class="frm_txt" name="cboColor" id="cboColor" style="width:150px"></select>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Save" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Volver", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+
+<script type="text/javascript">
+
+        (function ($) {
+            $.fn.cascade = function (options) {
+                var defaults = {};
+                var opts = $.extend(defaults, options);
+
+                return this.each(function () {
+                    $(this).change(function () {
+                        var selectedValue = $(this).val();
+                        var params = {};
+                        params[opts.paramName] = selectedValue;
+                        $.getJSON(opts.url, params, function (items) {
+                            opts.childSelect.empty();
+                            opts.childSelect.append('<option value="0">--Seleccione--</option>');
+                            $.each(items, function (index, item) {
+                                opts.childSelect.append(
+                                    $('<option/>')
+                                        .attr('value', item.Codigo)
+                                        .text(item.Modelo)
+                                );
+                            });
+                        });
+                    });
+                });
+            };
+        })(jQuery);
+
+
+        $(document).ready(function () {
+
+            cargarMarcas();
+            cargarColores();
+
+            $('#cboMarca').cascade({
+                url: '@Url.Action("ListaModelos", "Vehiculo")',
+                paramName: 'codigoMarca',
+                childSelect: $('#cboModelo')
+            });
+
+        });
+
+        function cargarMarcas() {
+            $.get('@Url.Action("ListaMarcas", "Vehiculo")')
+            .done(function (data) {
+                $('#cboMarca').append('<option value="0">--Seleccione--</option>');
+                $.each(data, function (i, row) {
+                    var $option = $('<option>');
+                    $option.val(row.Codigo);
+                    $option.html(row.Marca);
+                    $('#cboMarca').append($option);
+                });
+                $("#cboMarca option").filter(function () {
+                    return $(this).val() == "@(Model.Marca.Codigo)";
+                }).prop('selected', true);
+            })
+            .fail(function (data) {
+                console.log('error');
+            });
+        }
+
+        function cargarColores() {
+            $.get('@Url.Action("ListaColores", "Vehiculo")')
+            .done(function (data) {
+                $('#cboColor').append('<option value="0">--Seleccione--</option>');
+                $.each(data, function (i, row) {
+                    var $option = $('<option>');
+                    $option.val(row.Codigo);
+                    $option.html(row.Color);
+                    $('#cboColor').append($option);
+                });
+                $("#cboColor option").filter(function () {
+                    return $(this).val() == "@(Model.Color.Codigo)";
+                }).prop('selected', true);
+            })
+            .fail(function (data) {
+                console.log('error');
+            });
+        }
+
+</script>
+}

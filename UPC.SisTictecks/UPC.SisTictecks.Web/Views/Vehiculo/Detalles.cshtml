@@ -1,0 +1,76 @@
+﻿@model UPC.SisTictecks.EL.VehiculoEN
+
+@{
+    ViewBag.Title = "Detalles";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Vehiculo</h2>
+
+<div>
+    <h4>Detalle</h4>
+	<hr />
+    <dl class="dl-horizontal">
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Descripcion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Descripcion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Placa)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Placa)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Kilometros)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Kilometros)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Anio)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Anio)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Marca.Marca)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Marca.Marca)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Modelo.Modelo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Modelo.Modelo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Color.Color)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Color.Color)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Editar", "Editar", new { id = Model.Codigo }) |
+    @Html.ActionLink("Volver", "Index")
+</p>

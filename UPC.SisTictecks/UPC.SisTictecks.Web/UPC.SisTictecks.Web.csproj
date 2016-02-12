@@ -122,6 +122,7 @@
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\UsuarioController.cs" />
     <Compile Include="Controllers\VehiculoController.cs" />
+    <Compile Include="FachadaSesion.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -385,6 +386,14 @@
     <None Include="Service References\VehiculoWS\VehiculoService2.xsd">
       <SubType>Designer</SubType>
     </None>
+    <Content Include="Views\GestionCitas\Detalle.cshtml" />
+    <Content Include="Views\GestionCitas\Editar.cshtml" />
+    <Content Include="Views\GestionCitas\HistorialCitas.cshtml" />
+    <Content Include="Views\GestionCitas\MisCitas.cshtml" />
+    <Content Include="Views\GestionCitas\Registrar.cshtml" />
+    <Content Include="Views\Vehiculo\Detalles.cshtml" />
+    <Content Include="Views\Vehiculo\Registrar.cshtml" />
+    <Content Include="Views\Vehiculo\Editar.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
@@ -408,6 +417,10 @@
     <ProjectReference Include="..\UPC.SisTictecks.EL\UPC.SisTictecks.EL.csproj">
       <Project>{999d9c22-be04-43c1-8262-26d46c971aaa}</Project>
       <Name>UPC.SisTictecks.EL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\UPC.SisTictecks.Helpers\UPC.SisTictecks.Helpers.csproj">
+      <Project>{86b1c155-433d-44e4-958b-96166ccd4dbf}</Project>
+      <Name>UPC.SisTictecks.Helpers</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>

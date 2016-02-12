@@ -9,6 +9,7 @@
       <xs:element minOccurs="0" name="HoraInicio" type="xs:dateTime" />
       <xs:element minOccurs="0" name="NroCita" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Observacion" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="RangoHora" type="xs:int" />
       <xs:element minOccurs="0" name="Servicio" nillable="true" type="tns:ServicioEN" />
       <xs:element minOccurs="0" name="Taller" nillable="true" type="tns:TallerEN" />
       <xs:element minOccurs="0" name="Usuario" nillable="true" type="tns:UsuarioEN" />
@@ -60,6 +61,7 @@
   <xs:complexType name="Login">
     <xs:sequence>
       <xs:element minOccurs="0" name="Clave" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PerfilId" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Usuario" nillable="true" type="xs:string" />
     </xs:sequence>
   </xs:complexType>

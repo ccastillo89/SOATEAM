@@ -79,6 +79,24 @@
   <wsdl:message name="IGestionCitasService_ListarHistorialDeCitas_RepetidoExceptionFault_FaultMessage">
     <wsdl:part xmlns:q8="http://schemas.datacontract.org/2004/07/UPC.SisTictecks.EL" name="detail" element="q8:RepetidoException" />
   </wsdl:message>
+  <wsdl:message name="IGestionCitasService_DarAltaCita_InputMessage">
+    <wsdl:part name="parameters" element="tns:DarAltaCita" />
+  </wsdl:message>
+  <wsdl:message name="IGestionCitasService_DarAltaCita_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DarAltaCitaResponse" />
+  </wsdl:message>
+  <wsdl:message name="IGestionCitasService_DarAltaCita_RepetidoExceptionFault_FaultMessage">
+    <wsdl:part xmlns:q9="http://schemas.datacontract.org/2004/07/UPC.SisTictecks.EL" name="detail" element="q9:RepetidoException" />
+  </wsdl:message>
+  <wsdl:message name="IGestionCitasService_DarBajaCita_InputMessage">
+    <wsdl:part name="parameters" element="tns:DarBajaCita" />
+  </wsdl:message>
+  <wsdl:message name="IGestionCitasService_DarBajaCita_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DarBajaCitaResponse" />
+  </wsdl:message>
+  <wsdl:message name="IGestionCitasService_DarBajaCita_RepetidoExceptionFault_FaultMessage">
+    <wsdl:part xmlns:q10="http://schemas.datacontract.org/2004/07/UPC.SisTictecks.EL" name="detail" element="q10:RepetidoException" />
+  </wsdl:message>
   <wsdl:portType name="IGestionCitasService">
     <wsdl:operation name="CrearCita">
       <wsdl:input wsaw:Action="http://tempuri.org/IGestionCitasService/CrearCita" message="tns:IGestionCitasService_CrearCita_InputMessage" />
@@ -119,6 +137,16 @@
       <wsdl:input wsaw:Action="http://tempuri.org/IGestionCitasService/ListarHistorialDeCitas" message="tns:IGestionCitasService_ListarHistorialDeCitas_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IGestionCitasService/ListarHistorialDeCitasResponse" message="tns:IGestionCitasService_ListarHistorialDeCitas_OutputMessage" />
       <wsdl:fault wsaw:Action="http://tempuri.org/IGestionCitasService/ListarHistorialDeCitasRepetidoExceptionFault" name="RepetidoExceptionFault" message="tns:IGestionCitasService_ListarHistorialDeCitas_RepetidoExceptionFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DarAltaCita">
+      <wsdl:input wsaw:Action="http://tempuri.org/IGestionCitasService/DarAltaCita" message="tns:IGestionCitasService_DarAltaCita_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IGestionCitasService/DarAltaCitaResponse" message="tns:IGestionCitasService_DarAltaCita_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IGestionCitasService/DarAltaCitaRepetidoExceptionFault" name="RepetidoExceptionFault" message="tns:IGestionCitasService_DarAltaCita_RepetidoExceptionFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DarBajaCita">
+      <wsdl:input wsaw:Action="http://tempuri.org/IGestionCitasService/DarBajaCita" message="tns:IGestionCitasService_DarBajaCita_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IGestionCitasService/DarBajaCitaResponse" message="tns:IGestionCitasService_DarBajaCita_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IGestionCitasService/DarBajaCitaRepetidoExceptionFault" name="RepetidoExceptionFault" message="tns:IGestionCitasService_DarBajaCita_RepetidoExceptionFault_FaultMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IGestionCitasService" type="tns:IGestionCitasService">
@@ -209,6 +237,30 @@
     </wsdl:operation>
     <wsdl:operation name="ListarHistorialDeCitas">
       <soap:operation soapAction="http://tempuri.org/IGestionCitasService/ListarHistorialDeCitas" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="RepetidoExceptionFault">
+        <soap:fault use="literal" name="RepetidoExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="DarAltaCita">
+      <soap:operation soapAction="http://tempuri.org/IGestionCitasService/DarAltaCita" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="RepetidoExceptionFault">
+        <soap:fault use="literal" name="RepetidoExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="DarBajaCita">
+      <soap:operation soapAction="http://tempuri.org/IGestionCitasService/DarBajaCita" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

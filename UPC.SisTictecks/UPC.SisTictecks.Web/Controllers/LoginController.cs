@@ -42,7 +42,9 @@ namespace UPC.SisTictecks.Web.Controllers
             {
                 try
                 {
-                    UsuLogin = SeguridadProxy.AutenticarUsuario(user.Usuario, user.Clave);
+                    UsuLogin = SeguridadProxy.AutenticarUsuario(user.Usuario, user.Clave);                    
+                    FachadaSesion.Usuario = UsuLogin;
+                    formsAuth.SetAuthCookie(UsuLogin.Usuario, true);
                     return RedirectToAction("Index", "Home");
                 }
                 catch (FaultException<RepetidoException> fe)
@@ -60,6 +62,10 @@ namespace UPC.SisTictecks.Web.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Logout()
         {
+            var entrada = FachadaSesion.Usuario;
+
+            if (entrada != null) { FachadaSesion.Usuario = null; }
+
             formsAuth.SignOut();
             return Redirect(formsAuth.DefaultUrl);
         }

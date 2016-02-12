@@ -115,4 +115,32 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
+  <xs:element name="DarAltaCita">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/UPC.SisTictecks.EL" minOccurs="0" name="citaAlta" nillable="true" type="q9:CitaEN" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DarAltaCitaResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/UPC.SisTictecks.EL" minOccurs="0" name="DarAltaCitaResult" nillable="true" type="q10:CitaEN" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DarBajaCita">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q11="http://schemas.datacontract.org/2004/07/UPC.SisTictecks.EL" minOccurs="0" name="citaBaja" nillable="true" type="q11:CitaEN" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DarBajaCitaResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q12="http://schemas.datacontract.org/2004/07/UPC.SisTictecks.EL" minOccurs="0" name="DarBajaCitaResult" nillable="true" type="q12:CitaEN" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
 </xs:schema>

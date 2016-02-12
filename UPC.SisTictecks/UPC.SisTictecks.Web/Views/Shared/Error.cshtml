@@ -13,5 +13,12 @@
         <h1>Error.</h1>
         <h2>Un error ha ocurrido mientras se procesaba su solicitud.</h2>
     </hgroup>
+
+    @using (Html.BeginForm("Logout", "Login", FormMethod.Post, new { id = "frmCerrar" }))
+    {
+        @Html.AntiForgeryToken()
+    }
+
+    <p><a href="javascript:document.getElementById('frmCerrar').submit()">Regresar</a></p>
 </body>
 </html>

@@ -58,3 +58,5 @@ C:\Repositorio\SOATEAM\SOATEAM\UPC.SisTictecks\UPC.SisTictecks.Web\bin\Antlr3.Ru
 C:\Repositorio\SOATEAM\SOATEAM\UPC.SisTictecks\UPC.SisTictecks.Web\obj\Debug\UPC.SisTictecks.Web.csprojResolveAssemblyReference.cache
 C:\Repositorio\SOATEAM\SOATEAM\UPC.SisTictecks\UPC.SisTictecks.Web\bin\UPC.SisTictecks.EL.dll
 C:\Repositorio\SOATEAM\SOATEAM\UPC.SisTictecks\UPC.SisTictecks.Web\bin\UPC.SisTictecks.EL.pdb
+C:\Repositorio\SOATEAM\SOATEAM\UPC.SisTictecks\UPC.SisTictecks.Web\bin\UPC.SisTictecks.Helpers.dll
+C:\Repositorio\SOATEAM\SOATEAM\UPC.SisTictecks\UPC.SisTictecks.Web\bin\UPC.SisTictecks.Helpers.pdb

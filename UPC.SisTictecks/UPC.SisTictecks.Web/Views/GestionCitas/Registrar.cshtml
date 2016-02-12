@@ -1,0 +1,170 @@
+﻿@model UPC.SisTictecks.EL.CitaEN
+
+@{
+    ViewBag.Title = "Registrar";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Citas</h2>
+
+@using (Html.BeginForm("Registrar","GestionCitas", FormMethod.Post)) 
+{
+    <div class="form-horizontal">
+        <h4>Nuevo</h4>
+        <hr />
+        @Html.ValidationSummary()
+        
+        <div class="form-group">
+            @Html.LabelFor(model => model.Fecha, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.TextBoxFor(model => model.Fecha, new { @class = "form-control datepicker", type="date", placeholder="Seleccione fecha" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.RangoHora, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.TextBoxFor(model => model.RangoHora, new { @class = "form-control", @Id = "txtRangoHora", placeholder = "Entre 1 y 24 horas"  })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Vehiculo.Descripcion, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">                
+                <select class="frm_txt" name="cboVehiculos" id="cboVehiculos" style="width:150px"></select>&nbsp;
+                <input id="btnRegistrarVehiculo" name="btnRegistrarVehiculo" type="button" value="Registrar Vehículo" class="boton" />
+            </div>
+            
+        </div> 
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Servicio.Descripcion, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">                
+                <select class="frm_txt" name="cboServicios" id="cboServicios" style="width:150px"></select>
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Taller.Taller, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">                
+                <select class="frm_txt" name="cboTalleres" id="cboTalleres" style="width:150px"></select>
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Observacion, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.TextAreaFor(model => model.Observacion, new { @class = "form-control" })
+            </div>
+        </div>                
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Grabar" class="btn btn-default" />
+            </div>
+        </div>
+
+    </div>
+    
+}
+
+<div>
+    @Html.ActionLink("Volver", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+
+    <script type="text/javascript">
+
+        $(function () {
+            $.fn.datepicker.defaults.format = "dd/mm/yyyy";
+
+            $('.datepicker').datepicker({
+                format: "dd/mm/yyyy",
+                language: "es"
+            });
+        });
+
+        $(document).ready(function () {
+            cargarTalleres();
+            cargarServicios();
+            cargarVehiculos();
+
+            $("#txtRangoHora").keydown(function (event) {                
+                if (event.shiftKey) { event.preventDefault(); }
+                if (event.keyCode == 46 || event.keyCode == 8) {
+                }
+                else {
+                    if (event.keyCode < 95) {
+                        if (event.keyCode < 48 || event.keyCode > 57) {
+                            event.preventDefault();
+                        }
+                    }
+                    else {
+                        if (event.keyCode < 96 || event.keyCode > 105) {
+                            event.preventDefault();
+                        }
+                    }
+                }
+            });
+
+
+        });
+
+
+        function cargarServicios() {
+            $.get('@Url.Action("ListaServicios", "GestionCitas")')
+            .done(function (data) {
+                $('#cboServicios').append('<option value="0"></option>');
+                $.each(data, function (i, row) {
+                    var $option = $('<option>');
+                    $option.val(row.Codigo);
+                    $option.html(row.Descripcion);
+                    $('#cboServicios').append($option);
+
+                })
+            })
+            .fail(function (data) {
+                console.log('error');
+            });
+        }
+
+        function cargarTalleres() {
+            $.get('@Url.Action("ListaTalleres", "GestionCitas")')
+            .done(function (data) {
+                $('#cboTalleres').append('<option value="0"></option>');
+                $.each(data, function (i, row) {
+                    var $option = $('<option>');
+                    $option.val(row.Codigo);
+                    $option.html(row.Taller);
+                    $('#cboTalleres').append($option);
+
+                })
+            })
+            .fail(function (data) {
+                console.log('error');
+            });
+        }
+
+        function cargarVehiculos() {
+            $.get('@Url.Action("ListaVehiculos", "GestionCitas")')
+            .done(function (data) {
+                $('#cboVehiculos').append('<option value="0"></option>');
+                $.each(data, function (i, row) {
+                    var $option = $('<option>');
+                    $option.val(row.Codigo);
+                    $option.html(row.Descripcion);
+                    $('#cboVehiculos').append($option);
+
+                })
+            })
+            .fail(function (data) {
+                console.log('error');
+            });
+        }
+
+       
+
+    </script>
+}

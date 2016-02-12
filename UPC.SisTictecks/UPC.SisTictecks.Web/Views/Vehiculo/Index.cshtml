@@ -8,7 +8,7 @@
 <h2>Lista de Vehículos</h2>
 
 <p>
-    @Html.ActionLink("Crear Nuevo", "Create")
+    @Html.ActionLink("Nuevo Vehículo", "Registrar")
 </p>
 <table class="table">
     <tr>       
@@ -23,6 +23,15 @@
         </th>
         <th>
             @Html.DisplayNameFor(model => model.Anio)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Marca.Marca)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Modelo.Modelo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Color.Color)
         </th>
         <th></th>
     </tr>
@@ -42,8 +51,18 @@
             @Html.DisplayFor(modelItem => item.Anio)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new {  id=item.Codigo })            
-            @Html.ActionLink("Delete", "Delete", new { id = item.Codigo })
+            @Html.DisplayFor(modelItem => item.Marca.Marca)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Modelo.Modelo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Color.Color)
+        </td>
+        <td>
+            @Html.ActionLink("Editar", "Editar", new {  id=item.Codigo })
+            @Html.ActionLink("Detalle", "Detalles", new { id = item.Codigo }) |
+            @Html.ActionLink("Eliminar", "Eliminar", new { id = item.Codigo })
         </td>
     </tr>
 }

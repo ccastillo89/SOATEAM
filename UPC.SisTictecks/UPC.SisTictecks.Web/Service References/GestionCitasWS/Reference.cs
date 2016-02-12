@@ -73,6 +73,20 @@ namespace UPC.SisTictecks.Web.GestionCitasWS {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGestionCitasService/ListarHistorialDeCitas", ReplyAction="http://tempuri.org/IGestionCitasService/ListarHistorialDeCitasResponse")]
         System.Threading.Tasks.Task<System.Collections.Generic.List<UPC.SisTictecks.EL.CitaEN>> ListarHistorialDeCitasAsync(string codigoUsuario);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGestionCitasService/DarAltaCita", ReplyAction="http://tempuri.org/IGestionCitasService/DarAltaCitaResponse")]
+        [System.ServiceModel.FaultContractAttribute(typeof(UPC.SisTictecks.EL.RepetidoException), Action="http://tempuri.org/IGestionCitasService/DarAltaCitaRepetidoExceptionFault", Name="RepetidoException", Namespace="http://schemas.datacontract.org/2004/07/UPC.SisTictecks.EL")]
+        UPC.SisTictecks.EL.CitaEN DarAltaCita(UPC.SisTictecks.EL.CitaEN citaAlta);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGestionCitasService/DarAltaCita", ReplyAction="http://tempuri.org/IGestionCitasService/DarAltaCitaResponse")]
+        System.Threading.Tasks.Task<UPC.SisTictecks.EL.CitaEN> DarAltaCitaAsync(UPC.SisTictecks.EL.CitaEN citaAlta);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGestionCitasService/DarBajaCita", ReplyAction="http://tempuri.org/IGestionCitasService/DarBajaCitaResponse")]
+        [System.ServiceModel.FaultContractAttribute(typeof(UPC.SisTictecks.EL.RepetidoException), Action="http://tempuri.org/IGestionCitasService/DarBajaCitaRepetidoExceptionFault", Name="RepetidoException", Namespace="http://schemas.datacontract.org/2004/07/UPC.SisTictecks.EL")]
+        UPC.SisTictecks.EL.CitaEN DarBajaCita(UPC.SisTictecks.EL.CitaEN citaBaja);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGestionCitasService/DarBajaCita", ReplyAction="http://tempuri.org/IGestionCitasService/DarBajaCitaResponse")]
+        System.Threading.Tasks.Task<UPC.SisTictecks.EL.CitaEN> DarBajaCitaAsync(UPC.SisTictecks.EL.CitaEN citaBaja);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -164,6 +178,22 @@ namespace UPC.SisTictecks.Web.GestionCitasWS {
         
         public System.Threading.Tasks.Task<System.Collections.Generic.List<UPC.SisTictecks.EL.CitaEN>> ListarHistorialDeCitasAsync(string codigoUsuario) {
             return base.Channel.ListarHistorialDeCitasAsync(codigoUsuario);
+        }
+        
+        public UPC.SisTictecks.EL.CitaEN DarAltaCita(UPC.SisTictecks.EL.CitaEN citaAlta) {
+            return base.Channel.DarAltaCita(citaAlta);
+        }
+        
+        public System.Threading.Tasks.Task<UPC.SisTictecks.EL.CitaEN> DarAltaCitaAsync(UPC.SisTictecks.EL.CitaEN citaAlta) {
+            return base.Channel.DarAltaCitaAsync(citaAlta);
+        }
+        
+        public UPC.SisTictecks.EL.CitaEN DarBajaCita(UPC.SisTictecks.EL.CitaEN citaBaja) {
+            return base.Channel.DarBajaCita(citaBaja);
+        }
+        
+        public System.Threading.Tasks.Task<UPC.SisTictecks.EL.CitaEN> DarBajaCitaAsync(UPC.SisTictecks.EL.CitaEN citaBaja) {
+            return base.Channel.DarBajaCitaAsync(citaBaja);
         }
     }
 }
