@@ -83,7 +83,8 @@ namespace UPC.SisTictecks.Web.Controllers
                     }
 
                 }
-                return RedirectToAction("Index");
+                //return RedirectToAction("Index");
+                return RedirectToAction("Registrar", "GestionCitas");
             }
             catch
             {

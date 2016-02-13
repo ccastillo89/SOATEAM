@@ -44,10 +44,17 @@
                     }
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" id="dropdownCommonMenu" data-toggle="dropdown">Atención</a>
-                        <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownCommonMenu">                            
-                            <li role="menuitem">@Html.ActionLink("Registro de Servicio", "Index", "GestionCitas")</li>
+                        <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownCommonMenu">
+							@if (!FachadaSesion.EsAdministrador())
+							{
+							<li role="menuitem">@Html.ActionLink("Registro de Servicio", "Index", "GestionCitas")</li>
                             <li role="menuitem">@Html.ActionLink("Mis Citas", "MisCitas", "GestionCitas")</li>
-                            <li role="menuitem">@Html.ActionLink("Historial De Citas ", "HistorialCitas", "GestionCitas")</li>
+							<li role="menuitem">@Html.ActionLink("Historial De Citas ", "HistorialCitas", "GestionCitas")</li>
+							}
+							else
+							{
+							<li role="menuitem">@Html.ActionLink("Registro Alta de Servicio", "AltasCitas", "GestionCitas")</li>
+							}
                         </ul>
                     </li>
                     <li class="dropdown">@Html.ActionLink("Acerca", "About", "Home")</li>

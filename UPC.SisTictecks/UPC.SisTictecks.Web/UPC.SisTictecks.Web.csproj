@@ -394,6 +394,8 @@
     <Content Include="Views\Vehiculo\Detalles.cshtml" />
     <Content Include="Views\Vehiculo\Registrar.cshtml" />
     <Content Include="Views\Vehiculo\Editar.cshtml" />
+    <Content Include="Views\GestionCitas\DarAltaCita.cshtml" />
+    <Content Include="Views\GestionCitas\ListaCitasEnAlta.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

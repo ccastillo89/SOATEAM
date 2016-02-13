@@ -15,9 +15,17 @@
         @Html.ValidationSummary()
         
         <div class="form-group">
+            @Html.LabelFor(model => model.Vehiculo.Descripcion, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <select class="frm_txt" name="cboVehiculos" id="cboVehiculos" style="width:150px"></select>&nbsp;
+                <span>@Html.ActionLink("Registrar Vehículo", "Registrar", "Vehiculo")</span>
+            </div>
+        </div> 
+            
+        <div class="form-group">
             @Html.LabelFor(model => model.Fecha, new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.TextBoxFor(model => model.Fecha, new { @class = "form-control datepicker", type="date", placeholder="Seleccione fecha" })
+                @Html.TextBoxFor(model => model.Fecha, new { @class = "form-control datepicker", placeholder="Seleccione fecha" })
             </div>
         </div>
 
@@ -26,16 +34,7 @@
             <div class="col-md-10">
                 @Html.TextBoxFor(model => model.RangoHora, new { @class = "form-control", @Id = "txtRangoHora", placeholder = "Entre 1 y 24 horas"  })
             </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.Vehiculo.Descripcion, new { @class = "control-label col-md-2" })
-            <div class="col-md-10">                
-                <select class="frm_txt" name="cboVehiculos" id="cboVehiculos" style="width:150px"></select>&nbsp;
-                <input id="btnRegistrarVehiculo" name="btnRegistrarVehiculo" type="button" value="Registrar Vehículo" class="boton" />
-            </div>
-            
-        </div> 
+        </div>        
 
         <div class="form-group">
             @Html.LabelFor(model => model.Servicio.Descripcion, new { @class = "control-label col-md-2" })
@@ -109,6 +108,9 @@
                 }
             });
 
+            $("#btnRegistrarVehiculo").click(function (event){                
+                window.open("http://localhost:3996/frmVehiculo.aspx")
+            });
 
         });
 

@@ -89,5 +89,17 @@ namespace UPC.SisTictecks.DAL
             return bResult;
         }
 
+        public ICollection<CitaEN> ListarCitasPendientesDeAltas()
+        {
+            IList<CitaEN> lista = null;
+            using (ISession session = NHibernateHelper.ObtenerSesion())
+            {
+                lista = session
+                    .CreateCriteria(typeof(CitaEN))
+                    .Add(Restrictions.Eq("Estado", (int)eEstadosCita.Pendiente))
+                    .List<CitaEN>();
+            }
+            return lista;
+        }
     }
 }

@@ -15,6 +15,5 @@ namespace UPC.SisTictecks.SOAPGestionTicketsWS
         [OperationContract]
         UsuarioEN AutenticarUsuario(string usuario, string pass);
 
-
     }
 }

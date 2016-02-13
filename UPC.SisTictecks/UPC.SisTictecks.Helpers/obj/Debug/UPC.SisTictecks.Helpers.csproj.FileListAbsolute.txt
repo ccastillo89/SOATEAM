@@ -7,4 +7,3 @@ C:\Repositorio\SOATEAM\SOATEAM\UPC.SisTictecks\UPC.SisTictecks.Helpers\bin\Debug
 C:\Repositorio\SOATEAM\SOATEAM\UPC.SisTictecks\UPC.SisTictecks.Helpers\bin\Debug\UPC.SisTictecks.Helpers.pdb
 C:\Repositorio\SOATEAM\SOATEAM\UPC.SisTictecks\UPC.SisTictecks.Helpers\obj\Debug\UPC.SisTictecks.Helpers.dll
 C:\Repositorio\SOATEAM\SOATEAM\UPC.SisTictecks\UPC.SisTictecks.Helpers\obj\Debug\UPC.SisTictecks.Helpers.pdb
-C:\Repositorio\SOATEAM\SOATEAM\UPC.SisTictecks\UPC.SisTictecks.Helpers\obj\Debug\UPC.SisTictecks.Helpers.csprojResolveAssemblyReference.cache

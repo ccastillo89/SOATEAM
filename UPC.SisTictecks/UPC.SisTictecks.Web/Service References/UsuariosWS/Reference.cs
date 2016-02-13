@@ -62,6 +62,12 @@ namespace UPC.SisTictecks.Web.UsuariosWS {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUsuariosService/ValidarCorreoExistente", ReplyAction="http://tempuri.org/IUsuariosService/ValidarCorreoExistenteResponse")]
         System.Threading.Tasks.Task<bool> ValidarCorreoExistenteAsync(string correo);
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUsuariosService/ValidarUsuarioTipoCliente", ReplyAction="http://tempuri.org/IUsuariosService/ValidarUsuarioTipoClienteResponse")]
+        bool ValidarUsuarioTipoCliente(int codigoUsuario);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUsuariosService/ValidarUsuarioTipoCliente", ReplyAction="http://tempuri.org/IUsuariosService/ValidarUsuarioTipoClienteResponse")]
+        System.Threading.Tasks.Task<bool> ValidarUsuarioTipoClienteAsync(int codigoUsuario);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUsuariosService/ObtenerPerfil", ReplyAction="http://tempuri.org/IUsuariosService/ObtenerPerfilResponse")]
         UPC.SisTictecks.EL.PerfilEN ObtenerPerfil(int codigo);
         
@@ -156,6 +162,14 @@ namespace UPC.SisTictecks.Web.UsuariosWS {
         
         public System.Threading.Tasks.Task<bool> ValidarCorreoExistenteAsync(string correo) {
             return base.Channel.ValidarCorreoExistenteAsync(correo);
+        }
+        
+        public bool ValidarUsuarioTipoCliente(int codigoUsuario) {
+            return base.Channel.ValidarUsuarioTipoCliente(codigoUsuario);
+        }
+        
+        public System.Threading.Tasks.Task<bool> ValidarUsuarioTipoClienteAsync(int codigoUsuario) {
+            return base.Channel.ValidarUsuarioTipoClienteAsync(codigoUsuario);
         }
         
         public UPC.SisTictecks.EL.PerfilEN ObtenerPerfil(int codigo) {

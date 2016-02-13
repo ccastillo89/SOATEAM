@@ -204,7 +204,7 @@ namespace UPC.SisTictecks.SOAPGestionTicketsWS
         public bool ValidarUsuarioTipoCliente(int codigoUsuario)
         {
             return UsuarioDAO.ValidarUsuarioTipoCliente(codigoUsuario);
-        }   
+        }
 
         #region "Perfiles"
 
@@ -232,9 +232,6 @@ namespace UPC.SisTictecks.SOAPGestionTicketsWS
         }
 
         #endregion
-
-
-
 
     }
 }
