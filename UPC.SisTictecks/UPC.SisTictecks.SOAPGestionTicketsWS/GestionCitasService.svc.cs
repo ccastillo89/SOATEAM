@@ -47,8 +47,8 @@ namespace UPC.SisTictecks.SOAPGestionTicketsWS
             hhInicio = citaCrear.HoraInicio.Hour;
             hhFinal = hhInicio + servicioAsociado.TiempoEstimado;
 
-            horaFinal = new DateTime(anio, mes, dia, hhFinal, mmFinal, ssFinal);
-            citaCrear.HoraFin = horaFinal;
+            horaFinal = new DateTime(anio, mes, dia, hhInicio, mmFinal, ssFinal);
+            citaCrear.HoraFin = horaFinal.AddHours(hhFinal);
 
             //Estado
             citaCrear.Estado = 1; //Pendiente

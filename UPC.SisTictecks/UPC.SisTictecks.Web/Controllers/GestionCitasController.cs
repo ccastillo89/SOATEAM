@@ -56,6 +56,7 @@ namespace UPC.SisTictecks.Web.Controllers
 
         //
         // GET: /GestionCitas/Registrar
+        [OutputCache(Location = System.Web.UI.OutputCacheLocation.None)]
         public ActionResult Registrar()
         {
             return View();

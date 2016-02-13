@@ -43,6 +43,7 @@ namespace UPC.SisTictecks.Web.Controllers
         //
         // POST: /Vehiculo/Registrar
         [HttpPost]
+        [OutputCache(Location = System.Web.UI.OutputCacheLocation.None)]
         public ActionResult Registrar(VehiculoEN vehiculoEN, string cboMarca,
                     string cboModelo, string cboColor)
         {
