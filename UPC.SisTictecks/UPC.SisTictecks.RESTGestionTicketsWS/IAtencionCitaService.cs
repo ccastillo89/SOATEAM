@@ -10,7 +10,7 @@ using System.ServiceModel.Web;
 namespace UPC.SisTictecks.RESTGestionTicketsWS
 {
     [ServiceContract]
-    public interface IAprobacionCitaService
+    public interface IAtencionCitaService
     {
         [OperationContract]
         [WebInvoke(Method = "GET", UriTemplate = "AltasCita", ResponseFormat = WebMessageFormat.Json)]
@@ -22,6 +22,11 @@ namespace UPC.SisTictecks.RESTGestionTicketsWS
 
         [OperationContract]
         [WebInvoke(Method = "POST", UriTemplate = "AltasCita", ResponseFormat = WebMessageFormat.Json)]
-        CitaEN DarAltaCita(CitaEN citaAlta);
+        CitaEN DarAltaCita(CitaEN citaEN);
+
+        [OperationContract]
+        [WebInvoke(Method = "POST", UriTemplate = "BajasCita", ResponseFormat = WebMessageFormat.Json)]
+        CitaEN DarBajaCita(CitaEN citaEN);
+
     }
 }

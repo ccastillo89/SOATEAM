@@ -8,52 +8,74 @@
 <h2>Alta de Cita</h2>
 @using (Html.BeginForm())
 {
-    @Html.ValidationSummary()
-
     <div class="form-horizontal">
         <h4>Cita</h4>
         <hr />
         @Html.ValidationSummary()
         @Html.HiddenFor(model => model.Codigo)
-        @Html.HiddenFor(model => model.HoraFin)
+        @Html.HiddenFor(model => model.Estado)
         @Html.HiddenFor(model => model.RangoHora)
-        @Html.HiddenFor(model => model.Vehiculo)
-        @Html.HiddenFor(model => model.Usuario)
-        @Html.HiddenFor(model => model.Taller)
-        @Html.HiddenFor(model => model.Servicio)
+        @Html.HiddenFor(model => model.Usuario.Apellidos)
+        @Html.HiddenFor(model => model.Usuario.Nombres)
+        @Html.HiddenFor(model => model.Usuario.Pass)
+        @Html.HiddenFor(model => model.Usuario.Dni)
+        @Html.HiddenFor(model => model.Usuario.Telefono)
+        @Html.HiddenFor(model => model.Usuario.Correo)
+        @Html.HiddenFor(model => model.Vehiculo.Placa)
 
         <div class="form-group">
             @Html.LabelFor(model => model.NroCita, new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.TextBoxFor(model => model.NroCita, new { @class = "form-control" , disabled="disabled" })
+                @Html.TextBoxFor(model => model.NroCita, new { @class = "form-control" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Usuario.Usuario, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.TextBoxFor(model => model.Usuario.Usuario, new { @class = "form-control" })
             </div>
         </div>
 
         <div class="form-group">
             @Html.LabelFor(model => model.Fecha, new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.TextBoxFor(model => model.Fecha, new { @class = "form-control" , disabled="disabled" })
+                @Html.TextBoxFor(model => model.Fecha, new { @class = "form-control" })
             </div>
         </div>
 
         <div class="form-group">
             @Html.LabelFor(model => model.HoraInicio, new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.TextBoxFor(model => model.HoraInicio, new { @class = "form-control" , disabled="disabled" })
+                @Html.TextBoxFor(model => model.HoraInicio, new { @class = "form-control" })
             </div>
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.HoraInicio, new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.Servicio, new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.TextBoxFor(model => model.HoraInicio, new { @class = "form-control" , disabled="disabled" })
+                @Html.TextBoxFor(model => model.Servicio.Descripcion, new { @class = "form-control"})
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Vehiculo.Descripcion, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.TextBoxFor(model => model.Vehiculo.Descripcion, new { @class = "form-control" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Taller, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.TextBoxFor(model => model.Taller.Taller, new { @class = "form-control" })
             </div>
         </div>
 
         <div class="form-group">
             @Html.LabelFor(model => model.Observacion, new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.TextBoxFor(model => model.Observacion, new { @class = "form-control" , disabled="disabled" })
+                @Html.TextBoxFor(model => model.Observacion, new { @class = "form-control" })
             </div>
         </div>
 
@@ -66,7 +88,7 @@
     </div>
 }
 <div>
-    @Html.ActionLink("ListaCitasEnAlta", "Index")
+    @Html.ActionLink("Volver", "ListaCitasEnAlta")
 </div>
 
 @section Scripts {

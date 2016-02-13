@@ -1,6 +1,6 @@
 ﻿<%@ ServiceHost Language="C#" 
     Debug="true" 
-    Service="UPC.SisTictecks.RESTGestionTicketsWS.AprobacionCitaService" 
-    CodeBehind="AprobacionCitaService.svc.cs"
+    Service="UPC.SisTictecks.RESTGestionTicketsWS.AtencionCitaService" 
+    CodeBehind="AtencionCitaService.svc.cs"
     Factory="System.ServiceModel.Activation.WebServiceHostFactory"
     %>

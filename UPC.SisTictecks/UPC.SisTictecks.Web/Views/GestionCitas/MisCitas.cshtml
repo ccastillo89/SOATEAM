@@ -67,13 +67,7 @@
             }
         </td>
         <td>
-                
-            @Html.ActionLink("Cancelar", "CancelarCita", new { id = item.Codigo}) |
-            @if (FachadaSesion.EsAdministrador())
-            {
-                @Html.ActionLink("Aprobar", "AprobarCita", new { id = item.Codigo})
-            }
-            
+            @Html.ActionLink("Cancelar Cita", "DarBajaCita", new { id = item.Codigo })
         </td>
     </tr>
 }

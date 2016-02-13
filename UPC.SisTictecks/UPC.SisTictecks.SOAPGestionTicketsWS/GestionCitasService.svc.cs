@@ -147,38 +147,5 @@ namespace UPC.SisTictecks.SOAPGestionTicketsWS
             return cadena.Substring(0, 17);
         }
 
-        public CitaEN DarAltaCita(CitaEN citaAlta)
-        {
-            DateTime fecha = Convert.ToDateTime(citaAlta.Fecha);
-            if (DateTime.Now.Date < fecha.Date)
-            {
-                throw new FaultException<RepetidoException>(new RepetidoException()
-                {
-                    Codigo = 1,
-                    Mensaje = "No es posible el alta. La fecha de cita es posterior a la fecha actual."
-                },
-                new FaultReason("Validación de negocio"));
-            }
-
-            if (DateTime.Now.Date > fecha.Date.AddDays(1))
-            {
-                throw new FaultException<RepetidoException>(new RepetidoException()
-                {
-                    Codigo = 2,
-                    Mensaje = "No es posible el alta, debido a que ya se ha vencido el tiempo maximo de alta de cita (01 dias)."
-                },
-                new FaultReason("Validación de negocio"));
-            }
-
-            citaAlta.Estado = 2; //Realizado
-            return CitaDAO.Modificar(citaAlta);
-        }
-
-        public CitaEN DarBajaCita(CitaEN citaBaja)
-        {
-            citaBaja.Estado = 3; //Cancelado
-            return CitaDAO.Modificar(citaBaja);
-        }
-
     }
 }

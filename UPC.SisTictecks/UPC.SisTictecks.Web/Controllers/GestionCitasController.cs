@@ -202,7 +202,7 @@ namespace UPC.SisTictecks.Web.Controllers
 
         public ActionResult ListaCitasEnAlta()
         {
-            HttpWebRequest req2 = (HttpWebRequest)WebRequest.Create("http://localhost:4157/AltasCitaService.svc/AltasCita");
+            HttpWebRequest req2 = (HttpWebRequest)WebRequest.Create("http://localhost:28603/AtencionCitaService.svc/AltasCita");
             req2.Method = "GET";
             HttpWebResponse res2 = (HttpWebResponse)req2.GetResponse();
             StreamReader reader2 = new StreamReader(res2.GetResponseStream());
@@ -212,18 +212,19 @@ namespace UPC.SisTictecks.Web.Controllers
             return View(listaCitasAltas);
         }
 
-        public ActionResult DarAltaCita(string codigoCita)
+        public ActionResult DarAltaCita(int id)
         {
             CitaEN citaEN = null;
             if (ModelState.IsValid)
             {
-                HttpWebRequest req2 = (HttpWebRequest)WebRequest.Create("http://localhost:4157/AltasCitaService.svc/AltasCita/" + codigoCita);
+                HttpWebRequest req2 = (HttpWebRequest)WebRequest.Create("http://localhost:28603/AtencionCitaService.svc/AltasCita/" + id.ToString());
                 req2.Method = "GET";
                 HttpWebResponse res2 = (HttpWebResponse)req2.GetResponse();
                 StreamReader reader2 = new StreamReader(res2.GetResponseStream());
                 string citasJson2 = reader2.ReadToEnd();
                 JavaScriptSerializer js2 = new JavaScriptSerializer();
                 citaEN = js2.Deserialize<CitaEN>(citasJson2);
+                citaEN.RangoHora = 1;
             }
             return View(citaEN);
         }
@@ -233,12 +234,11 @@ namespace UPC.SisTictecks.Web.Controllers
         {
             if (ModelState.IsValid)
             {
-                DataContractJsonSerializer obj = new DataContractJsonSerializer(typeof(string));
-
-                string postdata = "";
+                JavaScriptSerializer serializer = new JavaScriptSerializer();
+                string postdata = serializer.Serialize(citaEN);;
                 byte[] data = Encoding.UTF8.GetBytes(postdata);
                 HttpWebRequest req = (HttpWebRequest)WebRequest
-                    .Create("http://localhost:4157/AltasCitaService.svc/AltasCita");
+                    .Create("http://localhost:28603/AtencionCitaService.svc/AltasCita");
                 req.Method = "POST";
                 req.ContentLength = data.Length;
                 req.ContentType = "application/json";
@@ -266,9 +266,50 @@ namespace UPC.SisTictecks.Web.Controllers
                     return View(citaEN);
                 }
             }
-
+            //return View(citaEN);
             return RedirectToAction("ListaCitasEnAlta");
         }
+
+        public ActionResult DarBajaCita(int id)
+        {
+            if (ModelState.IsValid)
+            {
+                CitaEN citaEN = new CitaEN() { Codigo = id};
+                JavaScriptSerializer serializer = new JavaScriptSerializer();
+                string postdata = serializer.Serialize(citaEN); ;
+                byte[] data = Encoding.UTF8.GetBytes(postdata);
+                HttpWebRequest req = (HttpWebRequest)WebRequest
+                    .Create("http://localhost:28603/AtencionCitaService.svc/BajasCita");
+                req.Method = "POST";
+                req.ContentLength = data.Length;
+                req.ContentType = "application/json";
+                var reqStream = req.GetRequestStream();
+                reqStream.Write(data, 0, data.Length);
+                HttpWebResponse res = null;
+                try
+                {
+                    res = (HttpWebResponse)req.GetResponse();
+                    StreamReader reader = new StreamReader(res.GetResponseStream());
+                    string citaAltaJson = reader.ReadToEnd();
+                    JavaScriptSerializer js = new JavaScriptSerializer();
+                    CitaEN citaEnAlta = js.Deserialize<CitaEN>(citaAltaJson);
+                }
+                catch (WebException e)
+                {
+                    HttpStatusCode code = ((HttpWebResponse)e.Response).StatusCode;
+                    string message = ((HttpWebResponse)e.Response).StatusDescription;
+                    StreamReader reader = new StreamReader(e.Response.GetResponseStream());
+                    string error = reader.ReadToEnd();
+                    JavaScriptSerializer js = new JavaScriptSerializer();
+                    string mensaje = js.Deserialize<string>(error);
+
+                    ModelState.AddModelError("MensajeError", mensaje);
+                    return View(citaEN);
+                }
+            }
+            return RedirectToAction("MisCitas");
+        }
+
 
         protected override void Dispose(bool disposing)
         {

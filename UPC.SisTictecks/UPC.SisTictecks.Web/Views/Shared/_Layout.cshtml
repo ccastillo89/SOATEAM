@@ -53,7 +53,7 @@
 							}
 							else
 							{
-							<li role="menuitem">@Html.ActionLink("Registro Alta de Servicio", "AltasCitas", "GestionCitas")</li>
+							<li role="menuitem">@Html.ActionLink("Registro Alta de Servicio", "ListaCitasEnAlta", "GestionCitas")</li>
 							}
                         </ul>
                     </li>
@@ -67,7 +67,7 @@
                 }
                 
                 <ul class="nav navbar-nav navbar-right">                    
-                    <li><a href="javascript:document.getElementById('frmCerrar').submit()">@usuario.Usuario - Cerrar Sesión</a></li>
+                    <li><a href="javascript:document.getElementById('frmCerrar').submit()">@usuario.Perfil.Descripcion.ToUpper()  -  @usuario.Usuario - Cerrar Sesión</a></li>
                 </ul>
                 @*<ul class="nav navbar-nav navbar-right">
                     <p class="navbar-brand" style="font-size:small">Usuario: @usuario.Usuario</p>
