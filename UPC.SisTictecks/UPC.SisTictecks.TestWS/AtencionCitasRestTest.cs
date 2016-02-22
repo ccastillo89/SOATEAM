@@ -19,7 +19,7 @@ namespace UPC.SisTictecks.TestWS
             string postdata = "{\"Codigo\":1,\"Estado\":1,\"Fecha\":\"16\\/02\\/2016\",\"HoraFin\":\"\\/Date(1455674400000-0500)\\/\",\"HoraInicio\":\"\\/Date(1455627600000-0500)\\/\",\"NroCita\":\"R2016021203251702\",\"Observacion\":\"2312321\",\"RangoHora\":0,\"Servicio\":{\"Codigo\":6,\"Descripcion\":\"BAJAR GASES\",\"Estado\":true,\"TiempoEstimado\":13,\"Valor\":297.00},\"Taller\":{\"Codigo\":1,\"Taller\":\"TALLER NRO 1\"},\"Usuario\":{\"Apellidos\":\"Juarez\",\"Codigo\":4,\"Correo\":\"ivan.juarez@gmail.com\",\"Dni\":\"44582563\",\"Estado\":false,\"Nombres\":\"Ivan\",\"Pass\":\"1234\",\"Perfil\":{\"Codigo\":2,\"Descripcion\":\"CLIENTE\",\"Estado\":true},\"Telefono\":\"987452361\",\"Usuario\":\"IVAN\",\"login\":null},\"Vehiculo\":{\"Anio\":2016,\"Codigo\":1,\"Color\":{\"Codigo\":16,\"Color\":\"Amarillo de zinc\"},\"Descripcion\":\"dasdsad\",\"Kilometros\":15000,\"Marca\":{\"Codigo\":7,\"Marca\":\"HONDA\"},\"Modelo\":{\"Codigo\":19,\"Marca\":{\"Codigo\":7,\"Marca\":\"HONDA\"},\"Modelo\":\"Honda Civic\"},\"Placa\":\"abc-111\",\"Usuario\":{\"Apellidos\":\"Castillo\",\"Codigo\":1,\"Correo\":\"carlos@gmail.com\",\"Dni\":\"45792116\",\"Estado\":true,\"Nombres\":\"Carlos\",\"Pass\":\"123\",\"Perfil\":{\"Codigo\":1,\"Descripcion\":\"ADMINISTRADOR\",\"Estado\":true},\"Telefono\":\"91440830\",\"Usuario\":\"CCASTILLO\",\"login\":null}}";
             byte[] data = Encoding.UTF8.GetBytes(postdata);
             HttpWebRequest req = (HttpWebRequest)WebRequest
-                .Create("http://localhost:28603/AtencionCitaService.svc/AltasCita");
+                .Create("http://localhost:28603/AtencionCitaService.svc/Citas");
             req.Method = "POST";
             req.ContentLength = data.Length;
             req.ContentType = "application/json";
@@ -51,7 +51,7 @@ namespace UPC.SisTictecks.TestWS
         [TestMethod]
         public void ObtenerCitaTest()
         {
-            HttpWebRequest req2 = (HttpWebRequest)WebRequest.Create("http://localhost:28603/AtencionCitaService.svc/AltasCita/1");
+            HttpWebRequest req2 = (HttpWebRequest)WebRequest.Create("http://localhost:28603/AtencionCitaService.svc/Citas/1");
             req2.Method = "GET";
             HttpWebResponse res2 = (HttpWebResponse)req2.GetResponse();
             StreamReader reader2 = new StreamReader(res2.GetResponseStream());
@@ -65,7 +65,7 @@ namespace UPC.SisTictecks.TestWS
         [TestMethod]
         public void ListarCitaPendienteAltaTest()
         {
-            HttpWebRequest req2 = (HttpWebRequest)WebRequest.Create("http://localhost:28603/AtencionCitaService.svc/AltasCita");
+            HttpWebRequest req2 = (HttpWebRequest)WebRequest.Create("http://localhost:28603/AtencionCitaService.svc/Citas");
             req2.Method = "GET";
             HttpWebResponse res2 = (HttpWebResponse)req2.GetResponse();
             StreamReader reader2 = new StreamReader(res2.GetResponseStream());
@@ -83,7 +83,7 @@ namespace UPC.SisTictecks.TestWS
             string postdata = "{\"Codigo\":2,\"NroCita\":null,\"Fecha\":null,\"HoraInicio\":\"\\/Date(-62135578800000)\\/\",\"RangoHora\":0,\"HoraFin\":\"\\/Date(-62135578800000)\\/\",\"Observacion\":null,\"Estado\":0,\"Usuario\":null,\"Vehiculo\":null,\"Servicio\":null,\"Taller\":null}";
             byte[] data = Encoding.UTF8.GetBytes(postdata);
             HttpWebRequest req = (HttpWebRequest)WebRequest
-                .Create("http://localhost:28603/AtencionCitaService.svc/BajasCita");
+                .Create("http://localhost:28603/AtencionCitaService.svc/Citas");
             req.Method = "POST";
             req.ContentLength = data.Length;
             req.ContentType = "application/json";

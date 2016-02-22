@@ -29,8 +29,16 @@ namespace UPC.SisTictecks.RESTGestionTicketsWS
         public CitaEN DarAltaCita(CitaEN citaEN)
         {
             CitaEN citaAlta = null;
+            CitaEN citaDarAlta = null;
             int iCodigoCita = Convert.ToInt32(citaEN.Codigo);
-            citaAlta = atiendeCitaDao.Obtener(iCodigoCita);
+            try
+            {
+                citaAlta = atiendeCitaDao.Obtener(iCodigoCita);
+            }
+            catch (Exception ex)
+            {
+                throw new WebFaultException<string>(ex.Message, HttpStatusCode.InternalServerError);
+            }
 
             DateTime fecha = Convert.ToDateTime(citaAlta.Fecha);
             if (DateTime.Now.Date < fecha.Date)
@@ -43,18 +51,37 @@ namespace UPC.SisTictecks.RESTGestionTicketsWS
                 throw new WebFaultException<string>("No es posible el alta, debido a que ya se ha vencido el tiempo maximo de alta de cita (01 dias).", HttpStatusCode.InternalServerError);
             }
 
-            citaAlta.Estado = 2;
-            return atiendeCitaDao.Modificar(citaAlta);
+            try
+            {
+                citaAlta.Estado = 2;
+                citaDarAlta = atiendeCitaDao.Modificar(citaAlta);
+            }
+            catch (Exception ex)
+            {
+                throw new WebFaultException<string>(ex.Message, HttpStatusCode.InternalServerError);
+            }
+
+            return citaDarAlta;
         }
 
         public CitaEN DarBajaCita(CitaEN citaEN)
         {
             CitaEN citaDarBaja = null;
-            int iCodigoCita = Convert.ToInt32(citaEN.Codigo);
-            citaDarBaja = atiendeCitaDao.Obtener(iCodigoCita);
+            CitaEN citaDarBaja2 = null;
+            try
+            {
+                int iCodigoCita = Convert.ToInt32(citaEN.Codigo);
+                citaDarBaja = atiendeCitaDao.Obtener(iCodigoCita);
 
-            citaDarBaja.Estado = 3;
-            return atiendeCitaDao.Modificar(citaDarBaja);
+                citaDarBaja.Estado = 3;
+                citaDarBaja2 = atiendeCitaDao.Modificar(citaDarBaja);
+            }
+            catch (Exception ex)
+            {
+                throw new WebFaultException<string>(ex.Message, HttpStatusCode.InternalServerError);
+            }
+
+            return citaDarBaja2;
         }
     }
 }

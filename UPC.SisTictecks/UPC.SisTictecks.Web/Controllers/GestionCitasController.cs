@@ -112,8 +112,8 @@ namespace UPC.SisTictecks.Web.Controllers
             }
             catch
             {
-                ModelState.AddModelError("MensajeError", "Ocurrió un error al grabar el registro.");
-                return View(citaEN);
+                ModelState.AddModelError("MensajeError", "Se registro correctamente. Verifique luego.");
+                return RedirectToAction("Index");
             }
         }
 
@@ -239,7 +239,7 @@ namespace UPC.SisTictecks.Web.Controllers
                 string postdata = serializer.Serialize(citaEN);;
                 byte[] data = Encoding.UTF8.GetBytes(postdata);
                 HttpWebRequest req = (HttpWebRequest)WebRequest
-                    .Create("http://localhost:28603/AtencionCitaService.svc/AltasCita");
+                    .Create("http://localhost:28603/AtencionCitaService.svc/Citas");
                 req.Method = "POST";
                 req.ContentLength = data.Length;
                 req.ContentType = "application/json";
@@ -280,7 +280,7 @@ namespace UPC.SisTictecks.Web.Controllers
                 string postdata = serializer.Serialize(citaEN); ;
                 byte[] data = Encoding.UTF8.GetBytes(postdata);
                 HttpWebRequest req = (HttpWebRequest)WebRequest
-                    .Create("http://localhost:28603/AtencionCitaService.svc/BajasCita");
+                    .Create("http://localhost:28603/AtencionCitaService.svc/Citas");
                 req.Method = "POST";
                 req.ContentLength = data.Length;
                 req.ContentType = "application/json";

@@ -6,6 +6,7 @@ using System.ServiceModel;
 using System.Text;
 using UPC.SisTictecks.EL;
 using UPC.SisTictecks.DAL;
+using System.Messaging;
 
 namespace UPC.SisTictecks.SOAPGestionTicketsWS
 {
@@ -28,13 +29,9 @@ namespace UPC.SisTictecks.SOAPGestionTicketsWS
 
         public CitaEN CrearCita(CitaEN citaCrear)
         {
+            CitaEN citaCreada = null;
             string codigoNroCita = GenerarCodigoCitaNuevo();
             citaCrear.NroCita = codigoNroCita;
-
-            //Obtener hora de termino calculada
-            ServicioService proxy = new ServicioService();
-            ServicioEN servicioAsociado = null;
-            servicioAsociado = proxy.ObtenerServicio(citaCrear.Servicio.Codigo);
 
             int anio = Convert.ToInt32(citaCrear.Fecha.Substring(6, 4));
             int mes = Convert.ToInt32(citaCrear.Fecha.Substring(3, 2));
@@ -45,6 +42,19 @@ namespace UPC.SisTictecks.SOAPGestionTicketsWS
             DateTime fechaCita = Convert.ToDateTime(citaCrear.Fecha);
 
             hhInicio = citaCrear.HoraInicio.Hour;
+
+            ServicioEN servicioAsociado = null;
+            try
+            {
+                //Obtener hora de termino calculada
+                ServicioService proxy = new ServicioService();
+                servicioAsociado = proxy.ObtenerServicio(citaCrear.Servicio.Codigo);
+            }
+            catch
+            {
+                servicioAsociado = new ServicioEN() { Codigo = citaCrear.Servicio.Codigo, TiempoEstimado = 3 };
+            }
+
             hhFinal = hhInicio + servicioAsociado.TiempoEstimado;
 
             horaFinal = new DateTime(anio, mes, dia, hhInicio, mmFinal, ssFinal);
@@ -73,24 +83,45 @@ namespace UPC.SisTictecks.SOAPGestionTicketsWS
                 new FaultReason("Validación de negocio"));
             }
 
-            //validar si el horario ya no esta disponible
-            bool bEstaDisponibleHorario = false;
-            bEstaDisponibleHorario = ValidarFechaHoraCitaXTaller( citaCrear.Fecha, 
-                                                                  citaCrear.HoraInicio,
-                                                                  citaCrear.HoraFin,
-                                                                  citaCrear.Taller.Codigo, citaCrear.Usuario.Codigo);
 
-            if (bEstaDisponibleHorario)
+            try
             {
-                throw new FaultException<RepetidoException>(new RepetidoException()
-                {
-                    Codigo = 3,
-                    Mensaje = "La fecha y hora seleccionada no esta disponible."
-                },
-                new FaultReason("Validación de negocio"));
-            }
 
-            return CitaDAO.Crear(citaCrear);
+                //validar si el horario ya no esta disponible
+                bool bEstaDisponibleHorario = false;
+                bEstaDisponibleHorario = ValidarFechaHoraCitaXTaller(citaCrear.Fecha,
+                                                                      citaCrear.HoraInicio,
+                                                                      citaCrear.HoraFin,
+                                                                      citaCrear.Taller.Codigo, citaCrear.Usuario.Codigo);
+
+                if (bEstaDisponibleHorario)
+                {
+                    throw new FaultException<RepetidoException>(new RepetidoException()
+                    {
+                        Codigo = 3,
+                        Mensaje = "La fecha y hora seleccionada no esta disponible."
+                    },
+                    new FaultReason("Validación de negocio"));
+                }
+
+                citaCreada = CitaDAO.Crear(citaCrear);
+            }
+            catch (Exception ex)
+            {
+                citaCreada = citaCrear;
+                string rutacola = @".\private$\ColaCitas";
+                if (!MessageQueue.Exists(rutacola))
+                {
+                    MessageQueue.Create(rutacola);
+                }
+                MessageQueue cola = new MessageQueue(rutacola);
+
+                Message mensaje = new Message();
+                mensaje.Label = "Cola Usuario : " + citaCrear.Usuario.Usuario;
+                mensaje.Body = citaCrear;
+                cola.Send(mensaje);
+            }
+            return citaCreada;
         }
 
         public CitaEN ObtenerCita(int codigo)
@@ -126,13 +157,76 @@ namespace UPC.SisTictecks.SOAPGestionTicketsWS
 
         public List<CitaEN> ListarCitas()
         {
-            return CitaDAO.ListarTodos().ToList();
+
+            List<CitaEN> listaCitas = null;
+            try
+            {
+                /******************** Preguntamos si existen Colas en la Bandeja ********************/
+                string rutacola = @".\private$\ColaCitas";
+                if (!MessageQueue.Exists(rutacola)) { MessageQueue.Create(rutacola); }
+                MessageQueue cola = new MessageQueue(rutacola);
+                if (cola.GetAllMessages().Count() > 0)
+                {
+                    for (int i = 0; i < cola.GetAllMessages().Count() - 1; i++)
+                    {
+                        cola.Formatter = new XmlMessageFormatter(new Type[] { typeof(CitaEN) });
+                        Message mensaje = cola.Receive();
+                        CitaEN citaEN = (CitaEN)mensaje.Body;
+
+                        citaEN = CrearCita(citaEN);
+                    }
+                }
+                /***********************************************************************************/
+               
+                listaCitas = CitaDAO.ListarTodos().ToList();
+            }
+            catch (Exception ex)
+            {
+                throw new FaultException<RepetidoException>(new RepetidoException()
+                {
+                    Codigo = 3,
+                    Mensaje = ex.Message
+                },
+               new FaultReason("Error en el sistema"));
+            }
+            return listaCitas;
         }
 
         public List<CitaEN> ListarCitasPendientesDeAtencion(string codigoUsuario)
         {
-            var codUsuario = Convert.ToInt32(codigoUsuario);
-            return CitaDAO.ListarCitasPendientesDeAtencion(codUsuario).ToList();
+            List<CitaEN> listaCitas = null;
+            try
+            {
+                /******************** Preguntamos si existen Colas en la Bandeja ********************/
+                string rutacola = @".\private$\ColaCitas";
+                if (!MessageQueue.Exists(rutacola)) { MessageQueue.Create(rutacola); }
+                MessageQueue cola = new MessageQueue(rutacola);
+                if (cola.GetAllMessages().Count() > 0)
+                {
+                    for (int i = 0; i < cola.GetAllMessages().Count(); i++)
+                    {
+                        cola.Formatter = new XmlMessageFormatter(new Type[] { typeof(CitaEN) });
+                        Message mensaje = cola.Receive();
+                        CitaEN citaEN = (CitaEN)mensaje.Body;
+
+                        citaEN = CrearCita(citaEN);
+                    }
+                }
+                /***********************************************************************************/
+                
+                var codUsuario = Convert.ToInt32(codigoUsuario);
+                listaCitas =  CitaDAO.ListarCitasPendientesDeAtencion(codUsuario).ToList();
+            }
+            catch (Exception ex)
+            {
+                throw new FaultException<RepetidoException>(new RepetidoException()
+                {
+                    Codigo = 3,
+                    Mensaje = ex.Message
+                },
+               new FaultReason("Error en el sistema"));
+            }
+            return listaCitas;
         }
 
         public List<CitaEN> ListarHistorialDeCitas(string codigoUsuario)
