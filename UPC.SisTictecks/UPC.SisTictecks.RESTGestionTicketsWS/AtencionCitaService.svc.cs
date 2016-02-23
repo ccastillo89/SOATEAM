@@ -41,6 +41,7 @@ namespace UPC.SisTictecks.RESTGestionTicketsWS
             }
 
             DateTime fecha = Convert.ToDateTime(citaAlta.Fecha);
+
             if (DateTime.Now.Date < fecha.Date)
             {
                 throw new WebFaultException<string>("No es posible el alta. La fecha de cita es posterior a la fecha actual. Se debe dar alta el mismo dia de la cita.", HttpStatusCode.InternalServerError);

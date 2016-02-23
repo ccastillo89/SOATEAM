@@ -7,3 +7,7 @@ C:\Repositorio\SOATEAM\SOATEAM\UPC.SisTictecks\UPC.SisTictecks.EL\bin\Debug\UPC.
 C:\Repositorio\SOATEAM\SOATEAM\UPC.SisTictecks\UPC.SisTictecks.EL\bin\Debug\UPC.SisTictecks.EL.pdb
 C:\Repositorio\SOATEAM\SOATEAM\UPC.SisTictecks\UPC.SisTictecks.EL\obj\Debug\UPC.SisTictecks.EL.dll
 C:\Repositorio\SOATEAM\SOATEAM\UPC.SisTictecks\UPC.SisTictecks.EL\obj\Debug\UPC.SisTictecks.EL.pdb
+C:\Users\User\Documents\GitHub\SOATEAM\UPC.SisTictecks\UPC.SisTictecks.EL\bin\Debug\UPC.SisTictecks.EL.dll
+C:\Users\User\Documents\GitHub\SOATEAM\UPC.SisTictecks\UPC.SisTictecks.EL\bin\Debug\UPC.SisTictecks.EL.pdb
+C:\Users\User\Documents\GitHub\SOATEAM\UPC.SisTictecks\UPC.SisTictecks.EL\obj\Debug\UPC.SisTictecks.EL.dll
+C:\Users\User\Documents\GitHub\SOATEAM\UPC.SisTictecks\UPC.SisTictecks.EL\obj\Debug\UPC.SisTictecks.EL.pdb

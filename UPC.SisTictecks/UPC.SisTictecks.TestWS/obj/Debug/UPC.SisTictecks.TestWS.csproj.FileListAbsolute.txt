@@ -6,3 +6,11 @@ C:\Repositorio\SOATEAM\SOATEAM\UPC.SisTictecks\UPC.SisTictecks.TestWS\bin\Debug\
 C:\Repositorio\SOATEAM\SOATEAM\UPC.SisTictecks\UPC.SisTictecks.TestWS\obj\Debug\UPC.SisTictecks.TestWS.csprojResolveAssemblyReference.cache
 C:\Repositorio\SOATEAM\SOATEAM\UPC.SisTictecks\UPC.SisTictecks.TestWS\obj\Debug\UPC.SisTictecks.TestWS.dll
 C:\Repositorio\SOATEAM\SOATEAM\UPC.SisTictecks\UPC.SisTictecks.TestWS\obj\Debug\UPC.SisTictecks.TestWS.pdb
+C:\Users\User\Documents\GitHub\SOATEAM\UPC.SisTictecks\UPC.SisTictecks.TestWS\bin\Debug\UPC.SisTictecks.TestWS.dll.config
+C:\Users\User\Documents\GitHub\SOATEAM\UPC.SisTictecks\UPC.SisTictecks.TestWS\bin\Debug\UPC.SisTictecks.TestWS.dll
+C:\Users\User\Documents\GitHub\SOATEAM\UPC.SisTictecks\UPC.SisTictecks.TestWS\bin\Debug\UPC.SisTictecks.TestWS.pdb
+C:\Users\User\Documents\GitHub\SOATEAM\UPC.SisTictecks\UPC.SisTictecks.TestWS\bin\Debug\UPC.SisTictecks.EL.dll
+C:\Users\User\Documents\GitHub\SOATEAM\UPC.SisTictecks\UPC.SisTictecks.TestWS\bin\Debug\UPC.SisTictecks.EL.pdb
+C:\Users\User\Documents\GitHub\SOATEAM\UPC.SisTictecks\UPC.SisTictecks.TestWS\obj\Debug\UPC.SisTictecks.TestWS.csprojResolveAssemblyReference.cache
+C:\Users\User\Documents\GitHub\SOATEAM\UPC.SisTictecks\UPC.SisTictecks.TestWS\obj\Debug\UPC.SisTictecks.TestWS.dll
+C:\Users\User\Documents\GitHub\SOATEAM\UPC.SisTictecks\UPC.SisTictecks.TestWS\obj\Debug\UPC.SisTictecks.TestWS.pdb

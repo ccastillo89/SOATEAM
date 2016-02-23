@@ -18,3 +18,14 @@ C:\Repositorio\SOATEAM\SOATEAM\UPC.SisTictecks\UPC.SisTictecks.DAL\obj\Debug\UPC
 C:\Repositorio\SOATEAM\SOATEAM\UPC.SisTictecks\UPC.SisTictecks.DAL\obj\Debug\UPC.SisTictecks.DAL.pdb
 C:\Repositorio\SOATEAM\SOATEAM\UPC.SisTictecks\UPC.SisTictecks.DAL\bin\Debug\Iesi.Collections.dll
 C:\Repositorio\SOATEAM\SOATEAM\UPC.SisTictecks\UPC.SisTictecks.DAL\bin\Debug\NHibernate.dll
+C:\Users\User\Documents\GitHub\SOATEAM\UPC.SisTictecks\UPC.SisTictecks.DAL\bin\Debug\UPC.SisTictecks.DAL.dll
+C:\Users\User\Documents\GitHub\SOATEAM\UPC.SisTictecks\UPC.SisTictecks.DAL\bin\Debug\UPC.SisTictecks.DAL.pdb
+C:\Users\User\Documents\GitHub\SOATEAM\UPC.SisTictecks\UPC.SisTictecks.DAL\bin\Debug\Iesi.Collections.dll
+C:\Users\User\Documents\GitHub\SOATEAM\UPC.SisTictecks\UPC.SisTictecks.DAL\bin\Debug\NHibernate.dll
+C:\Users\User\Documents\GitHub\SOATEAM\UPC.SisTictecks\UPC.SisTictecks.DAL\bin\Debug\UPC.SisTictecks.EL.dll
+C:\Users\User\Documents\GitHub\SOATEAM\UPC.SisTictecks\UPC.SisTictecks.DAL\bin\Debug\UPC.SisTictecks.Helpers.dll
+C:\Users\User\Documents\GitHub\SOATEAM\UPC.SisTictecks\UPC.SisTictecks.DAL\bin\Debug\UPC.SisTictecks.EL.pdb
+C:\Users\User\Documents\GitHub\SOATEAM\UPC.SisTictecks\UPC.SisTictecks.DAL\bin\Debug\UPC.SisTictecks.Helpers.pdb
+C:\Users\User\Documents\GitHub\SOATEAM\UPC.SisTictecks\UPC.SisTictecks.DAL\obj\Debug\UPC.SisTictecks.DAL.csprojResolveAssemblyReference.cache
+C:\Users\User\Documents\GitHub\SOATEAM\UPC.SisTictecks\UPC.SisTictecks.DAL\obj\Debug\UPC.SisTictecks.DAL.dll
+C:\Users\User\Documents\GitHub\SOATEAM\UPC.SisTictecks\UPC.SisTictecks.DAL\obj\Debug\UPC.SisTictecks.DAL.pdb

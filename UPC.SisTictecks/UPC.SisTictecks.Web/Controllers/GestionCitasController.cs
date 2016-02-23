@@ -23,7 +23,14 @@ namespace UPC.SisTictecks.Web.Controllers
         public ActionResult Index()
         {
             List<CitaEN> listaCitas;
-            listaCitas = GestionCitasProxy.ListarCitasPendientesDeAtencion(FachadaSesion.Usuario.Codigo.ToString()).ToList();
+            try
+            {
+                listaCitas = GestionCitasProxy.ListarCitasPendientesDeAtencion(FachadaSesion.Usuario.Codigo.ToString()).ToList();
+            }
+            catch (Exception ex)
+            {
+                listaCitas = new List<CitaEN>();
+            }
             return View(listaCitas);
         }
 
@@ -203,7 +210,7 @@ namespace UPC.SisTictecks.Web.Controllers
 
         public ActionResult ListaCitasEnAlta()
         {
-            HttpWebRequest req2 = (HttpWebRequest)WebRequest.Create("http://localhost:28603/AtencionCitaService.svc/AltasCita");
+            HttpWebRequest req2 = (HttpWebRequest)WebRequest.Create("http://localhost:4157/AtencionCitaService.svc/Citas");
             req2.Method = "GET";
             HttpWebResponse res2 = (HttpWebResponse)req2.GetResponse();
             StreamReader reader2 = new StreamReader(res2.GetResponseStream());
@@ -218,7 +225,7 @@ namespace UPC.SisTictecks.Web.Controllers
             CitaEN citaEN = null;
             if (ModelState.IsValid)
             {
-                HttpWebRequest req2 = (HttpWebRequest)WebRequest.Create("http://localhost:28603/AtencionCitaService.svc/AltasCita/" + id.ToString());
+                HttpWebRequest req2 = (HttpWebRequest)WebRequest.Create("http://localhost:4157/AtencionCitaService.svc/Citas/" + id.ToString());
                 req2.Method = "GET";
                 HttpWebResponse res2 = (HttpWebResponse)req2.GetResponse();
                 StreamReader reader2 = new StreamReader(res2.GetResponseStream());
@@ -239,7 +246,7 @@ namespace UPC.SisTictecks.Web.Controllers
                 string postdata = serializer.Serialize(citaEN);;
                 byte[] data = Encoding.UTF8.GetBytes(postdata);
                 HttpWebRequest req = (HttpWebRequest)WebRequest
-                    .Create("http://localhost:28603/AtencionCitaService.svc/Citas");
+                    .Create("http://localhost:4157/AtencionCitaService.svc/Citas");
                 req.Method = "POST";
                 req.ContentLength = data.Length;
                 req.ContentType = "application/json";
@@ -280,8 +287,8 @@ namespace UPC.SisTictecks.Web.Controllers
                 string postdata = serializer.Serialize(citaEN); ;
                 byte[] data = Encoding.UTF8.GetBytes(postdata);
                 HttpWebRequest req = (HttpWebRequest)WebRequest
-                    .Create("http://localhost:28603/AtencionCitaService.svc/Citas");
-                req.Method = "POST";
+                    .Create("http://localhost:4157/AtencionCitaService.svc/Citas");
+                req.Method = "PUT";
                 req.ContentLength = data.Length;
                 req.ContentType = "application/json";
                 var reqStream = req.GetRequestStream();

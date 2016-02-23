@@ -10,3 +10,15 @@ C:\Repositorio\SOATEAM\SOATEAM\UPC.SisTictecks\UPC.SisTictecks.SOAPGestionTicket
 C:\Repositorio\SOATEAM\SOATEAM\UPC.SisTictecks\UPC.SisTictecks.SOAPGestionTicketsWS\bin\UPC.SisTictecks.EL.pdb
 C:\Repositorio\SOATEAM\SOATEAM\UPC.SisTictecks\UPC.SisTictecks.SOAPGestionTicketsWS\obj\Debug\UPC.SisTictecks.SOAPGestionTicketsWS.dll
 C:\Repositorio\SOATEAM\SOATEAM\UPC.SisTictecks\UPC.SisTictecks.SOAPGestionTicketsWS\obj\Debug\UPC.SisTictecks.SOAPGestionTicketsWS.pdb
+C:\Users\User\Documents\GitHub\SOATEAM\UPC.SisTictecks\UPC.SisTictecks.SOAPGestionTicketsWS\bin\UPC.SisTictecks.SOAPGestionTicketsWS.dll.config
+C:\Users\User\Documents\GitHub\SOATEAM\UPC.SisTictecks\UPC.SisTictecks.SOAPGestionTicketsWS\bin\UPC.SisTictecks.SOAPGestionTicketsWS.dll
+C:\Users\User\Documents\GitHub\SOATEAM\UPC.SisTictecks\UPC.SisTictecks.SOAPGestionTicketsWS\bin\UPC.SisTictecks.SOAPGestionTicketsWS.pdb
+C:\Users\User\Documents\GitHub\SOATEAM\UPC.SisTictecks\UPC.SisTictecks.SOAPGestionTicketsWS\bin\UPC.SisTictecks.DAL.dll
+C:\Users\User\Documents\GitHub\SOATEAM\UPC.SisTictecks\UPC.SisTictecks.SOAPGestionTicketsWS\bin\UPC.SisTictecks.EL.dll
+C:\Users\User\Documents\GitHub\SOATEAM\UPC.SisTictecks\UPC.SisTictecks.SOAPGestionTicketsWS\bin\NHibernate.dll
+C:\Users\User\Documents\GitHub\SOATEAM\UPC.SisTictecks\UPC.SisTictecks.SOAPGestionTicketsWS\bin\Iesi.Collections.dll
+C:\Users\User\Documents\GitHub\SOATEAM\UPC.SisTictecks\UPC.SisTictecks.SOAPGestionTicketsWS\bin\UPC.SisTictecks.DAL.pdb
+C:\Users\User\Documents\GitHub\SOATEAM\UPC.SisTictecks\UPC.SisTictecks.SOAPGestionTicketsWS\bin\UPC.SisTictecks.EL.pdb
+C:\Users\User\Documents\GitHub\SOATEAM\UPC.SisTictecks\UPC.SisTictecks.SOAPGestionTicketsWS\obj\Debug\UPC.SisTictecks.SOAPGestionTicketsWS.csprojResolveAssemblyReference.cache
+C:\Users\User\Documents\GitHub\SOATEAM\UPC.SisTictecks\UPC.SisTictecks.SOAPGestionTicketsWS\obj\Debug\UPC.SisTictecks.SOAPGestionTicketsWS.dll
+C:\Users\User\Documents\GitHub\SOATEAM\UPC.SisTictecks\UPC.SisTictecks.SOAPGestionTicketsWS\obj\Debug\UPC.SisTictecks.SOAPGestionTicketsWS.pdb

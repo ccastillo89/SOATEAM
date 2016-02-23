@@ -7,6 +7,7 @@ using System.Text;
 using UPC.SisTictecks.EL;
 using UPC.SisTictecks.DAL;
 using System.Messaging;
+using System.Configuration;
 
 namespace UPC.SisTictecks.SOAPGestionTicketsWS
 {
@@ -104,6 +105,12 @@ namespace UPC.SisTictecks.SOAPGestionTicketsWS
                     new FaultReason("Validación de negocio"));
                 }
 
+                string strConectado = ConfigurationManager.AppSettings["ModoDesconectado"];
+                if (strConectado.Equals("0"))
+                {
+                    throw new Exception("Modo Desconectado -  Colas");
+                }
+
                 citaCreada = CitaDAO.Crear(citaCrear);
             }
             catch (Exception ex)
@@ -161,23 +168,27 @@ namespace UPC.SisTictecks.SOAPGestionTicketsWS
             List<CitaEN> listaCitas = null;
             try
             {
-                /******************** Preguntamos si existen Colas en la Bandeja ********************/
-                string rutacola = @".\private$\ColaCitas";
-                if (!MessageQueue.Exists(rutacola)) { MessageQueue.Create(rutacola); }
-                MessageQueue cola = new MessageQueue(rutacola);
-                if (cola.GetAllMessages().Count() > 0)
+                string strConectado = ConfigurationManager.AppSettings["ModoDesconectado"];
+                if (strConectado.Equals("1"))
                 {
-                    for (int i = 0; i < cola.GetAllMessages().Count() - 1; i++)
+                    /******************** Preguntamos si existen Colas en la Bandeja ********************/
+                    string rutacola = @".\private$\ColaCitas";
+                    if (!MessageQueue.Exists(rutacola)) { MessageQueue.Create(rutacola); }
+                    MessageQueue cola = new MessageQueue(rutacola);
+                    if (cola.GetAllMessages().Count() > 0)
                     {
-                        cola.Formatter = new XmlMessageFormatter(new Type[] { typeof(CitaEN) });
-                        Message mensaje = cola.Receive();
-                        CitaEN citaEN = (CitaEN)mensaje.Body;
+                        for (int i = 0; i < cola.GetAllMessages().Count() - 1; i++)
+                        {
+                            cola.Formatter = new XmlMessageFormatter(new Type[] { typeof(CitaEN) });
+                            Message mensaje = cola.Receive();
+                            CitaEN citaEN = (CitaEN)mensaje.Body;
 
-                        citaEN = CrearCita(citaEN);
+                            citaEN = CrearCita(citaEN);
+                        }
                     }
+                    /***********************************************************************************/                    
                 }
-                /***********************************************************************************/
-               
+                
                 listaCitas = CitaDAO.ListarTodos().ToList();
             }
             catch (Exception ex)
@@ -195,37 +206,36 @@ namespace UPC.SisTictecks.SOAPGestionTicketsWS
         public List<CitaEN> ListarCitasPendientesDeAtencion(string codigoUsuario)
         {
             List<CitaEN> listaCitas = null;
+            var codUsuario = Convert.ToInt32(codigoUsuario);
+            listaCitas = CitaDAO.ListarCitasPendientesDeAtencion(codUsuario).ToList();
+
             try
             {
-                /******************** Preguntamos si existen Colas en la Bandeja ********************/
-                string rutacola = @".\private$\ColaCitas";
-                if (!MessageQueue.Exists(rutacola)) { MessageQueue.Create(rutacola); }
-                MessageQueue cola = new MessageQueue(rutacola);
-                if (cola.GetAllMessages().Count() > 0)
+                string strConectado = ConfigurationManager.AppSettings["ModoDesconectado"];
+                if (strConectado.Equals("1"))
                 {
-                    for (int i = 0; i < cola.GetAllMessages().Count(); i++)
+                    /******************** Preguntamos si existen Colas en la Bandeja ********************/
+                    string rutacola = @".\private$\ColaCitas";
+                    if (!MessageQueue.Exists(rutacola)) { MessageQueue.Create(rutacola); }
+                    MessageQueue cola = new MessageQueue(rutacola);
+                    if (cola.GetAllMessages().Count() > 0)
                     {
-                        cola.Formatter = new XmlMessageFormatter(new Type[] { typeof(CitaEN) });
-                        Message mensaje = cola.Receive();
-                        CitaEN citaEN = (CitaEN)mensaje.Body;
+                        for (int i = 0; i < cola.GetAllMessages().Count(); i++)
+                        {
+                            cola.Formatter = new XmlMessageFormatter(new Type[] { typeof(CitaEN) });
+                            Message mensaje = cola.Receive();
+                            CitaEN citaEN = (CitaEN)mensaje.Body;
 
-                        citaEN = CrearCita(citaEN);
+                            citaEN = CrearCita(citaEN);
+                        }
                     }
+                    /***********************************************************************************/
                 }
-                /***********************************************************************************/
-                
-                var codUsuario = Convert.ToInt32(codigoUsuario);
-                listaCitas =  CitaDAO.ListarCitasPendientesDeAtencion(codUsuario).ToList();
             }
             catch (Exception ex)
             {
-                throw new FaultException<RepetidoException>(new RepetidoException()
-                {
-                    Codigo = 3,
-                    Mensaje = ex.Message
-                },
-               new FaultReason("Error en el sistema"));
             }
+
             return listaCitas;
         }
 
